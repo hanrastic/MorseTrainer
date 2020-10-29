@@ -1,0 +1,105 @@
+commit c180951c9ee2a1095a086e84233918ecd4e4c378
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Thu Oct 29 09:47:50 2020 +0200
+
+    file1 poistettu. file2 nimi muutettu file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit e958654983746bc3cdd1ebc99b576f86ef8e3a9f
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Thu Oct 29 09:43:31 2020 +0200
+
+    hakemisto tiedostoja lisätty
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 67109a145ba9b5dd4764c050a239c06ea9a004e3
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Thu Oct 29 09:24:26 2020 +0200
+
+    eka.txt ja kolmas.txt -tiedostoja muokattu
+
+ eka.txt    | 3 +++
+ kolmas.txt | 4 +++-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+
+commit e92faf7990212835230aded65311208c7814d52f
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Thu Oct 29 09:21:04 2020 +0200
+
+    tiedosto.txt nimi muutettu--> eka.tx
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 5f843a3c1056758d28eb2b61f9f48309d9f169c1
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Thu Oct 29 09:18:26 2020 +0200
+
+    toinen.txt poistettu
+
+ toinen.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 58cb354eb77a1a196bc8ba16d9d34e91bdd070cb
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Wed Oct 28 19:36:45 2020 +0200
+
+    tiedosto.txt poistettu osa tekstistä
+
+ tiedosto.txt | 18 +-----------------
+ 1 file changed, 1 insertion(+), 17 deletions(-)
+
+commit 222d8826c8140a2475a39a6abc0c84ac892d4024
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Wed Oct 28 19:35:02 2020 +0200
+
+    tiedosto.txt lisätty tekstiä
+
+ tiedosto.txt | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+
+commit 01294e954906c01c3a545a20f475c22284de2cee
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Wed Oct 28 19:20:57 2020 +0200
+
+    toinen.txt ja kolmas.txt muokattu. neljas.txt lisatty
+
+ kolmas.txt       | 1 +
+ stuff/neljas.txt | 0
+ toinen.txt       | 2 ++
+ 3 files changed, 3 insertions(+)
+
+commit 9b609ff8eddd5d12b71a8c44b4f8c0bc047b2dce
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Wed Oct 28 19:17:22 2020 +0200
+
+    kolmas.txt lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1ea5f7e9feec01499eb1f923f0c4a785d1e58342
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Wed Oct 28 19:14:10 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 2 ++
+ toinen.txt   | 0
+ 2 files changed, 2 insertions(+)
+
+commit 0e2af37c77aa4533d7886feb14ac59d3bea94e54
+Author: Joonas Maisala <joonas-maisala@hotmail.com>
+Date:   Wed Oct 28 19:11:23 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
