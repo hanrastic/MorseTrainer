@@ -1,3 +1,5 @@
+* Lisätään jotain pienetä testitarkoitukseen *
+
 commit c180951c9ee2a1095a086e84233918ecd4e4c378
 Author: Joonas Maisala <joonas-maisala@hotmail.com>
 Date:   Thu Oct 29 09:47:50 2020 +0200
