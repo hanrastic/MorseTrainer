@@ -1,3 +1,11 @@
+# Ohjelmistotekniikka, harjoitustyö
+## Tehtävät
+
+### Viikko 1
+
+
+
+
 #Markdown-notaation harjoittelua
 
 **Opittavat asiat:**
