@@ -7,7 +7,7 @@
 
 [komentorivi.txt](https://github.com/hanrastic/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
-
+* jotain jotain jotain *
 
 
 
