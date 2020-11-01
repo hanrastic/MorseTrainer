@@ -7,8 +7,13 @@
 
 [komentorivi.txt](https://github.com/hanrastic/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
-* jotain jotain jotain *
 
+### Viikko 2
+
+[kuva testikattavuudesta](x-special/nautilus-clipboard
+copy
+file:///home/maisajoo/Pictures/testikattavuuskuva_laskarit_vko2.png
+)
 
 
 
