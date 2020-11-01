@@ -10,7 +10,7 @@
 
 ### Viikko 2
 
-[Testikattavuuskuva](https://github.com/hanrastic/ot-harjoitustyo/blob/main/testikattavuuskuva_laskarit_vko2.png)
+[Testikattavuuskuva](https://github.com/hanrastic/ot-harjoitustyo/blob/main/laskarit/viikko2/Unicafe/testikattavuuskuva_laskarit_vko2.png)
 
 
 
