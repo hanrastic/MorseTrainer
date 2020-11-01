@@ -10,10 +10,6 @@
 
 ### Viikko 2
 
-[kuva testikattavuudesta](x-special/nautilus-clipboard
-copy
-file:///home/maisajoo/Pictures/testikattavuuskuva_laskarit_vko2.png
-)
 
 
 
