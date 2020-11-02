@@ -13,5 +13,9 @@
 [Testikattavuuskuva](https://github.com/hanrastic/ot-harjoitustyo/blob/main/laskarit/viikko2/Unicafe/testikattavuuskuva_laskarit_vko2.png)
 
 
+## Dokumentaatio
+* [vaatimusmaarittely](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+
+
 
 
