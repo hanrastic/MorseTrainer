@@ -1,4 +1,4 @@
-# Vaatimsmaarittely
+# Vaatimusmaarittely
 ## Sovelluksen tarkoitus
 .....
 ## Käyttäjät
