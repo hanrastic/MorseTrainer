@@ -4,6 +4,7 @@ Sovelluksella voi tutustua morsekoodiin aakkosii, sekä harjoitella merkkien tun
 
 ## Käyttöliittymäluonnos
 Sovelluksella on graafinen käyttöliittymä
+(kuva tulossa)
 
 ## Perusversion tarjoama toiminnallisuus
 - Käyttäjä voi luoda sovellukkseen käyttäjän ja kirjautua sisälle
@@ -11,3 +12,8 @@ Sovelluksella on graafinen käyttöliittymä
   - Käyttäjä voi yrittää kääntää merkkiä kaksi kertaa jonka jälkeen sovellus näyttää oikean vastauksen
   - Sovellus näyttää käyytäjään sidotun highscore tuloksen aiemmilta harjoittelukerroilta
 - Sovelluksessa voi nähdä listan morse-merkeistä ja niitä vastaavista aakkosista
+
+## Jatkokehitysideoita
+- merkkien tunnistaminen äänen perusteella
+- tunniestettavien merkkien optimoiminen algoritmisesti käyttäjän tarpeiden/menestyksen mukaan
+- merkkien tunnistamiselle voidaan luoda aikaraja valitun oman osaamisen mukaan
