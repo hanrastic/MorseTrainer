@@ -4,4 +4,4 @@
 |    |2|Määrittelydokumentti a tyoaikadokumentti |
 |3.11|2|Sovelluslogiikan suunnittelua |
 |    |1|Skeletonin koodaaminen |
-|    |3|Toiminnallisuuksien koodailua |
+|7.11|3|Toiminnallisuuksien koodailua |
