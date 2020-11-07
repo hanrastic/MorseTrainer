@@ -17,9 +17,7 @@ public class Morsetrainer {
            
         
     public static void main(String[] args){  
-        MorseAlphabet alphabets = new MorseAlphabet();  
-        alphabets.createTable();
-        //alphabets.printTable();
+        MorseAlphabet alphabets = new MorseAlphabet();          
         alphabets.trainMorse();
     }
    
