@@ -62,10 +62,8 @@ public class MorseAlphabet {
         System.out.println("1. See Morse code alphabet table");
         System.out.println("2. Practice by converting letters");
         System.out.println("3. Practice randomly generated letters");
-        System.out.println("4. Testing");
-        System.out.println("5. Quit");
-        
-            
+        System.out.println("4. Quit");
+                   
         OUTER:
         while (true) {
             System.out.print("What do you want to do ? Type in a command (number): ");
@@ -79,6 +77,7 @@ public class MorseAlphabet {
                     convertAlphabetToMorseAndViceVersa();
                     break;
                 case 3:
+                    trainRandomMorsecode();
                     break;
                 case 4:
                     break OUTER;
@@ -86,6 +85,27 @@ public class MorseAlphabet {
                     break;
             }
         }    
+    }
+    
+    public void trainRandomMorsecode(){
+        while(true){
+            System.out.println("");
+            System.out.println("Convert Morse code to corresponding letter or type 'quit' to go back to main menu");
+            String morse = randomValue();
+            System.out.println(morse);
+            
+            System.out.print(">");
+            String input = scanner.next();
+            
+            if(input.equals("quit")){
+                break;
+            }else if (input.equals(morse)){
+                System.out.println("Well done!");
+            }else{
+                System.out.println("Try again");
+            }
+            
+        }
     }
     
     public String randomValue(){
@@ -115,7 +135,6 @@ public class MorseAlphabet {
                 getMorsecodeFromAlphabet(input);
                 
             }
-
         }
     }
     
