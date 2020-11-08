@@ -88,6 +88,7 @@ public class MorseAlphabet {
     }
     
     public void trainRandomMorsecode(){
+
         while(true){
             System.out.println("");
             System.out.println("Convert Morse code to corresponding letter or type 'quit' to go back to main menu");
@@ -99,12 +100,20 @@ public class MorseAlphabet {
             
             if(input.equals("quit")){
                 break;
-            }else if (input.equals(morse)){
+            }else if (input.equals(getAlphabetFromMorse(morse))){
                 System.out.println("Well done!");
+
             }else{
-                System.out.println("Try again");
+                for(int i = 0; i<1; i++){
+                    System.out.println("Try again");
+                    System.out.print(">");
+                    String input2 = scanner.next();
+                    if(input2.equals(getAlphabetFromMorse(morse))){
+                        System.out.println("Well done!");
+                        i++;
+                    }
+                }
             }
-            
         }
     }
     
@@ -128,28 +137,28 @@ public class MorseAlphabet {
                 break;
             }else if(input.contains("-") || input.contains(".")){
                
-                getAlphabetFromMorse(input);
+                System.out.println("Corresponding Morse code as a alphabet: " + getAlphabetFromMorse(input));
                 
             }else{
                 
-                getMorsecodeFromAlphabet(input);
+                System.out.println("Result as Morse code: " + getMorsecodeFromAlphabet(input));
                 
             }
         }
     }
     
-    public void getAlphabetFromMorse(String morseCode){
+    public String getAlphabetFromMorse(String morseCode){
 
         for(Entry<String, String> entry : alphabets.entrySet()){
             if(entry.getValue().equals(morseCode)){
-                System.out.println("Corresponding Morse code as a alphabet:"
-                        + " " + entry.getKey());
+                return entry.getKey();
             }
         }
+        return null;
     }
     
-    public void getMorsecodeFromAlphabet(String alphabetLetter){
-        
-        System.out.println("Result as Morse code: " + alphabets.get(alphabetLetter));
+    public String getMorsecodeFromAlphabet(String alphabetLetter){
+
+        return alphabets.get(alphabetLetter);
     }
 }
