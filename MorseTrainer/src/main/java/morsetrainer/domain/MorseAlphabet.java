@@ -16,7 +16,9 @@ import static morsetrainer.domain.Morsetrainer.scanner;
  * @author maisajoo
  */
 public class MorseAlphabet {
-
+//TODO
+    //syötteentarkistus
+    
     public HashMap<String, String> alphabets = new HashMap<String,String>();
     
     public MorseAlphabet(){
@@ -126,7 +128,7 @@ public class MorseAlphabet {
     }
     
     public void convertAlphabetToMorseAndViceVersa(){
-        
+       
         while(true){
             System.out.println("");
             System.out.println("Type in alphabets or morsecode to translate it, or type 'quit' to go to main menu");
