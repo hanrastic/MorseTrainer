@@ -1,6 +1,6 @@
 # Vaatimusmaarittely
 ## Sovelluksen tarkoitus
-Sovelluksella voi tutustua morsekoodiin aakkosii, sekä harjoitella merkkien tunnistamista.
+Sovelluksella voi tutustua morseaakkosiin, sekä harjoitella merkkien tunnistamista.
 
 ## Käyttöliittymäluonnos
 Sovelluksella on graafinen käyttöliittymä
@@ -12,8 +12,9 @@ Sovelluksella on graafinen käyttöliittymä
   - Käyttäjä voi yrittää kääntää merkkiä kaksi kertaa jonka jälkeen sovellus näyttää oikean vastauksen
   - Sovellus näyttää käyytäjään sidotun highscore tuloksen aiemmilta harjoittelukerroilta
 - Sovelluksessa voi nähdä listan morse-merkeistä ja niitä vastaavista aakkosista
+- Sovelluksessa voi kääntää yhden tai useamman kirjaimen tekstin sitä vastaavaksi Morsekoodiksi
 
 ## Jatkokehitysideoita
-- merkkien tunnistaminen äänen perusteella
-- tunniestettavien merkkien optimoiminen algoritmisesti käyttäjän tarpeiden/menestyksen mukaan
-- merkkien tunnistamiselle voidaan luoda aikaraja valitun oman osaamisen mukaan
+- Äänitoiminnot Morseaakkosille (kuulee merkit)
+- Tunniestettavien merkkien optimoiminen käyttäjän tarpeiden/osaamisen mukaan
+- Merkkien tunnistamiselle voidaan luoda aikaraja valitun oman osaamisen mukaan
