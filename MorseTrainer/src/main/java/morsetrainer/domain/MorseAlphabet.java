@@ -18,13 +18,17 @@ import static morsetrainer.domain.Morsetrainer.scanner;
 public class MorseAlphabet {
 //TODO
     //syötteentarkistus
+        //Isot ja pienet kirjaimet
+        //Ohita space
+        //Ohita erikoismerkit
     
     public HashMap<String, String> alphabets = new HashMap<String,String>();
+    public HashMap<Integer, String> numbers = new HashMap<Integer, String>();
     
     public MorseAlphabet(){
-        createTable();
+        createTables();
     }
-    public void createTable(){
+    public void createTables(){
 
         alphabets.put("a", ".-");
         alphabets.put("b", "-...");
@@ -52,6 +56,17 @@ public class MorseAlphabet {
         alphabets.put("x", "-..-");
         alphabets.put("y", "-.--");
         alphabets.put("z", "--..");
+        
+        numbers.put(1, ".----");
+        numbers.put(2, "..---");
+        numbers.put(3, "...--");
+        numbers.put(4, "....-");
+        numbers.put(5, ".....");
+        numbers.put(6, "-....");
+        numbers.put(7, "--...");
+        numbers.put(8, "---..");
+        numbers.put(9, "----.");
+        numbers.put(0, "-----");
     }
     
     public void printTable(){
@@ -93,14 +108,14 @@ public class MorseAlphabet {
 
         while(true){
             System.out.println("");
-            System.out.println("Convert Morse code to corresponding letter or type 'quit' to go back to main menu");
+            System.out.println("Convert Morse code to corresponding letter or type 'back' to go back to main menu");
             String morse = randomValue();
             System.out.println(morse);
             
             System.out.print(">");
-            String input = scanner.next();
+            String input = scanner.next().toLowerCase();
             
-            if(input.equals("quit")){
+            if(input.equals("back")){
                 break;
             }else if (input.equals(getAlphabetFromMorse(morse))){
                 System.out.println("Well done!");
@@ -131,11 +146,11 @@ public class MorseAlphabet {
        
         while(true){
             System.out.println("");
-            System.out.println("Type in alphabets or morsecode to translate it, or type 'quit' to go to main menu");
+            System.out.println("Type in alphabets or morsecode to translate it, or type 'back' to go to main menu");
             System.out.print(">");
             String input = scanner.next();
                         
-            if(input.equals("quit")){
+            if(input.equals("back")){
                 break;
             }else if(input.contains("-") || input.contains(".")){
                
@@ -152,7 +167,7 @@ public class MorseAlphabet {
     public String getAlphabetFromMorse(String morseCode){
 
         for(Entry<String, String> entry : alphabets.entrySet()){
-            if(entry.getValue().equals(morseCode)){
+            if(entry.getValue().equals(morseCode.toLowerCase())){
                 return entry.getKey();
             }
         }
@@ -161,6 +176,13 @@ public class MorseAlphabet {
     
     public String getMorsecodeFromAlphabet(String alphabetLetter){
 
-        return alphabets.get(alphabetLetter);
+        return alphabets.get(alphabetLetter.toLowerCase());
     }
+    
+/*
+    public String getMorseFromInteger (String inputNumber){
+           
+        return numbers.get(inputNumber);
+    }
+*/
 }
