@@ -115,6 +115,7 @@ public class MorseAlphabet {
             System.out.print(">");
             String input = scanner.next().toLowerCase();
             
+            
             if(input.equals("back")){
                 break;
             }else if (input.equals(getAlphabetFromMorse(morse))){
@@ -154,11 +155,11 @@ public class MorseAlphabet {
                 break;
             }else if(input.contains("-") || input.contains(".")){
                
-                System.out.println("Corresponding Morse code as a alphabet: " + getAlphabetFromMorse(input));
+                System.out.println( "Morse '" + input + "' as a alphabet: " + getAlphabetFromMorse(input));
                 
             }else{
                 
-                System.out.println("Result as Morse code: " + getMorsecodeFromAlphabet(input));
+                System.out.println("'" + input + "' as Morse code: " + getMorsecodeFromAlphabet(input));
                 
             }
         }
