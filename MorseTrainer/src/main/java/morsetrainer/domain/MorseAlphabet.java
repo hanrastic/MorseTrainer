@@ -127,14 +127,7 @@ public class MorseAlphabet {
             }
         }
     }
-    
-    public String randomValue(){     
-        Random generator = new Random();
-        Object[] values = alphabets.values().toArray();
-        String randomValue = (String)values[generator.nextInt(values.length)];
-            return randomValue;
-    }
-    
+
     public void convertAlphabetToMorseAndViceVersa(){
         while(true){
             System.out.println("");
@@ -163,6 +156,14 @@ public class MorseAlphabet {
             return false;
         }
     }
+   
+    public String randomValue(){     
+        Random generator = new Random();
+        Object[] values = alphabets.values().toArray();
+        String randomValue = (String)values[generator.nextInt(values.length)];
+            return randomValue;
+    }
+    
     public String getAlphabetFromMorse(String morseCode){
         //Toimii
         for(Entry<String, String> entry : alphabets.entrySet()){
