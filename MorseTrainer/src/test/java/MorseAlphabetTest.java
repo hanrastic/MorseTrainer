@@ -6,10 +6,6 @@
 
 
 import morsetrainer.domain.MorseAlphabet;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -22,13 +18,13 @@ public class MorseAlphabetTest {
     public MorseAlphabetTest() {
     }
     @Test
-    public void creatingAlphabetsToMorseTableisOk(){
+    public void creatingAlphabetsToMorseTableisIsOk(){
         MorseAlphabet morse = new MorseAlphabet();
         morse.createTables();
         morse.equals(morse.alphabets);
     }
     @Test
-    public void convertingAlphabetsToMorseOk(){
+    public void convertingAlphabetsToMorseIsOk(){
         //Converting alphabets to morse is ok
         MorseAlphabet morse = new MorseAlphabet();
         String letterA = "a";
@@ -43,7 +39,7 @@ public class MorseAlphabetTest {
     }
     
     @Test
-    public void convertingMorseToAlphabets(){
+    public void convertingMorseToAlphabetsIsOk(){
         //Converting morse to alphabet is ok
         MorseAlphabet morse = new MorseAlphabet();
         String morseQ = "--.-";
@@ -57,5 +53,28 @@ public class MorseAlphabetTest {
         assertEquals(morse.getAlphabetFromMorse(morseH), "h");       
     }
     
+    @Test
+    public void convertingIntegersToMorseIsOk(){
+        //All integers Ok (0-9)
+        MorseAlphabet morse = new MorseAlphabet();
+        
+        for (int integer = 0; integer < 10 ; integer++){
+            assertEquals(morse.getMorsecodeFromInteger(integer), morse.numbers.get(integer));
+        }
+    }
+    
+    @Test
+    public void convertingMorseToIntegersIsOk(){
+        //Test that converting morse to corresponfing integer (0-9) is ok
+        MorseAlphabet morse = new MorseAlphabet();
+        
+        for (int integer = 0; integer < 10 ; integer++){
+            assertEquals(morse.getIntegerFromMorse(morse.getMorsecodeFromInteger(integer)), integer);
+        }
+
+    }
+    // Check that input 4 quits program
+    // Check that command back brings back to main menu
     //Test that check if input is not allowed for conversion
+    //Komentojen toimiviuus
 }

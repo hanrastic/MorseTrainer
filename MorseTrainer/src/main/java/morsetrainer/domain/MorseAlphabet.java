@@ -24,6 +24,7 @@ public class MorseAlphabet {
     
     public HashMap<String, String> alphabets = new HashMap<String,String>();
     public HashMap<Integer, String> numbers = new HashMap<Integer, String>();
+    int inputIsNumeric = 0;
     
     public MorseAlphabet(){
         createTables();
@@ -110,12 +111,9 @@ public class MorseAlphabet {
             System.out.println("");
             System.out.println("Convert Morse code to corresponding letter or type 'back' to go back to main menu");
             String morse = randomValue();
-            System.out.println(morse);
-            
+            System.out.println(morse);            
             System.out.print(">");
             String input = scanner.next().toLowerCase();
-            
-            
             if(input.equals("back")){
                 break;
             }else if (input.equals(getAlphabetFromMorse(morse))){
@@ -135,8 +133,7 @@ public class MorseAlphabet {
         }
     }
     
-    public String randomValue(){
-        
+    public String randomValue(){     
         Random generator = new Random();
         Object[] values = alphabets.values().toArray();
         String randomValue = (String)values[generator.nextInt(values.length)];
@@ -144,29 +141,35 @@ public class MorseAlphabet {
     }
     
     public void convertAlphabetToMorseAndViceVersa(){
-       
         while(true){
             System.out.println("");
             System.out.println("Type in alphabets or morsecode to translate it, or type 'back' to go to main menu");
             System.out.print(">");
             String input = scanner.next();
-                        
+            
             if(input.equals("back")){
                 break;
-            }else if(input.contains("-") || input.contains(".")){
-               
-                System.out.println( "Morse '" + input + "' as a alphabet: " + getAlphabetFromMorse(input));
-                
-            }else{
-                
-                System.out.println("'" + input + "' as Morse code: " + getMorsecodeFromAlphabet(input));
-                
+            } else if(input.length() == 5){
+                System.out.println( "Morse '" + input + "' as a number: " + getIntegerFromMorse(input));
+            }else if(input.contains("-") || input.contains(".")){               
+                System.out.println( "Morse '" + input + "' as a alphabet: " + getAlphabetFromMorse(input));                
+            }else if (testIfInputIsNumeric(input) == true) {
+                System.out.println("'" + input + "' as Morse code: " + getMorsecodeFromInteger(inputIsNumeric));
+            }else{                
+                System.out.println("'" + input + "' as Morse code: " + getMorsecodeFromAlphabet(input));                
             }
         }
     }
-    
+    public boolean testIfInputIsNumeric(String input){
+        try {
+            inputIsNumeric = Integer.parseInt(input);
+            return true;
+        }catch (NumberFormatException e) {
+            return false;
+        }
+    }
     public String getAlphabetFromMorse(String morseCode){
-
+        //Toimii
         for(Entry<String, String> entry : alphabets.entrySet()){
             if(entry.getValue().equals(morseCode.toLowerCase())){
                 return entry.getKey();
@@ -176,14 +179,24 @@ public class MorseAlphabet {
     }
     
     public String getMorsecodeFromAlphabet(String alphabetLetter){
-
+        //Toimii
         return alphabets.get(alphabetLetter.toLowerCase());
     }
-    
-/*
-    public String getMorseFromInteger (String inputNumber){
-           
+   
+    public String getMorsecodeFromInteger (int inputNumber){
+        //Toimii
         return numbers.get(inputNumber);
     }
-*/
+    // int i = Integer.parseInt(input);
+    
+    public int getIntegerFromMorse (String morse){
+       //Toimii
+       for(Entry<Integer, String> entry : numbers.entrySet()){
+            if(entry.getValue().equals(morse)){
+                return entry.getKey();
+            }
+        }
+        return 9999;
+    }
+    
 }
