@@ -6,6 +6,7 @@
 package morsetrainer.domain;
 
 import java.util.Scanner;
+import morsetrainer.ui.MorseTrainerUi;
 
 /**
  *
@@ -16,7 +17,9 @@ public class Morsetrainer {
     static Scanner scanner = new Scanner(System.in);   
           
     public static void main(String[] args){  
-        MorseAlphabet alphabets = new MorseAlphabet();   
+        
+        MorseAlphabet alphabets = new MorseAlphabet();
+        
         alphabets.trainMorse();
     }
    

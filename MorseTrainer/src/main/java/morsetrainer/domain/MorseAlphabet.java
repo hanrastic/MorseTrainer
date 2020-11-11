@@ -16,12 +16,7 @@ import static morsetrainer.domain.Morsetrainer.scanner;
  * @author maisajoo
  */
 public class MorseAlphabet {
-//TODO
-    //syötteentarkistus
-        //Isot ja pienet kirjaimet
-        //Ohita space
-        //Ohita erikoismerkit
-    
+
     public HashMap<String, String> alphabets = new HashMap<String,String>();
     public HashMap<Integer, String> numbers = new HashMap<Integer, String>();
     int inputIsNumeric = 0;
