@@ -6,3 +6,4 @@
 |    |1|Skeletonin koodaaminen |
 |7.11|3|Toiminnallisuuksien koodailua |
 |8.11|1|Toiminnallisuuksien koodailua |
+|11.11|3|Testien ja toimintojen koodailua |
