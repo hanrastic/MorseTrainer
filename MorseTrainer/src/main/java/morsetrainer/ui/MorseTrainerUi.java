@@ -7,15 +7,11 @@ package morsetrainer.ui;
 
 import javafx.geometry.Insets; 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -47,6 +43,7 @@ public class MorseTrainerUi extends Application {
 
                     VBox signInColumn = new VBox();
                     signInColumn.setSpacing(10);
+                    signInColumn.setPadding(new Insets(20,30,20,30));
                     signInColumn.getChildren().add(username);
                     signInColumn.getChildren().add(password);
                     signInColumn.getChildren().add(logIn);
