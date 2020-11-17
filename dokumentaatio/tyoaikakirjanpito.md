@@ -7,3 +7,5 @@
 |7.11|3|Toiminnallisuuksien koodailua |
 |8.11|1|Toiminnallisuuksien koodailua |
 |11.11|3|Testien ja toimintojen koodailua |
+|12.11|2|Käyttöliittymän suunnittelua ja koodailua |
+|14.11|2|Käyttöliittymän koodailua |
