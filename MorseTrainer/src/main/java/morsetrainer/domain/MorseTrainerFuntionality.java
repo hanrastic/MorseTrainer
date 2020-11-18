@@ -8,20 +8,19 @@ package morsetrainer.domain;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Random;
-import java.util.Set;
 import static morsetrainer.domain.Morsetrainer.scanner;
 
 /**
  *
  * @author maisajoo
  */
-public class MorseAlphabet {
+public class MorseTrainerFuntionality {
 
     public HashMap<String, String> alphabets = new HashMap<String,String>();
     public HashMap<Integer, String> numbers = new HashMap<Integer, String>();
     int inputIsNumeric = 0;
     
-    public MorseAlphabet(){
+    public MorseTrainerFuntionality(){
         createTables();
     }
     public void createTables(){

@@ -5,7 +5,7 @@
  */
 
 
-import morsetrainer.domain.MorseAlphabet;
+import morsetrainer.domain.MorseTrainerFuntionality;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,14 +19,14 @@ public class MorseAlphabetTest {
     }
     @Test
     public void creatingAlphabetsToMorseTableisIsOk(){
-        MorseAlphabet morse = new MorseAlphabet();
+        MorseTrainerFuntionality morse = new MorseTrainerFuntionality();
         morse.createTables();
         morse.equals(morse.alphabets);
     }
     @Test
     public void convertingAlphabetsToMorseIsOk(){
         //Converting alphabets to morse is ok
-        MorseAlphabet morse = new MorseAlphabet();
+        MorseTrainerFuntionality morse = new MorseTrainerFuntionality();
         String letterA = "a";
         String letterO = "O";
         String letterJ = "J";
@@ -41,7 +41,7 @@ public class MorseAlphabetTest {
     @Test
     public void convertingMorseToAlphabetsIsOk(){
         //Converting morse to alphabet is ok
-        MorseAlphabet morse = new MorseAlphabet();
+        MorseTrainerFuntionality morse = new MorseTrainerFuntionality();
         String morseQ = "--.-";
         String morseT = "-";
         String morseN = "-.";
@@ -56,7 +56,7 @@ public class MorseAlphabetTest {
     @Test
     public void convertingIntegersToMorseIsOk(){
         //All integers Ok (0-9)
-        MorseAlphabet morse = new MorseAlphabet();
+        MorseTrainerFuntionality morse = new MorseTrainerFuntionality();
         
         for (int integer = 0; integer < 10 ; integer++){
             assertEquals(morse.getMorsecodeFromInteger(integer), morse.numbers.get(integer));
@@ -66,7 +66,7 @@ public class MorseAlphabetTest {
     @Test
     public void convertingMorseToIntegersIsOk(){
         //Test that converting morse to corresponfing integer (0-9) is ok
-        MorseAlphabet morse = new MorseAlphabet();
+        MorseTrainerFuntionality morse = new MorseTrainerFuntionality();
         
         for (int integer = 0; integer < 10 ; integer++){
             assertEquals(morse.getIntegerFromMorse(morse.getMorsecodeFromInteger(integer)), integer);
