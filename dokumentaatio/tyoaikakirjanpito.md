@@ -9,3 +9,4 @@
 |11.11|3|Testien ja toimintojen koodailua |
 |12.11|2|Käyttöliittymän suunnittelua ja koodailua |
 |14.11|2|Käyttöliittymän koodailua |
+|18.11|6|Käyttöliittymän uudelleen koodaaminen JavaFX Scene builderilla |
