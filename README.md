@@ -7,4 +7,5 @@ Sovelluksella käyttäjä voi tutustua morseaakkosiin ja harjoitella niiden kä�
 
 
 
-
+## Huomio
+Sovelluksen nykyisessä versiossa käyttöliittymää ja sovelluslogiikkaa/toimintoja ei ole mitenkään kytketty yhteen. Molempia voi kokeilla erikseen ajamalla joko Main.java tai MorseTrainer.java -luokkia.
