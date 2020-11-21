@@ -20,7 +20,7 @@ public class MorseAlphabetTest {
     @Test
     public void creatingAlphabetsToMorseTableisIsOk(){
         MorseTrainerFuntionality morse = new MorseTrainerFuntionality();
-        morse.createTables();
+        morse.createAlphabetTable();
         morse.equals(morse.alphabets);
     }
     @Test

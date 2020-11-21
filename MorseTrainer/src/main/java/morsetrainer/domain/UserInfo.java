@@ -14,7 +14,7 @@ public class UserInfo {
     String password;
     int highscore;
     
-    public UserInfo(String username, String password){
+    public UserInfo(String username, String password) {
         this.username = username;
         this.password = password;
         this.highscore = highscore;

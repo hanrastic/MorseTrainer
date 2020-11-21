@@ -16,15 +16,15 @@ import static morsetrainer.domain.Morsetrainer.scanner;
  */
 public class MorseTrainerFuntionality {
 
-    public HashMap<String, String> alphabets = new HashMap<String,String>();
+    public HashMap<String, String> alphabets = new HashMap<String, String>();
     public HashMap<Integer, String> numbers = new HashMap<Integer, String>();
     int inputIsNumeric = 0;
     
-    public MorseTrainerFuntionality(){
-        createTables();
+    public MorseTrainerFuntionality() {
+        createAlphabetTable();
+        createNumericTable();
     }
-    public void createTables(){
-
+    public void createAlphabetTable() {
         alphabets.put("a", ".-");
         alphabets.put("b", "-...");
         alphabets.put("c", "-.-.");
@@ -51,7 +51,9 @@ public class MorseTrainerFuntionality {
         alphabets.put("x", "-..-");
         alphabets.put("y", "-.--");
         alphabets.put("z", "--..");
-        
+    }
+    
+    public void createNumericTable() {               
         numbers.put(1, ".----");
         numbers.put(2, "..---");
         numbers.put(3, "...--");
@@ -64,11 +66,11 @@ public class MorseTrainerFuntionality {
         numbers.put(0, "-----");
     }
     
-    public void printTable(){
+    public void printTable() {
         System.out.println(alphabets);
     }
 
-    public void trainMorse(){
+    public void trainMorse() {
        
         System.out.println("Commands for using MorseTrainer");
         System.out.println("1. See Morse code alphabet table");
@@ -99,26 +101,26 @@ public class MorseTrainerFuntionality {
         }    
     }
     
-    public void trainRandomMorsecode(){
+    public void trainRandomMorsecode() {
 
-        while(true){
+        while (true){
             System.out.println("");
             System.out.println("Convert Morse code to corresponding letter or type 'back' to go back to main menu");
             String morse = randomValue();
             System.out.println(morse);            
             System.out.print(">");
             String input = scanner.next().toLowerCase();
-            if(input.equals("back")){
+            if (input.equals("back")){
                 break;
             }else if (input.equals(getAlphabetFromMorse(morse))){
                 System.out.println("Well done!");
 
-            }else{
-                for(int i = 0; i<1; i++){
+            } else{
+                for (int i = 0; i < 1; i++) {
                     System.out.println("Try again");
                     System.out.print(">");
                     String input2 = scanner.next();
-                    if(input2.equals(getAlphabetFromMorse(morse))){
+                    if (input2.equals(getAlphabetFromMorse(morse))) {
                         System.out.println("Well done!");
                         i++;
                     }
@@ -127,67 +129,67 @@ public class MorseTrainerFuntionality {
         }
     }
 
-    public void convertAlphabetToMorseAndViceVersa(){
-        while(true){
+    public void convertAlphabetToMorseAndViceVersa() {
+        while (true) {
             System.out.println("");
             System.out.println("Type in alphabets or morsecode to translate it, or type 'back' to go to main menu");
             System.out.print(">");
             String input = scanner.next();
             
-            if(input.equals("back")){
+            if (input.equals("back")) {
                 break;
-            } else if(input.length() == 5){
+            } else if(input.length() == 5) {
                 System.out.println( "Morse '" + input + "' as a number: " + getIntegerFromMorse(input));
-            }else if(input.contains("-") || input.contains(".")){               
+            } else if(input.contains("-") || input.contains(".")) {               
                 System.out.println( "Morse '" + input + "' as a alphabet: " + getAlphabetFromMorse(input));                
-            }else if (testIfInputIsNumeric(input) == true) {
+            } else if (testIfInputIsNumeric(input) == true) {
                 System.out.println("'" + input + "' as Morse code: " + getMorsecodeFromInteger(inputIsNumeric));
-            }else{                
+            } else {                
                 System.out.println("'" + input + "' as Morse code: " + getMorsecodeFromAlphabet(input));                
             }
         }
     }
-    public boolean testIfInputIsNumeric(String input){
+    public boolean testIfInputIsNumeric(String input) {
         try {
             inputIsNumeric = Integer.parseInt(input);
             return true;
-        }catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             return false;
         }
     }
    
-    public String randomValue(){     
+    public String randomValue() {     
         Random generator = new Random();
         Object[] values = alphabets.values().toArray();
         String randomValue = (String)values[generator.nextInt(values.length)];
             return randomValue;
     }
     
-    public String getAlphabetFromMorse(String morseCode){
+    public String getAlphabetFromMorse(String morseCode) {
         //Toimii
-        for(Entry<String, String> entry : alphabets.entrySet()){
-            if(entry.getValue().equals(morseCode.toLowerCase())){
+        for (Entry<String, String> entry : alphabets.entrySet()) {
+            if (entry.getValue().equals(morseCode.toLowerCase())) {
                 return entry.getKey();
             }
         }
         return null;
     }
     
-    public String getMorsecodeFromAlphabet(String alphabetLetter){
+    public String getMorsecodeFromAlphabet(String alphabetLetter) {
         //Toimii
         return alphabets.get(alphabetLetter.toLowerCase());
     }
    
-    public String getMorsecodeFromInteger (int inputNumber){
+    public String getMorsecodeFromInteger (int inputNumber) {
         //Toimii
         return numbers.get(inputNumber);
     }
 
     
-    public int getIntegerFromMorse (String morse){
+    public int getIntegerFromMorse (String morse) {
        //Toimii
-       for(Entry<Integer, String> entry : numbers.entrySet()){
-            if(entry.getValue().equals(morse)){
+       for (Entry<Integer, String> entry : numbers.entrySet()) {
+            if (entry.getValue().equals(morse)) {
                 return entry.getKey();
             }
         }
