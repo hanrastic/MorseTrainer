@@ -182,7 +182,7 @@ public class MorseTrainerFuntionality {
         //Toimii
         return numbers.get(inputNumber);
     }
-    // int i = Integer.parseInt(input);
+
     
     public int getIntegerFromMorse (String morse){
        //Toimii

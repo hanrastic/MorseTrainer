@@ -73,8 +73,12 @@ public class MorseAlphabetTest {
         }
 
     }
-    // Check that input 4 quits program
-    // Check that command back brings back to main menu
-    //Test that check if input is not allowed for conversion
-    //Komentojen toimiviuus
+    
+    @Test
+    public void testIfInputIsNumeriIsOk(){
+        MorseTrainerFuntionality morse = new MorseTrainerFuntionality();
+        
+        String input = "notANumber";
+        assertFalse(morse.testIfInputIsNumeric(input));
+    }
 }
