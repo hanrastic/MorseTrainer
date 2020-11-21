@@ -103,19 +103,19 @@ public class MorseTrainerFuntionality {
     
     public void trainRandomMorsecode() {
 
-        while (true){
+        while (true) {
             System.out.println("");
             System.out.println("Convert Morse code to corresponding letter or type 'back' to go back to main menu");
             String morse = randomValue();
             System.out.println(morse);            
             System.out.print(">");
             String input = scanner.next().toLowerCase();
-            if (input.equals("back")){
+            if (input.equals("back")) {
                 break;
-            }else if (input.equals(getAlphabetFromMorse(morse))){
+            } else if (input.equals(getAlphabetFromMorse(morse))) {
                 System.out.println("Well done!");
 
-            } else{
+            } else {
                 for (int i = 0; i < 1; i++) {
                     System.out.println("Try again");
                     System.out.print(">");
@@ -138,10 +138,10 @@ public class MorseTrainerFuntionality {
             
             if (input.equals("back")) {
                 break;
-            } else if(input.length() == 5) {
-                System.out.println( "Morse '" + input + "' as a number: " + getIntegerFromMorse(input));
-            } else if(input.contains("-") || input.contains(".")) {               
-                System.out.println( "Morse '" + input + "' as a alphabet: " + getAlphabetFromMorse(input));                
+            } else if (input.length() == 5) {
+                System.out.println("Morse '" + input + "' as a number: " + getIntegerFromMorse(input));
+            } else if (input.contains("-") || input.contains(".")) {               
+                System.out.println("Morse '" + input + "' as a alphabet: " + getAlphabetFromMorse(input));                
             } else if (testIfInputIsNumeric(input) == true) {
                 System.out.println("'" + input + "' as Morse code: " + getMorsecodeFromInteger(inputIsNumeric));
             } else {                
@@ -161,7 +161,7 @@ public class MorseTrainerFuntionality {
     public String randomValue() {     
         Random generator = new Random();
         Object[] values = alphabets.values().toArray();
-        String randomValue = (String)values[generator.nextInt(values.length)];
+        String randomValue = (String) values[generator.nextInt(values.length)];
             return randomValue;
     }
     
@@ -180,13 +180,13 @@ public class MorseTrainerFuntionality {
         return alphabets.get(alphabetLetter.toLowerCase());
     }
    
-    public String getMorsecodeFromInteger (int inputNumber) {
+    public String getMorsecodeFromInteger(int inputNumber) {
         //Toimii
         return numbers.get(inputNumber);
     }
 
     
-    public int getIntegerFromMorse (String morse) {
+    public int getIntegerFromMorse(String morse) {
        //Toimii
        for (Entry<Integer, String> entry : numbers.entrySet()) {
             if (entry.getValue().equals(morse)) {
