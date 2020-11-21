@@ -11,8 +11,8 @@ Sovelluksella on graafinen käyttöliittymä
 - Sovelluksella on harjoittelumuoto, jossa tunnistetaan sovelluksen antamia morse-merkkejä
   - Käyttäjä voi yrittää kääntää merkkiä kaksi kertaa jonka jälkeen sovellus näyttää oikean vastauksen
   - Sovellus näyttää käyytäjään sidotun highscore tuloksen aiemmilta harjoittelukerroilta
-- Sovelluksessa voi nähdä listan morse-merkeistä ja niitä vastaavista aakkosista
-- Sovelluksessa voi kääntää yhden tai useamman kirjaimen tekstin sitä vastaavaksi Morsekoodiksi
+- Sovelluksessa voi nähdä listan morse-merkeistä ja niitä vastaavista aakkosista (Tehty)
+- Sovelluksessa voi kääntää yhden tai useamman kirjaimen tekstin sitä vastaavaksi Morsekoodiksi (Tehty)
 
 ## Jatkokehitysideoita
 - Äänitoiminnot Morseaakkosille (kuulee merkit)
