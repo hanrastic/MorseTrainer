@@ -11,4 +11,5 @@
 |14.11|2|Käyttöliittymän koodailua |
 |18.11|6|Käyttöliittymän uudelleen koodaaminen JavaFX Scene builderilla |
 |21.11|2|Checkstylen käyttöönotto, koodin siistimistä |
-|Yhteensä|26|
+|22.11|2|luokka/pakkausrakenteen suunnittelu ja lisäys projektiin |
+|Yhteensä|28|
