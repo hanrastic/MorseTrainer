@@ -6,7 +6,6 @@
 package morsetrainer.domain;
 
 import java.util.Scanner;
-import morsetrainer.ui.MorseTrainerUi;
 
 /**
  *

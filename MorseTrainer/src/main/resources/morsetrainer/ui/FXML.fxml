@@ -33,7 +33,7 @@
                   <Button mnemonicParsing="false" text="Login" />
                   <Button mnemonicParsing="false" text="Create account" />
                   <Button fx:id="trainButton" mnemonicParsing="false" text="Train" />
-                  <Button fx:id="primaryButton" alignment="TOP_CENTER" text="My saved results" />
+                  <Button fx:id="primaryButton" alignment="TOP_CENTER" text="Highscore" />
                   <Button mnemonicParsing="false" text="Info" />
                </children>
                <HBox.margin>
