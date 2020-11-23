@@ -8,7 +8,7 @@ Sovelluksella on graafinen käyttöliittymä
 
 ## Perusversion tarjoama toiminnallisuus
 - Käyttäjä voi luoda sovellukkseen käyttäjän ja kirjautua sisälle
-- Sovelluksella on harjoittelumuoto, jossa tunnistetaan sovelluksen antamia morse-merkkejä
+- Sovelluksella on harjoittelumuoto, jossa tunnistetaan sovelluksen antamia satunnaisia morse-merkkejä (Tehty) 
   - Käyttäjä voi yrittää kääntää merkkiä kaksi kertaa jonka jälkeen sovellus näyttää oikean vastauksen
   - Sovellus näyttää käyytäjään sidotun highscore tuloksen aiemmilta harjoittelukerroilta
 - Sovelluksessa voi nähdä listan morse-merkeistä ja niitä vastaavista aakkosista (Tehty)
