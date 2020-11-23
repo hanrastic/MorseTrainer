@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="morsetrainer.ui.InfoViewController">
+   <children>
+      <Button layoutX="476.0" layoutY="361.0" mnemonicParsing="false" onAction="#changeViewToMain" text="Back to Menu" />
+      <Label layoutX="58.0" layoutY="32.0" text="Welcome to MorseTrainer">
+         <font>
+            <Font name="Consolas Bold" size="18.0" />
+         </font>
+      </Label>
+      <Text layoutX="58.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This application is for learning Morse code. Application offers an training mode where you can get to know morse as well as practice converting letters. This application only recognizes alphabets and numbers.  You can not use special characters such as &quot; !&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~&quot;." wrappingWidth="510.13671875" />
+      <Text layoutX="58.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You can also log in or create account in the main menu. Do this to keep track of your progress.  " wrappingWidth="510.1367187500001" />
+      <Text layoutX="58.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN AND CREATE ACCOUNT">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="58.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logging in and creating account is done using the same fields. So first time logging in, press 'create account' and type in preferred username and password to the text fields." wrappingWidth="510.13671875" />
+   </children>
+</AnchorPane>

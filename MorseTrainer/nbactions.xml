@@ -59,4 +59,14 @@
                 <goal>checkstyle:checkstyle</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-mvn compile</actionName>
+            <displayName>mvn compile</displayName>
+            <goals>
+                <goal>mvn</goal>
+                <goal>compile</goal>
+                <goal>exec:java</goal>
+                <goal>-Dexec.mainClass=morsetrainer.Main.java</goal>
+            </goals>
+        </action>
     </actions>

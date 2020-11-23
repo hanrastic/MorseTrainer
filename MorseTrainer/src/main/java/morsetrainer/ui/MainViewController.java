@@ -5,7 +5,12 @@
  */
 package morsetrainer.ui;
 import java.io.IOException;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -13,8 +18,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 //import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;  
+import javafx.stage.Stage;
 
-public class FXMLController {
+public class MainViewController {
     
     @FXML
     private Button changeModeButton;
@@ -99,6 +105,20 @@ public class FXMLController {
     @FXML
     private void switchToTextToMorse() throws IOException {
         
+    }
+    
+    
+    
+    //When this method is called it changes the scene to infoView
+    @FXML
+    public void changeViewToInfo(ActionEvent event) throws IOException {
+        Parent infoViewParent = FXMLLoader.load(getClass().getResource("InfoView.fxml"));
+        Scene infoViewScene = new Scene(infoViewParent);
+        
+        //this line gets the stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(infoViewScene);
+        window.show();
     }
     
 //        textAreaLeft.setOnKeyTyped((event) -> {
