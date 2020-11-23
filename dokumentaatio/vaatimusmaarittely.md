@@ -2,10 +2,6 @@
 ## Sovelluksen tarkoitus
 Sovelluksella voi tutustua morseaakkosiin, sekä harjoitella merkkien tunnistamista.
 
-## Käyttöliittymäluonnos
-Sovelluksella on graafinen käyttöliittymä
-(kuva tulossa)
-
 ## Perusversion tarjoama toiminnallisuus
 - Käyttäjä voi luoda sovellukkseen käyttäjän ja kirjautua sisälle
 - Sovelluksella on harjoittelumuoto, jossa tunnistetaan sovelluksen antamia satunnaisia morse-merkkejä (Tehty) 
