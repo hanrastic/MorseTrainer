@@ -1,6 +1,6 @@
 # Vaatimusmaarittely
 ## Sovelluksen tarkoitus
-Sovelluksella voi tutustua morseaakkosiin, sekä harjoitella merkkien tunnistamista.
+Sovelluksella voi tutustua morseaakkosiin, sekä harjoitella merkkien tunnistamista. Sovelluksella voi kääntää numeroita ja aakkosia molempiin suuntiin, tai harjoitella merkkien tunnistamista kääntäen sovelluksen esittämiä morse-aakkosia.
 
 ## Perusversion tarjoama toiminnallisuus
 - Käyttäjä voi luoda sovellukkseen käyttäjän ja kirjautua sisälle
