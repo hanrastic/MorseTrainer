@@ -1,14 +1,10 @@
 # Vaatimusmaarittely
 ## Sovelluksen tarkoitus
-Sovelluksella voi tutustua morseaakkosiin, sekä harjoitella merkkien tunnistamista.
-
-## Käyttöliittymäluonnos
-Sovelluksella on graafinen käyttöliittymä
-(kuva tulossa)
+Sovelluksella voi tutustua morseaakkosiin, sekä harjoitella merkkien tunnistamista. Sovelluksella voi kääntää numeroita ja aakkosia molempiin suuntiin, tai harjoitella merkkien tunnistamista kääntäen sovelluksen esittämiä morse-aakkosia.
 
 ## Perusversion tarjoama toiminnallisuus
 - Käyttäjä voi luoda sovellukkseen käyttäjän ja kirjautua sisälle
-- Sovelluksella on harjoittelumuoto, jossa tunnistetaan sovelluksen antamia morse-merkkejä
+- Sovelluksella on harjoittelumuoto, jossa tunnistetaan sovelluksen antamia satunnaisia morse-merkkejä (Tehty) 
   - Käyttäjä voi yrittää kääntää merkkiä kaksi kertaa jonka jälkeen sovellus näyttää oikean vastauksen
   - Sovellus näyttää käyytäjään sidotun highscore tuloksen aiemmilta harjoittelukerroilta
 - Sovelluksessa voi nähdä listan morse-merkeistä ja niitä vastaavista aakkosista (Tehty)
