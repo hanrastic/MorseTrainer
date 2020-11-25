@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="755.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="morsetrainer.ui.MainViewController">
    <children>
@@ -24,8 +25,14 @@
       </HBox>
       <HBox prefHeight="267.0" prefWidth="717.0">
          <children>
-            <TextArea fx:id="textAreaLeft" nodeOrientation="LEFT_TO_RIGHT" prefHeight="265.0" prefWidth="269.0" promptText="Write Morse code here..." wrapText="true" />
-            <TextArea fx:id="textAreaRight" prefHeight="265.0" prefWidth="262.0" promptText="Displays Mode code as text." wrapText="true" />
+            <TextArea nodeOrientation="LEFT_TO_RIGHT" onKeyTyped="#convertTextToMorse" prefHeight="184.0" prefWidth="270.0" promptText="Write Morse code here..." wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font></TextArea>
+            <TextArea fx:id="textAreaRight" prefHeight="265.0" prefWidth="262.0" promptText="Displays Mode code as text." wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font></TextArea>
             <VBox prefHeight="230.0" prefWidth="162.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
                   <TextField minWidth="-Infinity" promptText="User name" />

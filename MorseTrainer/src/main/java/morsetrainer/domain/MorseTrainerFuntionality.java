@@ -5,9 +5,15 @@
  */
 package morsetrainer.domain;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import static morsetrainer.domain.Morsetrainer.scanner;
 
 /**
@@ -149,6 +155,7 @@ public class MorseTrainerFuntionality {
             }
         }
     }
+    
     public boolean testIfInputIsNumeric(String input) {
         try {
             inputIsNumeric = Integer.parseInt(input);
@@ -165,16 +172,6 @@ public class MorseTrainerFuntionality {
             return randomValue;
     }
     
-    public String getAlphabetFromMorse(String morseCode) {
-        //Toimii
-        for (Entry<String, String> entry : alphabets.entrySet()) {
-            if (entry.getValue().equals(morseCode.toLowerCase())) {
-                return entry.getKey();
-            }
-        }
-        return null;
-    }
-    
     public String getMorsecodeFromAlphabet(String alphabetLetter) {
         //Toimii
         return alphabets.get(alphabetLetter.toLowerCase());
@@ -185,6 +182,16 @@ public class MorseTrainerFuntionality {
         return numbers.get(inputNumber);
     }
 
+    public String getAlphabetFromMorse(String morseCode) {
+        //Toimii
+        for (Entry<String, String> entry : alphabets.entrySet()) {
+            if (entry.getValue().equals(morseCode.toLowerCase())) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+    
     
     public int getIntegerFromMorse(String morse) {
        //Toimii
@@ -196,4 +203,61 @@ public class MorseTrainerFuntionality {
         return 9999;
     }
     
+    
+
+    public boolean testIfInputIsAllowedOrNumeric(String input) {
+        Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}\\[\\]~-]");
+        Pattern numeric = Pattern.compile("[0-9]");
+        Matcher matcherS = special.matcher(input);
+        Matcher matcherN = numeric.matcher(input);
+               
+        return matcherS.find() || matcherN.find();
+    }  
+    
+    
+    
+    public String convertMultipleLettersToMorse(String input) {
+
+        ArrayList<String> morseCode = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        
+        for(int i = 0; i < input.length(); i++){           
+            if(testIfInputIsAllowedOrNumeric(String.valueOf(input.charAt(i))) == false){
+                morseCode.add(getMorsecodeFromAlphabet(String.valueOf(input.charAt(i))));   
+            }if (testIfInputIsNumeric(String.valueOf(input.charAt(i))) == true) {
+                morseCode.add(getMorsecodeFromInteger(Integer.parseInt(String.valueOf(input.charAt(i)))));
+            }
+        }       
+        String output = appendToString(sb, morseCode);
+        return output;
+    }
+    
+    
+    public String convertMultipleMorsecodeToAlphabets(String input) {
+        
+        List<String> letters = Arrays.asList(input.split(" "));
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < letters.size(); i++) {
+
+            if(letters.get(i).length() == 5){               
+                Collections.replaceAll(letters, letters.get(i), Integer.toString(getIntegerFromMorse(letters.get(i))));
+            }else {
+                Collections.replaceAll(letters, letters.get(i), getAlphabetFromMorse(letters.get(i)));
+            }
+        } 
+        String output = appendToString(sb, letters);
+        return output;
+    }
+    
+    public String appendToString(StringBuilder stringBuilder, List list) {
+
+        for (Object letter : list){
+            stringBuilder.append(letter);
+            stringBuilder.append(" ");
+        }
+        String output = stringBuilder.toString();
+        return output;
+         
+    }
 }
