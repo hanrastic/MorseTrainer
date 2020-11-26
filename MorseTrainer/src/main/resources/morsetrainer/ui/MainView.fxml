@@ -4,44 +4,75 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="755.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="morsetrainer.ui.MainViewController">
+<VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="morsetrainer.ui.MainViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="45.0" prefWidth="611.0" VBox.vgrow="NEVER">
+      <HBox alignment="CENTER" spacing="10.0">
          <children>
-            <Label fx:id="morseLabel" contentDisplay="CENTER" prefHeight="17.0" prefWidth="50.0" text="Morse" />
-            <Button fx:id="changeModeButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#switchToTextToMorse" prefHeight="0.0" prefWidth="71.0" scaleX="0.16" scaleY="0.2" />
-            <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="230.0">
-               <children>
-                  <Label fx:id="textLabel" contentDisplay="CENTER" prefHeight="17.0" prefWidth="61.0" text="Text" />
-               </children>
-            </HBox>
+            <Label fx:id="morseLabel" prefHeight="30.0" prefWidth="70.0" text="Morse">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+           <Button fx:id="changeModeButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#switchToTextToMorse" prefHeight="0.0" prefWidth="71.0" scaleX="0.16" scaleY="0.2" />
+            <Label fx:id="textLabel" prefHeight="30.0" prefWidth="70.0" text="Text">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
          </children>
       </HBox>
-      <HBox prefHeight="267.0" prefWidth="717.0">
+      <HBox prefHeight="330.0" prefWidth="759.0">
          <children>
-            <TextArea nodeOrientation="LEFT_TO_RIGHT" onKeyTyped="#convertTextToMorse" prefHeight="184.0" prefWidth="270.0" promptText="Write Morse code here..." wrapText="true">
+            <TextArea fx:id="textAreaLeft" nodeOrientation="LEFT_TO_RIGHT" prefHeight="184.0" prefWidth="270.0" promptText="Write Morse code here..." wrapText="true">
                <font>
                   <Font size="20.0" />
                </font></TextArea>
-            <TextArea fx:id="textAreaRight" prefHeight="265.0" prefWidth="262.0" promptText="Displays Mode code as text." wrapText="true">
+            <TextArea fx:id="textAreaRight" prefHeight="294.0" prefWidth="262.0" promptText="Displays Mode code as text." wrapText="true">
                <font>
                   <Font size="20.0" />
                </font></TextArea>
-            <VBox prefHeight="230.0" prefWidth="162.0" spacing="10.0" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="302.0" prefWidth="206.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
-                  <TextField minWidth="-Infinity" promptText="User name" />
-                  <PasswordField promptText="Password" />
-                  <Button mnemonicParsing="false" text="Login" />
-                  <Button mnemonicParsing="false" text="Create account" />
-                  <Button fx:id="trainButton" mnemonicParsing="false" text="Train" />
-                  <Button fx:id="primaryButton" alignment="TOP_CENTER" text="Highscore" />
-                  <Button mnemonicParsing="false" onAction="#changeViewToInfo" text="Info" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <TextField minWidth="-Infinity" promptText="User name" />
+                        <PasswordField promptText="Password" />
+                        <HBox prefHeight="17.0" prefWidth="162.0" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Login" />
+                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Create account" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="58.0" prefWidth="162.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="trainButton" mnemonicParsing="false" prefHeight="58.0" prefWidth="77.0" text="Train" />
+                        <VBox prefHeight="47.0" prefWidth="106.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="18.0" prefWidth="121.0" text="Difficulty level">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Slider blockIncrement="5.0" majorTickUnit="1.0" max="5.0" minorTickCount="0" prefHeight="42.0" prefWidth="121.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Button fx:id="primaryButton" alignment="TOP_CENTER" prefHeight="26.0" prefWidth="77.0" text="Highscore" />
+                  <HBox prefHeight="58.0" prefWidth="206.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#changeViewToInfo" prefHeight="26.0" prefWidth="77.0" text="Info" />
+                        <Button fx:id="alphabetsButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="121.0" text="Alphabets" />
+                     </children>
+                  </HBox>
                </children>
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -51,7 +82,20 @@
       </HBox>
       <HBox minHeight="-Infinity" prefHeight="44.0" prefWidth="529.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+            <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="203.0" spacing="10.0">
+               <children>
+                  <HBox alignment="TOP_RIGHT" prefHeight="46.0" prefWidth="329.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="117.0" text="Log in status: " />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in As" wrappingWidth="70.40002732276935">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </HBox>
    </children>

@@ -221,10 +221,13 @@ public class MorseTrainerFuntionality {
         ArrayList<String> morseCode = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         
-        for(int i = 0; i < input.length(); i++){           
-            if(testIfInputIsAllowedOrNumeric(String.valueOf(input.charAt(i))) == false){
+        for(int i = 0; i < input.length(); i++){
+            
+            if(String.valueOf(input.charAt(i)).equals(" ")){
+                //Do nothing
+            } else if(testIfInputIsAllowedOrNumeric(String.valueOf(input.charAt(i))) == false){
                 morseCode.add(getMorsecodeFromAlphabet(String.valueOf(input.charAt(i))));   
-            }if (testIfInputIsNumeric(String.valueOf(input.charAt(i))) == true) {
+            } else if (testIfInputIsNumeric(String.valueOf(input.charAt(i))) == true) {
                 morseCode.add(getMorsecodeFromInteger(Integer.parseInt(String.valueOf(input.charAt(i)))));
             }
         }       
@@ -234,6 +237,7 @@ public class MorseTrainerFuntionality {
     
     
     public String convertMultipleMorsecodeToAlphabets(String input) {
+        //VIRHE: kaksi samaa morseaakkosta aiheuttaa muuttaa molempien käännöksen nulliksi
         
         List<String> letters = Arrays.asList(input.split(" "));
         StringBuilder sb = new StringBuilder();

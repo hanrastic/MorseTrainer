@@ -48,13 +48,16 @@ MorseTrainerFuntionality f = new MorseTrainerFuntionality();
     public void initialize() {
         Image buttonFace = new Image(getClass().getResourceAsStream("Recycle.png"));
         ImageView buttonFaceView = new ImageView(buttonFace);
-        MorseTrainerFuntionality f = new MorseTrainerFuntionality();
         //final URL resource = getClass().getResource("resources/b1s.wav");
         changeModeButton.setGraphic(buttonFaceView);
         changeModeButton.setOnAction((event) -> {  
             // Button was clicked, do something...
             System.out.println("Button Action");
             changeModeButton.getTransforms().add(new Rotate(90,100,100,0));
+            //Empty fields from letters and morse
+            textAreaLeft.setText("");
+            textAreaRight.setText("");
+            //Set textfield text according to translate mode            
             if(trainButton.getText().equals("Train")) {               
                 if(morseLabel.getText().equals("Morse")) {
                     textLabel.setText("Morse");
@@ -69,6 +72,7 @@ MorseTrainerFuntionality f = new MorseTrainerFuntionality();
                 }
             }
             else {
+                
                 if(morseLabel.getText().equals("Morse")) {
                     textLabel.setText("Morse");
                     morseLabel.setText("Text");
@@ -106,10 +110,26 @@ MorseTrainerFuntionality f = new MorseTrainerFuntionality();
                 }
             }
         });
-//        textAreaLeft.setOnKeyTyped((event) -> {
+        textAreaLeft.setOnKeyTyped((event) -> {
+            if(morseLabel.getText().equals("Morse")) {
+                try {
+                    convertMorseToText();
+                } catch (IOException ex) {
+                    Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }else if(morseLabel.getText().equals("Text")) {
+                try {
+                    convertTextToMorse();
+                } catch (IOException ex) {
+                    Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(textAreaLeft.getText().isEmpty()){
+                textAreaLeft.setText("");
+            }
 //            // Key was typed, do something...
 //            System.out.println("TextArea Key Typed Action");
-//            if(textAreaLeft.getText().endsWith(" ")) {
+//            if(textAreaLeft.getText().charAt(textAreaLeft.getText().length()-2)) {
 //                System.out.println("Space Key press observed.");
 //                try {
 //                    convertTextToMorse();
@@ -117,26 +137,31 @@ MorseTrainerFuntionality f = new MorseTrainerFuntionality();
 //                    Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
 //                }
 //            }
-//            else if (textAreaLeft.getText().endsWith("-")) {
-//                //AudioClip beep0408Sound = new AudioClip(getClass().getResource("b1s0408.wav").toString());
-//                //beep0408Sound.setPriority(1);
-//                //beep0408Sound.setCycleCount(3);
-//                //beep0408Sound.play();
+//            else if (textAreaLeft.getText().endsWith("-") || textAreaLeft.getText().endsWith(".")) {
+//                try {
+//                    convertMorseToText();
+//                } catch (IOException ex) {
+//                    Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//                    //AudioClip beep0408Sound = new AudioClip(getClass().getResource("b1s0408.wav").toString());
+//                    //beep0408Sound.setPriority(1);
+//                    //beep0408Sound.setCycleCount(3);
+//                    //beep0408Sound.play();
 //            }
-//            else if (textAreaLeft.getText().endsWith(".")) {
-//                //AudioClip beep0208Sound = new AudioClip(getClass().getResource("b1s0208.wav").toString());
-//                //beep0208Sound.setPriority(1);
-//                //beep0208Sound.setCycleCount(3);
-//                //beep0208Sound.play();
-//            }
-//            
-//            // Here we just append characters one by one... This is the place to call helper method for Mode code to text conversion and vice versa.
-//            // Remember to check the mode first so that we know if we are parsing Morse code to text or text to Morse code.
-//            // Its is best to separate Morse codes by Space " " to make them easily recognizeable.
-//            textAreaRight.appendText(textAreaLeft.getText().substring(textAreaLeft.getText().length()-1, textAreaLeft.getText().length()));
-//            // If we are typing - character we hear a long beep and if . character we hear a short beep.
-//            
-//        });
+////            else if (textAreaLeft.getText().endsWith(".")) {
+////                //AudioClip beep0208Sound = new AudioClip(getClass().getResource("b1s0208.wav").toString());
+////                //beep0208Sound.setPriority(1);
+////                //beep0208Sound.setCycleCount(3);
+////                //beep0208Sound.play();
+////            }
+////            
+////            // Here we just append characters one by one... This is the place to call helper method for Mode code to text conversion and vice versa.
+////            // Remember to check the mode first so that we know if we are parsing Morse code to text or text to Morse code.
+////            // Its is best to separate Morse codes by Space " " to make them easily recognizeable.
+////                textAreaRight.appendText(textAreaLeft.getText().substring(textAreaLeft.getText().length()-1, textAreaLeft.getText().length()));
+////            // If we are typing - character we hear a long beep and if . character we hear a short beep.
+////            
+        });
 
     }
     
@@ -144,9 +169,15 @@ MorseTrainerFuntionality f = new MorseTrainerFuntionality();
     private void switchToTextToMorse() throws IOException {
         
     }
+    
     @FXML
     private void convertTextToMorse() throws IOException {
         textAreaRight.setText(f.convertMultipleLettersToMorse(textAreaLeft.getText()));
+    }
+    
+    @FXML
+    private void convertMorseToText() throws IOException {
+        textAreaRight.setText(f.convertMultipleMorsecodeToAlphabets(textAreaLeft.getText()));
     }
     
     
