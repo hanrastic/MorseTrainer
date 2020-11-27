@@ -69,4 +69,12 @@
                 <goal>-Dexec.mainClass=morsetrainer.Main.java</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-mvn package (generate jar)</actionName>
+            <displayName>mvn package (generate jar)</displayName>
+            <goals>
+                <goal>mvn</goal>
+                <goal>package</goal>
+            </goals>
+        </action>
     </actions>
