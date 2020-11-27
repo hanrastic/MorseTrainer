@@ -13,5 +13,6 @@
 |21.11|2|Checkstylen käyttöönotto, koodin siistimistä |
 |22.11|2|luokka/pakkausrakenteen suunnittelu ja lisäys projektiin |
 |25.11|4|Toiminnallisuuksien koodailua |
-|25.11|4|Toiminnallisuuksien koodailua |
-|Yhteensä|36|
+|26.11|4|Toiminnallisuuksien koodailua |
+|27.11|3|Toiminnallisuuksia, testejä, bugeja |
+|Yhteensä|39|
