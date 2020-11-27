@@ -237,19 +237,22 @@ public class MorseTrainerFuntionality {
     
     
     public String convertMultipleMorsecodeToAlphabets(String input) {
-        //VIRHE: kaksi samaa morseaakkosta aiheuttaa muuttaa molempien käännöksen nulliksi
         
-        List<String> letters = Arrays.asList(input.split(" "));
+        List<String> morse = Arrays.asList(input.split(" "));
         StringBuilder sb = new StringBuilder();
-
-        for (int i = 0; i < letters.size(); i++) {
-
-            if(letters.get(i).length() == 5){               
-                Collections.replaceAll(letters, letters.get(i), Integer.toString(getIntegerFromMorse(letters.get(i))));
-            }else {
-                Collections.replaceAll(letters, letters.get(i), getAlphabetFromMorse(letters.get(i)));
+        ArrayList<String> letters = new ArrayList<>();
+         
+        for (int i = 0; i < morse.size(); i++){
+            
+            if(morse.get(i).isEmpty()){
+                //Do nothing
+            }else if (morse.get(i).length() <=4){
+                letters.add(getAlphabetFromMorse(morse.get(i)));
+            }else if(morse.get(i).length() == 5){               
+                letters.add(Integer.toString(getIntegerFromMorse(morse.get(i))));
+                
             }
-        } 
+        }
         String output = appendToString(sb, letters);
         return output;
     }
