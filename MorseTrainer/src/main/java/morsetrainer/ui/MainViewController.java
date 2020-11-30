@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package morsetrainer.ui;
+
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,11 +17,11 @@ import javafx.scene.image.ImageView;
 //import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;  
 import javafx.stage.Stage;
-import morsetrainer.domain.MorseTrainerFuntionality;
+import morsetrainer.domain.MorseTrainerFunctionality;
 
 public class MainViewController {
     
-MorseTrainerFuntionality f = new MorseTrainerFuntionality();
+MorseTrainerFunctionality f = new MorseTrainerFunctionality();
 
     @FXML
     private Button changeModeButton;
