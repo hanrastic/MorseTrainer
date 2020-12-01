@@ -201,7 +201,7 @@ public class MorseTrainerFunctionality {
     
 
     public boolean testIfInputIsAllowedOrNumeric(String input) {
-        Pattern special = Pattern.compile ("[^A-Za-z]");
+        Pattern special = Pattern.compile("[^A-Za-z]");
         Matcher matcherS = special.matcher(input);
 
         return matcherS.find();
@@ -214,11 +214,11 @@ public class MorseTrainerFunctionality {
         ArrayList<String> morseCode = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         
-        for(int i = 0; i < input.length(); i++){
+        for (int i = 0; i < input.length(); i++) {
             
-            if(String.valueOf(input.charAt(i)).equals(" ")){
-                //Do nothing
-            } else if(testIfInputIsAllowedOrNumeric(String.valueOf(input.charAt(i))) == false){
+            if (String.valueOf(input.charAt(i)).equals(" ")) {
+                i = i; //Do nothing
+            } else if (testIfInputIsAllowedOrNumeric(String.valueOf(input.charAt(i))) == false) {
                 morseCode.add(getMorsecodeFromAlphabet(String.valueOf(input.charAt(i))));   
             } else if (testIfInputIsNumeric(String.valueOf(input.charAt(i))) == true) {
                 morseCode.add(getMorsecodeFromInteger(Integer.parseInt(String.valueOf(input.charAt(i)))));
@@ -237,15 +237,14 @@ public class MorseTrainerFunctionality {
         StringBuilder sb = new StringBuilder();
         ArrayList<String> letters = new ArrayList<>();
          
-        for (int i = 0; i < morse.size(); i++){
+        for (int i = 0; i < morse.size(); i++) {
             
-            if(morse.get(i).isEmpty()){
-                //Do nothing
-            }else if (morse.get(i).length() <=4){
+            if (morse.get(i).isEmpty()) {
+                i = i; //Do nothing
+            } else if (morse.get(i).length() <= 4) {
                 letters.add(getAlphabetFromMorse(morse.get(i)));
-            }else if(morse.get(i).length() == 5){               
-                letters.add(Integer.toString(getIntegerFromMorse(morse.get(i))));
-                
+            } else if (morse.get(i).length() == 5) {               
+                letters.add(Integer.toString(getIntegerFromMorse(morse.get(i))));               
             }
         }
         String output = appendToString(sb, letters);
@@ -254,7 +253,7 @@ public class MorseTrainerFunctionality {
     
     public String appendToString(StringBuilder stringBuilder, List list) {
 
-        for (Object letter : list){
+        for (Object letter : list) {
             stringBuilder.append(letter);
             stringBuilder.append(" ");
         }

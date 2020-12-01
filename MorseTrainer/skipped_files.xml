@@ -7,6 +7,7 @@
 <suppressions>
     <suppress files="morsetrainer.ui.MainViewController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="morsetrainer.ui.InfoViewController.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="morsetrainer.ui.AlphabetTableViewController.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="morsetrainer.ui.MorseTrainerUi.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="morsetrainer.domain.Morsetrainer.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="Main.java" checks="[a-zA-Z0-9]*"/>
