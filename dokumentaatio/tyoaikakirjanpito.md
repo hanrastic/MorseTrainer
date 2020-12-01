@@ -15,4 +15,5 @@
 |25.11|4|Toiminnallisuuksien koodailua |
 |26.11|4|Toiminnallisuuksien koodailua |
 |27.11|3|Toiminnallisuuksia, testejä, bugeja |
-|Yhteensä|39|
+|30.11|2|Toiminnallisuuksia ja testejä|
+|Yhteensä|41|
