@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 //import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;  
 import javafx.stage.Stage;
@@ -30,10 +31,22 @@ MorseTrainerFunctionality f = new MorseTrainerFunctionality();
     private Button trainButton;
     
     @FXML
+    private Button logInButton;
+    
+    @FXML
+    private Button createAccountButton;
+
+    @FXML
+    private Button highscoreButton;    
+    
+    @FXML
     private Label textLabel;
     
     @FXML
     private Label morseLabel;
+    
+    @FXML
+    private Text logInStatus;
     
     @FXML
     private TextArea textAreaLeft;
@@ -181,6 +194,17 @@ MorseTrainerFunctionality f = new MorseTrainerFunctionality();
     @FXML
     public void changeViewToInfo(ActionEvent event) throws IOException {
         Parent infoViewParent = FXMLLoader.load(getClass().getResource("InfoView.fxml"));
+        Scene infoViewScene = new Scene(infoViewParent);
+        
+        //this line gets the stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(infoViewScene);
+        window.show();
+    }
+    
+    @FXML
+    public void changeViewToAlphabetTableInfo(ActionEvent event) throws IOException {
+        Parent infoViewParent = FXMLLoader.load(getClass().getResource("AlphabetTableView.fxml"));
         Scene infoViewScene = new Scene(infoViewParent);
         
         //this line gets the stage information

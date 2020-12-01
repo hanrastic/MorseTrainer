@@ -6,9 +6,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="morsetrainer.ui.InfoViewController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="morsetrainer.ui.InfoViewController">
    <children>
-      <Button layoutX="476.0" layoutY="361.0" mnemonicParsing="false" onAction="#changeViewToMain" text="Back to Menu" />
+      <Button layoutX="479.0" layoutY="410.0" mnemonicParsing="false" onAction="#changeViewToMain" text="Back to Menu" />
       <Label layoutX="58.0" layoutY="32.0" text="Welcome to MorseTrainer">
          <font>
             <Font name="Consolas Bold" size="18.0" />
@@ -21,6 +21,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text layoutX="58.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logging in and creating account is done using the same fields. So first time logging in, press 'create account' and type in preferred username and password to the text fields." wrappingWidth="510.13671875" />
+      <Text layoutX="58.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logging in and creating account is done using the same fields. So first time logging in, press 'create account' and type in preferred username and password to the text fields. (Does not work in current version)" wrappingWidth="510.13671875" />
    </children>
 </AnchorPane>
