@@ -71,7 +71,7 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Label>
-                              <Slider blockIncrement="5.0" majorTickUnit="1.0" max="5.0" minorTickCount="0" prefHeight="42.0" prefWidth="121.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                              <Slider fx:id="difficultySlider" blockIncrement="5.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" prefHeight="42.0" prefWidth="121.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
                            </children>
                         </VBox>
                      </children>

@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -37,7 +38,10 @@ MorseTrainerFunctionality f = new MorseTrainerFunctionality();
     private Button createAccountButton;
 
     @FXML
-    private Button highscoreButton;    
+    private Button highscoreButton; 
+    
+    @FXML
+    private Slider difficultySlider;
     
     @FXML
     private Label textLabel;
@@ -109,15 +113,24 @@ MorseTrainerFunctionality f = new MorseTrainerFunctionality();
                 }  
             }  
             else {
+                textAreaLeft.setDisable(true);
+                textAreaLeft.setText(f.randomValue(difficultySlider.getMinorTickCount()));
                 trainButton.setText("Translate");
                 if(morseLabel.getText().equals("Morse")) {
                     textAreaLeft.setPromptText("A random Morse code will apper here...");
                     textAreaRight.setPromptText("Write your answer as a text character here.");
                 } else {
                     textAreaLeft.setPromptText("A random text character will appear here...");
-                    textAreaRight.setPromptText("Write your answer as a Morse code."); 
+                    textAreaRight.setPromptText("Write your answer as a Morse code here"); 
                 }
             }
+            //Set random character as text to the left field
+            //textAreaLeft.setText(arg0);
+            //User types in answer to the right textfield
+            //Create method that checks if answer is correct. If it empty both fields and generate new random letter to the left text field.
+            //
+            
+            
         });
         textAreaLeft.setOnKeyTyped((event) -> {
             if(morseLabel.getText().equals("Morse")) {
@@ -189,6 +202,10 @@ MorseTrainerFunctionality f = new MorseTrainerFunctionality();
         textAreaRight.setText(f.convertMultipleMorsecodeToAlphabets(textAreaLeft.getText()));
     }
     
+    @FXML
+    private void trainMorse() throws IOException {
+        
+    }
     
     //When this method is called it changes the scene to infoView
     @FXML

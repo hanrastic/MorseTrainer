@@ -160,11 +160,15 @@ public class MorseTrainerFunctionality {
         }
     }
    
-    public String randomValue() {     
+    public String randomValue(int numberOfLetters) {     
         Random generator = new Random();
         Object[] values = alphabets.values().toArray();
-        String randomValue = (String) values[generator.nextInt(values.length)];
-            return randomValue;
+        String randomValues = "";
+         
+        for(int i = 0; i < numberOfLetters ; i++){
+           randomValues = (String) values[generator.nextInt(values.length)];
+        }
+            return randomValues;
     }
     
     public String getMorsecodeFromAlphabet(String alphabetLetter) {
