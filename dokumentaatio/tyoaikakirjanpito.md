@@ -16,4 +16,5 @@
 |26.11|4|Toiminnallisuuksien koodailua |
 |27.11|3|Toiminnallisuuksia, testejä, bugeja |
 |30.11|2|Toiminnallisuuksia ja testejä|
-|Yhteensä|41|
+|1.12|2|Hienosäätöä releasea varten... |
+|Yhteensä|43|
