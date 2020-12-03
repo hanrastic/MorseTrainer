@@ -23,7 +23,7 @@ import morsetrainer.domain.MorseTrainerFunctionality;
 
 public class MainViewController {
     
-MorseTrainerFunctionality f = new MorseTrainerFunctionality();
+    MorseTrainerFunctionality f = new MorseTrainerFunctionality();
 
     @FXML
     private Button changeModeButton;
@@ -61,6 +61,7 @@ MorseTrainerFunctionality f = new MorseTrainerFunctionality();
     public void initialize() {
         Image buttonFace = new Image(getClass().getResourceAsStream("Recycle.png"));
         ImageView buttonFaceView = new ImageView(buttonFace);
+        
         //final URL resource = getClass().getResource("resources/b1s.wav");
         changeModeButton.setGraphic(buttonFaceView);
         changeModeButton.setOnAction((event) -> {  
@@ -101,8 +102,11 @@ MorseTrainerFunctionality f = new MorseTrainerFunctionality();
         });
         trainButton.setOnAction((event) -> {  
             // Button was clicked, do something...
+            double value = difficultySlider.getValue();
+            
             System.out.println("Train Button Action");
             if(trainButton.getText().equals("Translate")) {
+                textAreaLeft.setDisable(false);
                 trainButton.setText("Train");
                 if(morseLabel.getText().equals("Morse")) {
                      textAreaLeft.setPromptText("Write Morse code here...");
@@ -114,7 +118,8 @@ MorseTrainerFunctionality f = new MorseTrainerFunctionality();
             }  
             else {
                 textAreaLeft.setDisable(true);
-                textAreaLeft.setText(f.randomValue(difficultySlider.getMinorTickCount()));
+                System.out.println(value);
+                textAreaLeft.setText(f.randomValue(value));
                 trainButton.setText("Translate");
                 if(morseLabel.getText().equals("Morse")) {
                     textAreaLeft.setPromptText("A random Morse code will apper here...");

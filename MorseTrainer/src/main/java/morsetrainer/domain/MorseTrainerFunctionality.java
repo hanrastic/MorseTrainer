@@ -160,13 +160,15 @@ public class MorseTrainerFunctionality {
         }
     }
    
-    public String randomValue(int numberOfLetters) {     
+    public String randomValue(double numberOfLetters) {   
+        
         Random generator = new Random();
         Object[] values = alphabets.values().toArray();
         String randomValues = "";
          
         for(int i = 0; i < numberOfLetters ; i++){
-           randomValues = (String) values[generator.nextInt(values.length)];
+           randomValues += values[generator.nextInt(values.length)].toString();
+           randomValues += "   ";
         }
             return randomValues;
     }
