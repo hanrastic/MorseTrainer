@@ -27,6 +27,13 @@
                </font></Label>
          </children>
       </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="scoreLabel" prefHeight="46.0" prefWidth="36.0" />
+            <Label fx:id="scoreValue" prefHeight="46.0" prefWidth="202.0" />
+            <Label fx:id="answerStatus" prefHeight="46.0" prefWidth="238.0" />
+         </children>
+      </HBox>
       <HBox prefHeight="330.0" prefWidth="759.0">
          <children>
             <TextArea fx:id="textAreaLeft" nodeOrientation="LEFT_TO_RIGHT" prefHeight="184.0" prefWidth="270.0" promptText="Write Morse code here..." wrapText="true">

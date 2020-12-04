@@ -20,6 +20,7 @@ public class MorseTrainerFunctionality {
     public HashMap<String, String> alphabets = new HashMap<String, String>();
     public HashMap<Integer, String> numbers = new HashMap<Integer, String>();
     int inputIsNumeric = 0;
+    int currentScore = 0;
     
     public MorseTrainerFunctionality() {
         createAlphabetTable();
@@ -266,5 +267,24 @@ public class MorseTrainerFunctionality {
         String output = stringBuilder.toString();
         return output;
          
+    }
+    
+    public boolean checkIfMorseIsCorrect(String convertableMorse, String inputLetters) {
+        if(inputLetters.equals(convertMultipleMorsecodeToAlphabets(convertableMorse).trim())){
+            return true;
+        } else return false;
+    }
+    
+    public int getCurrentScore(){
+        return currentScore;
+    }
+    
+    public int addToCurrentScore(int valueToAdd){
+        currentScore += valueToAdd;
+        return currentScore;
+    }
+    
+    public void setScoreToZero(){
+        currentScore = 0;
     }
 }

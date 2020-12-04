@@ -1,5 +1,6 @@
 package morsetrainer.ui;
 
+import com.sun.tools.javac.util.StringUtils;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,6 +16,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 //import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;  
@@ -50,6 +52,15 @@ public class MainViewController {
     private Label morseLabel;
     
     @FXML
+    private Label answerStatus;
+       
+    @FXML
+    private Label scoreLabel;    
+    
+    @FXML
+    private Label scoreValue;
+    
+    @FXML
     private Text logInStatus;
     
     @FXML
@@ -61,7 +72,7 @@ public class MainViewController {
     public void initialize() {
         Image buttonFace = new Image(getClass().getResourceAsStream("Recycle.png"));
         ImageView buttonFaceView = new ImageView(buttonFace);
-        
+        double value = difficultySlider.getValue();
         //final URL resource = getClass().getResource("resources/b1s.wav");
         changeModeButton.setGraphic(buttonFaceView);
         changeModeButton.setOnAction((event) -> {  
@@ -101,12 +112,10 @@ public class MainViewController {
             }
         });
         trainButton.setOnAction((event) -> {  
-            // Button was clicked, do something...
-            double value = difficultySlider.getValue();
-            
             System.out.println("Train Button Action");
             if(trainButton.getText().equals("Translate")) {
                 textAreaLeft.setDisable(false);
+                textAreaLeft.clear();
                 trainButton.setText("Train");
                 if(morseLabel.getText().equals("Morse")) {
                      textAreaLeft.setPromptText("Write Morse code here...");
@@ -118,8 +127,7 @@ public class MainViewController {
             }  
             else {
                 textAreaLeft.setDisable(true);
-                System.out.println(value);
-                textAreaLeft.setText(f.randomValue(value));
+                textAreaLeft.setText(f.randomValue(difficultySlider.getValue()));
                 trainButton.setText("Translate");
                 if(morseLabel.getText().equals("Morse")) {
                     textAreaLeft.setPromptText("A random Morse code will apper here...");
@@ -189,7 +197,52 @@ public class MainViewController {
 ////            // If we are typing - character we hear a long beep and if . character we hear a short beep.
 ////            
         });
+        textAreaRight.setOnKeyPressed(event -> {
+            
+            if(trainButton.getText().equals("Translate") && event.getCode() == KeyCode.ENTER){
+                System.out.println("Enter pressed");
+                String convertableMorse = textAreaLeft.getText().replaceAll("\\s+", " ");
+                String inputLetters = textAreaRight.getText().trim();
+                scoreLabel.setText("Score: ");
 
+                
+                if(f.checkIfMorseIsCorrect(convertableMorse, inputLetters)){                    
+                    answerStatus.setText("Correct answer!");
+                    scoreValue.setText(Integer.toString(f.addToCurrentScore((int)difficultySlider.getValue())));
+                    textAreaLeft.setText(f.randomValue(difficultySlider.getValue()));
+                    textAreaRight.clear();
+                    //scoreValue.setText(Integer.toString(f.getCurrentScore()));
+                }else{
+                    answerStatus.setText("Wrong Answer, try again");
+                    textAreaRight.clear();
+                    
+                    for (int i = 0; i < 1; i++) {
+                        
+                        String inputLetters2 = textAreaRight.getText().trim();
+                        if (f.checkIfMorseIsCorrect(convertableMorse, inputLetters2)) {
+                            answerStatus.setText("Well done!");
+                            scoreValue.setText(Integer.toString(f.addToCurrentScore((int)difficultySlider.getValue())));
+                            textAreaLeft.setText(f.randomValue(difficultySlider.getValue()));
+                            textAreaRight.clear();
+                            i++;
+                        } else {
+                            answerStatus.setText("Wrong again :(");
+                        }
+                        textAreaRight.clear();
+                    }
+                   textAreaRight.clear();
+                }
+            }
+        });
+        
+        difficultySlider.setOnMouseReleased((event) -> {
+            System.out.println("Difficulty Slider action");
+            if(trainButton.getText().equals("Translate")){
+                textAreaLeft.setDisable(true);
+                textAreaLeft.setText(f.randomValue(difficultySlider.getValue()));
+                System.out.println(value);
+            }
+        });
     }
     
     @FXML
