@@ -1,4 +1,4 @@
-import morsetrainer.domain.MorseTrainerFunctionality;
+import morsetrainer.domain.TrainerFunctionality;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -9,13 +9,13 @@ import org.junit.Before;
  */
 public class MorseTrainerFunctionalityTest {
     
-    MorseTrainerFunctionality morse;
+    TrainerFunctionality morse;
     String input;
     String validOutput;
 
     @Before
     public void setUp(){
-        morse = new MorseTrainerFunctionality();
+        morse = new TrainerFunctionality();
         input = new String();
         validOutput = new String();
     }

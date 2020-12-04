@@ -15,17 +15,20 @@ import java.util.regex.Pattern;
  *
  * @author maisajoo
  */
-public class MorseTrainerFunctionality {
+public class TrainerFunctionality {
 
     public HashMap<String, String> alphabets = new HashMap<String, String>();
     public HashMap<Integer, String> numbers = new HashMap<Integer, String>();
     int inputIsNumeric = 0;
     int currentScore = 0;
+    private static int countTries = 2;
     
-    public MorseTrainerFunctionality() {
+    public TrainerFunctionality() {
         createAlphabetTable();
         createNumericTable();
     }
+    
+    
     public void createAlphabetTable() {
         alphabets.put("a", ".-");
         alphabets.put("b", "-...");
@@ -68,90 +71,13 @@ public class MorseTrainerFunctionality {
         numbers.put(0, "-----");
     }
     
-//    public void printTable() {
-//        System.out.println(alphabets);
-//    }
-
-//    public void trainMorse() {
-//       
-//        System.out.println("Commands for using MorseTrainer");
-//        System.out.println("1. See Morse code alphabet table");
-//        System.out.println("2. Practice by converting letters");
-//        System.out.println("3. Practice randomly generated letters");
-//        System.out.println("4. Quit");
-//                   
-//        OUTER:
-//        while (true) {
-//            System.out.print("What do you want to do ? Type in a command (number): ");
-//            int command = scanner.nextInt();
-//            
-//            switch (command) {
-//                case 1:
-//                    printTable();
-//                    break;
-//                case 2:
-//                    convertAlphabetToMorseAndViceVersa();
-//                    break;
-//                case 3:
-//                    trainRandomMorsecode();
-//                    break;
-//                case 4:
-//                    break OUTER;
-//                default:
-//                    break;
-//            }
-//        }    
-//    }
-    
-//    public void trainRandomMorsecode() {
-//
-//        while (true) {
-//            System.out.println("");
-//            System.out.println("Convert Morse code to corresponding letter or type 'back' to go back to main menu");
-//            String morse = randomValue();
-//            System.out.println(morse);            
-//            System.out.print(">");
-//            String input = scanner.next().toLowerCase();
-//            if (input.equals("back")) {
-//                break;
-//            } else if (input.equals(getAlphabetFromMorse(morse))) {
-//                System.out.println("Well done!");
-//
-//            } else {
-//                for (int i = 0; i < 1; i++) {
-//                    System.out.println("Try again");
-//                    System.out.print(">");
-//                    String input2 = scanner.next();
-//                    if (input2.equals(getAlphabetFromMorse(morse))) {
-//                        System.out.println("Well done!");
-//                        i++;
-//                    }
-//                }
-//            }
-//        }
-//    }
-
-//    public void convertAlphabetToMorseAndViceVersa() {
-//        while (true) {
-//            System.out.println("");
-//            System.out.println("Type in alphabets or morsecode to translate it, or type 'back' to go to main menu");
-//            System.out.print(">");
-//            String input = scanner.next();
-//            
-//            if (input.equals("back")) {
-//                break;
-//            } else if (input.length() == 5) {
-//                System.out.println("Morse '" + input + "' as a number: " + getIntegerFromMorse(input));
-//            } else if (input.contains("-") || input.contains(".")) {               
-//                System.out.println("Morse '" + input + "' as a alphabet: " + getAlphabetFromMorse(input));                
-//            } else if (testIfInputIsNumeric(input) == true) {
-//                System.out.println("'" + input + "' as Morse code: " + getMorsecodeFromInteger(inputIsNumeric));
-//            } else {                
-//                System.out.println("'" + input + "' as Morse code: " + getMorsecodeFromAlphabet(input));                
-//            }
-//        }
-//    }
-    
+ /**
+ * Method for checking if input is numeric or a letter
+ *
+ * @param   input   Input by from user 
+ *
+ * @return true if numeric
+ */
     public boolean testIfInputIsNumeric(String input) {
         try {
             inputIsNumeric = Integer.parseInt(input);
@@ -161,6 +87,13 @@ public class MorseTrainerFunctionality {
         }
     }
    
+ /**
+ * Method for generating random letters from alphabets
+ *
+ * @param   numberOfLetters   random morse code to be generated 
+ *
+ * @return set of random letters as a string
+ */
     public String randomValue(double numberOfLetters) {   
         
         Random generator = new Random();
@@ -174,16 +107,37 @@ public class MorseTrainerFunctionality {
             return randomValues;
     }
     
+ /**
+ * Method for converting alphabet to morse code
+ *
+ * @param   alphabetLetter   single letter
+ *
+ * @return corresponding morse code
+ */    
     public String getMorsecodeFromAlphabet(String alphabetLetter) {
         //Toimii
         return alphabets.get(alphabetLetter.toLowerCase());
     }
-   
+
+ /**
+ * Method for converting integer to morse code
+ *
+ * @param   inputNumber   single integer
+ *
+ * @return corresponding morse code
+ */      
     public String getMorsecodeFromInteger(int inputNumber) {
         //Toimii
         return numbers.get(inputNumber);
     }
 
+ /**
+ * Method for converting morse code to alphabet
+ *
+ * @param   morseCode   single morse code
+ *
+ * @return corresponding letter
+ */      
     public String getAlphabetFromMorse(String morseCode) {
         //Toimii
         for (Entry<String, String> entry : alphabets.entrySet()) {
@@ -195,6 +149,13 @@ public class MorseTrainerFunctionality {
     }
     
     
+     /**
+    * Method for converting morse code to integer
+    *
+    * @param   morse   single morse code
+    *
+    * @return corresponding Integer
+    */  
     public int getIntegerFromMorse(String morse) {
        //Toimii
        for (Entry<Integer, String> entry : numbers.entrySet()) {
@@ -206,7 +167,14 @@ public class MorseTrainerFunctionality {
     }
     
     
-
+    /**
+    * Method for testing if input is allowed.
+    * Accepts only letters from (a-Z) and numbers (0-9)
+    *
+    * @param   input   input to be checked
+    *
+    * @return true if input is allowed
+    */  
     public boolean testIfInputIsAllowedOrNumeric(String input) {
         Pattern special = Pattern.compile("[^A-Za-z]");
         Matcher matcherS = special.matcher(input);
@@ -215,7 +183,13 @@ public class MorseTrainerFunctionality {
     }   
     
     
-    
+    /**
+    * Method for converting multiple letters to morse code
+    *
+    * @param   input   set of letters to be converted
+    *
+    * @return corresponding set of morse code as a String
+    */  
     public String convertMultipleLettersToMorse(String input) {
 
         ArrayList<String> morseCode = new ArrayList<>();
@@ -237,7 +211,13 @@ public class MorseTrainerFunctionality {
         //System.out.println(output);
     }
     
-    
+    /**
+    * Method for converting multiple morse code to alphabets
+    *
+    * @param   input   set of morse code to be converted
+    *
+    * @return corresponding set of alphabets as a String
+    */  
     public String convertMultipleMorsecodeToAlphabets(String input) {
         
         List<String> morse = Arrays.asList(input.split(" "));
@@ -258,8 +238,15 @@ public class MorseTrainerFunctionality {
         return output;
     }
     
+    /**
+    * Method for appending list to a String
+    *
+    * @param   stringBuilder   StringBuilder
+    * @param   list   list that need to be appended to a String
+    *
+    * @return list as a single String
+    */  
     public String appendToString(StringBuilder stringBuilder, List list) {
-
         for (Object letter : list) {
             stringBuilder.append(letter);
             stringBuilder.append(" ");
@@ -269,21 +256,59 @@ public class MorseTrainerFunctionality {
          
     }
     
+    /**
+    * Method for checking if users guess is correct
+    * Used in training mode
+    * 
+    * @param   convertableMorse   morse code that was generated by the program
+    * @param   inputLetters   users guess as what convertableMorse is as a letter
+    *
+    * @return true if users guessed correctly
+    */ 
     public boolean checkIfMorseIsCorrect(String convertableMorse, String inputLetters) {
-        if(inputLetters.equals(convertMultipleMorsecodeToAlphabets(convertableMorse).trim())){
+        
+        if (inputLetters.equals(convertMultipleMorsecodeToAlphabets(convertableMorse).trim())){
             return true;
         } else return false;
     }
     
+    
+    /**
+    * Basic getter for users current score
+    *
+    * @return current score as a integer
+    */ 
     public int getCurrentScore(){
         return currentScore;
     }
     
-    public int addToCurrentScore(int valueToAdd){
-        currentScore += valueToAdd;
+    /**
+    * Method for checking if users guess is correct
+    * Used in training mode
+    * 
+    * @param   NumberOfLetters number of letters that user is currently training with in training mode
+    *
+    * @return current score added with points for different difficulties
+    */ 
+    public int addToCurrentScore(int NumberOfLetters){
+        
+        if(NumberOfLetters == 1){
+            currentScore += 1;
+        } else if (NumberOfLetters == 2) {
+            currentScore += 5;
+        } else if (NumberOfLetters == 3) {
+            currentScore += 10;
+        } else if (NumberOfLetters == 4) {
+            currentScore += 20;
+        } else if (NumberOfLetters == 5) {
+            currentScore += 30;
+        }
         return currentScore;
     }
     
+    /**
+    * Method for setting score to zero
+    */ 
     public void setScoreToZero(){
         currentScore = 0;
     }

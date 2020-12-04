@@ -21,11 +21,11 @@ import javafx.scene.text.Text;
 //import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;  
 import javafx.stage.Stage;
-import morsetrainer.domain.MorseTrainerFunctionality;
+import morsetrainer.domain.TrainerFunctionality;
 
 public class MainViewController {
     
-    MorseTrainerFunctionality f = new MorseTrainerFunctionality();
+    TrainerFunctionality functionality = new TrainerFunctionality();
 
     @FXML
     private Button changeModeButton;
@@ -52,6 +52,9 @@ public class MainViewController {
     private Label morseLabel;
     
     @FXML
+    private Label modeLabel;
+    
+    @FXML
     private Label answerStatus;
        
     @FXML
@@ -75,6 +78,7 @@ public class MainViewController {
         double value = difficultySlider.getValue();
         //final URL resource = getClass().getResource("resources/b1s.wav");
         changeModeButton.setGraphic(buttonFaceView);
+        
         changeModeButton.setOnAction((event) -> {  
             // Button was clicked, do something...
             System.out.println("Button Action");
@@ -101,13 +105,13 @@ public class MainViewController {
                 if(morseLabel.getText().equals("Morse")) {
                     textLabel.setText("Morse");
                     morseLabel.setText("Text");
-                    textAreaLeft.setPromptText("A random text character will appear here...");
-                    textAreaRight.setPromptText("Write your answer as a Morse code.");
+                    textAreaLeft.setPromptText("Training not available for text to morse conversion.");
+                    textAreaRight.setPromptText("");
                 } else {
                     textLabel.setText("Text");
                     morseLabel.setText("Morse"); 
                     textAreaLeft.setPromptText("A random Morse code will apper here...");
-                    textAreaRight.setPromptText("Write your answer as a text character here.");
+                    textAreaRight.setPromptText("Write your answer as a text character here ans press 'enter'.");
                 }
             }
         });
@@ -117,6 +121,7 @@ public class MainViewController {
                 textAreaLeft.setDisable(false);
                 textAreaLeft.clear();
                 trainButton.setText("Train");
+                modeLabel.setText("Translate mode");
                 if(morseLabel.getText().equals("Morse")) {
                      textAreaLeft.setPromptText("Write Morse code here...");
                     textAreaRight.setPromptText("Displays Mode code as text.");                  
@@ -127,8 +132,9 @@ public class MainViewController {
             }  
             else {
                 textAreaLeft.setDisable(true);
-                textAreaLeft.setText(f.randomValue(difficultySlider.getValue()));
+                textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                 trainButton.setText("Translate");
+                modeLabel.setText("Training mode");
                 if(morseLabel.getText().equals("Morse")) {
                     textAreaLeft.setPromptText("A random Morse code will apper here...");
                     textAreaRight.setPromptText("Write your answer as a text character here.");
@@ -206,31 +212,17 @@ public class MainViewController {
                 scoreLabel.setText("Score: ");
 
                 
-                if(f.checkIfMorseIsCorrect(convertableMorse, inputLetters)){                    
+                if(functionality.checkIfMorseIsCorrect(convertableMorse, inputLetters)){                    
                     answerStatus.setText("Correct answer!");
-                    scoreValue.setText(Integer.toString(f.addToCurrentScore((int)difficultySlider.getValue())));
-                    textAreaLeft.setText(f.randomValue(difficultySlider.getValue()));
+                    scoreValue.setText(Integer.toString(functionality.addToCurrentScore((int)difficultySlider.getValue())));
+                    textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();
-                    //scoreValue.setText(Integer.toString(f.getCurrentScore()));
                 }else{
-                    answerStatus.setText("Wrong Answer, try again");
-                    textAreaRight.clear();
-                    
-                    for (int i = 0; i < 1; i++) {
-                        
-                        String inputLetters2 = textAreaRight.getText().trim();
-                        if (f.checkIfMorseIsCorrect(convertableMorse, inputLetters2)) {
-                            answerStatus.setText("Well done!");
-                            scoreValue.setText(Integer.toString(f.addToCurrentScore((int)difficultySlider.getValue())));
-                            textAreaLeft.setText(f.randomValue(difficultySlider.getValue()));
-                            textAreaRight.clear();
-                            i++;
-                        } else {
-                            answerStatus.setText("Wrong again :(");
-                        }
-                        textAreaRight.clear();
-                    }
-                   textAreaRight.clear();
+                    answerStatus.setText("Wrong answer, better luck next time");
+                    functionality.setScoreToZero();
+                    scoreValue.setText(Integer.toString(functionality.getCurrentScore()));
+                    textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
+                    textAreaRight.clear();                    
                 }
             }
         });
@@ -239,7 +231,7 @@ public class MainViewController {
             System.out.println("Difficulty Slider action");
             if(trainButton.getText().equals("Translate")){
                 textAreaLeft.setDisable(true);
-                textAreaLeft.setText(f.randomValue(difficultySlider.getValue()));
+                textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                 System.out.println(value);
             }
         });
@@ -252,12 +244,12 @@ public class MainViewController {
     
     @FXML
     private void convertTextToMorse() throws IOException {
-        textAreaRight.setText(f.convertMultipleLettersToMorse(textAreaLeft.getText()));
+        textAreaRight.setText(functionality.convertMultipleLettersToMorse(textAreaLeft.getText()));
     }
     
     @FXML
     private void convertMorseToText() throws IOException {
-        textAreaRight.setText(f.convertMultipleMorsecodeToAlphabets(textAreaLeft.getText()));
+        textAreaRight.setText(functionality.convertMultipleMorsecodeToAlphabets(textAreaLeft.getText()));
     }
     
     @FXML
