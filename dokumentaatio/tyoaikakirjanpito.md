@@ -17,4 +17,5 @@
 |27.11|3|Toiminnallisuuksia, testejä, bugeja |
 |30.11|2|Toiminnallisuuksia ja testejä|
 |1.12|2|Hienosäätöä releasea varten... |
-|Yhteensä|43|
+|5.12|8|Treenimuoto valmis. Käyttöliittymää eteenpäin. |
+|Yhteensä|51|
