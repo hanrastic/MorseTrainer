@@ -1,3 +1,4 @@
+import morsetrainer.domain.MorseAlphabet;
 import morsetrainer.domain.TrainerFunctionality;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -10,21 +11,23 @@ import org.junit.Before;
 public class MorseTrainerFunctionalityTest {
     
     TrainerFunctionality morse;
+    MorseAlphabet tables;
     String input;
     String validOutput;
 
     @Before
     public void setUp(){
         morse = new TrainerFunctionality();
+        tables = new MorseAlphabet();
         input = new String();
         validOutput = new String();
     }
     
-    @Test
-    public void creatingAlphabetsToMorseTableisIsOk(){
-        morse.createAlphabetTable();
-        morse.equals(morse.alphabets);
-    }
+//    @Test
+//    public void creatingAlphabetsToMorseTableisIsOk(){
+//        morse.createAlphabetTable();
+//        morse.equals(morse.alphabets);
+//    }
     @Test
     public void convertingAlphabetsToMorseIsOk(){
         //Converting alphabets to morse is ok
@@ -70,7 +73,7 @@ public class MorseTrainerFunctionalityTest {
     public void convertingIntegersToMorseIsOk(){
         //All integers Ok (0-9)
         for (int integer = 0; integer < 10 ; integer++){
-            assertEquals(morse.getMorsecodeFromInteger(integer), morse.numbers.get(integer));
+            assertEquals(morse.getMorsecodeFromInteger(integer), tables.numbers.get(integer));
         }
     }
     

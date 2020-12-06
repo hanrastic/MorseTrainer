@@ -12,12 +12,12 @@ package morsetrainer.domain;
 public class UserInfo {
     String username;
     String password;
-    int highscore;
+    int score;
     
-    public UserInfo(String username, String password) {
+    public UserInfo() {
         this.username = username;
         this.password = password;
-        this.highscore = highscore;
+        this.score = score;
     }
 
     public String getUsername() {
@@ -36,13 +36,45 @@ public class UserInfo {
         this.password = password;
     }
 
-    public int getHighscore() {
-        return highscore;
+    public int getScore() {
+        return score;
     }
 
-    public void setHighscore(int highscore) {
-        this.highscore = highscore;
+    public void setScore(int highscore) {
+        this.score = highscore;
     }
+    
+        /**
+    * Method for setting score to zero
+    */ 
+    public void setScoreToZero(){
+        score = 0;
+    }
+    
+        /**
+    * Method for checking if users guess is correct
+    * Used in training mode
+    * 
+    * @param   NumberOfLetters number of letters that user is currently training with in training mode
+    *
+    * @return current score added with points for different difficulties
+    */ 
+    public int addToCurrentScore(int NumberOfLetters){
+        
+        if(NumberOfLetters == 1){
+            score += 1;
+        } else if (NumberOfLetters == 2) {
+            score += 5;
+        } else if (NumberOfLetters == 3) {
+            score += 10;
+        } else if (NumberOfLetters == 4) {
+            score += 20;
+        } else if (NumberOfLetters == 5) {
+            score += 30;
+        }
+        return score;
+    }
+    
     
     
     

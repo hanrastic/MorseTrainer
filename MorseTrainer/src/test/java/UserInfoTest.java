@@ -14,6 +14,6 @@ public class UserInfoTest {
     
     @Before
     public void setUp(){
-        userinfo = new UserInfo(username, password);
+        //userinfo = new UserInfo(username, password);
     }
 }

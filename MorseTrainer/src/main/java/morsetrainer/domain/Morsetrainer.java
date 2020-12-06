@@ -11,6 +11,12 @@ import java.util.Scanner;
  *
  * @author maisajoo
  */
+
+
+/**This class is used only for testing during program development
+ *
+ * 
+ */
 public class Morsetrainer {
     
     static Scanner scanner = new Scanner(System.in);   

@@ -22,11 +22,13 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;  
 import javafx.stage.Stage;
 import morsetrainer.domain.TrainerFunctionality;
+import morsetrainer.domain.UserInfo;
 
 public class MainViewController {
     
     TrainerFunctionality functionality = new TrainerFunctionality();
-
+    UserInfo user = new UserInfo();
+    
     @FXML
     private Button changeModeButton;
     
@@ -214,13 +216,13 @@ public class MainViewController {
                 
                 if(functionality.checkIfMorseIsCorrect(convertableMorse, inputLetters)){                    
                     answerStatus.setText("Correct answer!");
-                    scoreValue.setText(Integer.toString(functionality.addToCurrentScore((int)difficultySlider.getValue())));
+                    scoreValue.setText(Integer.toString(user.addToCurrentScore((int)difficultySlider.getValue())));
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();
                 }else{
                     answerStatus.setText("Wrong answer, better luck next time");
-                    functionality.setScoreToZero();
-                    scoreValue.setText(Integer.toString(functionality.getCurrentScore()));
+                    user.setScoreToZero();
+                    scoreValue.setText(Integer.toString(user.getScore()));
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();                    
                 }
@@ -250,11 +252,6 @@ public class MainViewController {
     @FXML
     private void convertMorseToText() throws IOException {
         textAreaRight.setText(functionality.convertMultipleMorsecodeToAlphabets(textAreaLeft.getText()));
-    }
-    
-    @FXML
-    private void trainMorse() throws IOException {
-        
     }
     
     //When this method is called it changes the scene to infoView
