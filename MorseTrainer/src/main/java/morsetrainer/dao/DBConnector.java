@@ -28,19 +28,25 @@ public class DBConnector {
     
     
     public static Connection getConnection(){
-        sqliteServer = "jdbc:sqlite";
+             try {
+                 Class.forName("org.sqlite.JDBC");
+             } catch (ClassNotFoundException ex) {
+                 Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        sqliteServer = "jdbc:sqlite:";
         String getFilePath = new File ("").getAbsolutePath();
-        String fileAbsolutePath = getFilePath.concat("\\src\\morsetrainer\\dao\\database.db");
+        String fileAbsolutePath = getFilePath.concat("\\src\\main\\java\\morsetrainer\\dao\\database.db");
         
         if(isDatabaseExists(fileAbsolutePath)) {
             try {
+                
                 myConn = DriverManager.getConnection(sqliteServer+fileAbsolutePath);
                 System.out.println("Connection to SQLite has been established");
             } catch (SQLException ex) {
                 Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
             }            
         }else{
-            createNewDatabase("dao", "database");
+            createNewDatabase("database");
                 try {
                 myConn = DriverManager.getConnection(sqliteServer+fileAbsolutePath);
                 System.out.println("Connection to SQLite has been established");
@@ -51,15 +57,15 @@ public class DBConnector {
         return myConn;
     }
 
-    private static void createNewDatabase(String fileSubFolder, String fileName) {
+    private static void createNewDatabase(String fileName) {
        String getFilePath = new File("").getAbsolutePath();
        String fileAbsolutePath = "";
        
-       if (fileSubFolder.isEmpty()) {
-           fileAbsolutePath = getFilePath.concat("\\src\\morsetrainer\\" + fileName + ".db");
-       }else {
-           fileAbsolutePath = getFilePath.concat("\\src\\morsetrainer\\" + fileSubFolder+ "\\" + fileName + ".db");
-       }
+//       if (fileSubFolder.isEmpty()) {
+           fileAbsolutePath = getFilePath.concat("\\src\\main\\java\\morsetrainer\\dao\\" + fileName + ".db");
+//       }else {
+//           fileAbsolutePath = getFilePath.concat("\\src\\morsetrainer\\dao\\" + fileSubFolder+ "\\" + fileName + ".db");
+//       }
        
        Connection conn;
              try {

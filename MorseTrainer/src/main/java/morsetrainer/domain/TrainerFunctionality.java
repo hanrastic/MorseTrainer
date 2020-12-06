@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import morsetrainer.dao.DBOperations;
 //import static morsetrainer.domain.Morsetrainer.scanner;
 
 /**
@@ -26,6 +27,7 @@ public class TrainerFunctionality {
     public TrainerFunctionality() {
         createAlphabetTable();
         createNumericTable();
+       
     }
     
     /**
@@ -317,5 +319,10 @@ public class TrainerFunctionality {
     */ 
     public void setScoreToZero(){
         currentScore = 0;
+    }
+    
+    
+    public void testDB(int id, String username, String password, int highscore) {
+        DBOperations.insertData(id, username, password, highscore);
     }
 }
