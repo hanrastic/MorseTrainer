@@ -28,7 +28,13 @@ public class TrainerFunctionality {
         createNumericTable();
     }
     
-    
+    /**
+    * 
+    * Method for creating HashMap for alphabets and morse code.
+    * Key = alphabet
+    * Value = morse code
+    *
+    */ 
     public void createAlphabetTable() {
         alphabets.put("a", ".-");
         alphabets.put("b", "-...");
