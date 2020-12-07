@@ -62,11 +62,11 @@ public class MorseTrainerFunctionalityTest {
     public void convertingMorseToAlphabetIsOkWithInvalidInput(){
         //Converting morse to alphabet returns null if input is invalid. E.G. alphabet, integer or invalid morsecode
         input = "----";
-        assertEquals(morse.getAlphabetFromMorse(input), null);
+        assertEquals(morse.getAlphabetFromMorse(input), "Not morse code. ");
         input = "7";
-        assertEquals(morse.getAlphabetFromMorse(input), null);
+        assertEquals(morse.getAlphabetFromMorse(input), "Not morse code. ");
         input = "k";
-        assertEquals(morse.getAlphabetFromMorse(input), null);
+        assertEquals(morse.getAlphabetFromMorse(input), "Not morse code. ");
     }
     
     @Test
@@ -130,7 +130,7 @@ public class MorseTrainerFunctionalityTest {
     public void testThatConvertingMultipleMorseToAlphabetsIsOkWithInvalidInput() {
         //Ignores invalid input and converts valid input
         input = "... 45678iko9876rd .-. /)(/&%&/( ..... -.-       .-.. .-..";
-        validOutput = "s r 5 k l l ";
+        validOutput = "s Not morse code.  r Not morse code.  5 k l l ";
         assertEquals(morse.convertMultipleMorsecodeToAlphabets(input), validOutput);
     }
 }
