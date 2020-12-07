@@ -1,6 +1,5 @@
 package morsetrainer.ui;
 
-import com.sun.tools.javac.util.StringUtils;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +24,7 @@ import javafx.stage.Stage;
 import morsetrainer.domain.TrainerFunctionality;
 import morsetrainer.domain.UserActions;
 import morsetrainer.domain.UserInfo;
+
 
 public class MainViewController {
     
