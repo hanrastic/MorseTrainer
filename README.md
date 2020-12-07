@@ -9,25 +9,24 @@ Sovelluksen nykyisessä versiossa sisäänkirjautuminen ei toimi.
 * [työaikakirjanpito](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 
 ## Releaset
-[Viikko 5] (https://github.com/hanrastic/ot-harjoitustyo/releases/tag/viikko5)
+[Viikko 5](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Komentorivitoiminnot
 
 ### Testaus
 
-Testit suoritetaan komennolla
-
+Testien suorittaminen tapahtuu komennolla
 ```
 mvn test
 ```
 
-Testikattavuusraportti luodaan komennolla
+Testikattavuusraportti voidaan luoda komennolla
 
 ```
 mvn jacoco:report
 ```
 
-Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco.exec_
 
 ### Suoritettavan jarin generointi
 
@@ -37,7 +36,7 @@ Komento
 mvn package
 ```
 
-generoi hakemistoon _target_ suoritettavan jar-tiedoston
+generoi hakemistoon _target_ suoritettavan _MorseTrainer-1.0-SNAPSHOT.jar_ -tiedoston
 
 ### JavaDoc
 
