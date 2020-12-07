@@ -15,19 +15,18 @@ Sovelluksen nykyisessä versiossa sisäänkirjautuminen ei toimi.
 
 ### Testaus
 
-Testit suoritetaan komennolla
-
+Testien suorittaminen tapahtuu komennolla
 ```
 mvn test
 ```
 
-Testikattavuusraportti luodaan komennolla
+Testikattavuusraportti voidaan luoda komennolla
 
 ```
 mvn jacoco:report
 ```
 
-Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco.exec_
 
 ### Suoritettavan jarin generointi
 
@@ -37,7 +36,7 @@ Komento
 mvn package
 ```
 
-generoi hakemistoon _target_ suoritettavan jar-tiedoston
+generoi hakemistoon _target_ suoritettavan _MorseTrainer-1.0-SNAPSHOT.jar_ -tiedoston
 
 ### JavaDoc
 
