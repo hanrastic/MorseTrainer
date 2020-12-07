@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -22,12 +23,15 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;  
 import javafx.stage.Stage;
 import morsetrainer.domain.TrainerFunctionality;
+import morsetrainer.domain.UserActions;
 import morsetrainer.domain.UserInfo;
 
 public class MainViewController {
     
     TrainerFunctionality functionality = new TrainerFunctionality();
-    UserInfo user = new UserInfo();
+    UserInfo userInfo = new UserInfo();
+    UserActions userAction = new UserActions();
+    
     
     @FXML
     private Button changeModeButton;
@@ -73,6 +77,12 @@ public class MainViewController {
     
     @FXML
     private TextArea textAreaRight;
+    
+    @FXML
+    private TextField usernameTextField;
+    
+    @FXML
+    private TextField passwordTextField;
     
     public void initialize() {
         Image buttonFace = new Image(getClass().getResourceAsStream("Recycle.png"));
@@ -216,13 +226,13 @@ public class MainViewController {
                 
                 if(functionality.checkIfMorseIsCorrect(convertableMorse, inputLetters)){                    
                     answerStatus.setText("Correct answer!");
-                    scoreValue.setText(Integer.toString(user.addToCurrentScore((int)difficultySlider.getValue())));
+                    scoreValue.setText(Integer.toString(userInfo.addToCurrentScore((int)difficultySlider.getValue())));
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();
                 }else{
                     answerStatus.setText("Wrong answer, better luck next time");
-                    user.setScoreToZero();
-                    scoreValue.setText(Integer.toString(user.getScore()));
+                    userInfo.setScoreToZero();
+                    scoreValue.setText(Integer.toString(userInfo.getScore()));
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();                    
                 }
@@ -236,6 +246,11 @@ public class MainViewController {
                 textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                 System.out.println(value);
             }
+        });
+        
+        createAccountButton.setOnAction((event) -> {
+                System.out.println("Create account Button action");
+                userAction.createAccount(usernameTextField.getText(), passwordTextField.getText());
         });
     }
     

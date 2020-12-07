@@ -80,8 +80,8 @@
                   </HBox>
                   <VBox prefHeight="86.0" prefWidth="174.0" spacing="10.0">
                      <children>
-                        <TextField minWidth="-Infinity" promptText="User name" />
-                        <PasswordField promptText="Password" />
+                        <TextField fx:id="usernameTextField" minWidth="-Infinity" promptText="User name" />
+                        <PasswordField fx:id="passwordTextField" promptText="Password" />
                         <HBox prefHeight="17.0" prefWidth="162.0" spacing="10.0">
                            <children>
                               <Button fx:id="logInButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Login" />

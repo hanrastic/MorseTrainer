@@ -21,11 +21,14 @@ public class Morsetrainer {
     
     static Scanner scanner = new Scanner(System.in);   
           
-    public static void main(String[] args) {  
-        
-        TrainerFunctionality f = new TrainerFunctionality();
-        
-        f.testDB(1, "Hanrastic", "ykskakskol", 0);
+    public static void main(String[] args) {          
+        UserActions ua = new UserActions();
+        UserInfo ui = new UserInfo();
+//       ua.createAccount("Leevi", "1234");
+        ua.logIn("Leevi", "1234");
+        System.out.println("Username: " + ui.getUsername() + "Password:" + ui.getPassword() + "Score:" + ui.getScore());       
+        ua.updateUserHighscoreToDB("Leevi", 1000);
+        System.out.println("Leevis highscore is: " + ua.getUserHighscoreFromDB("Leevi"));
     }
    
     

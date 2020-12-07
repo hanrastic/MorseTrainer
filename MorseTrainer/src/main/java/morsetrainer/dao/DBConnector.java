@@ -27,7 +27,7 @@ public class DBConnector {
     }
     
     
-    public static Connection getConnection(){
+    public static Connection getConnection() {
              try {
                  Class.forName("org.sqlite.JDBC");
              } catch (ClassNotFoundException ex) {
@@ -37,7 +37,7 @@ public class DBConnector {
         String getFilePath = new File ("").getAbsolutePath();
         String fileAbsolutePath = getFilePath.concat("\\src\\main\\java\\morsetrainer\\dao\\database.db");
         
-        if(isDatabaseExists(fileAbsolutePath)) {
+        if (isDatabaseExists(fileAbsolutePath)) {
             try {
                 
                 myConn = DriverManager.getConnection(sqliteServer+fileAbsolutePath);
@@ -45,7 +45,7 @@ public class DBConnector {
             } catch (SQLException ex) {
                 Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
             }            
-        }else{
+        } else {
             createNewDatabase("database");
                 try {
                 myConn = DriverManager.getConnection(sqliteServer+fileAbsolutePath);
@@ -58,35 +58,26 @@ public class DBConnector {
     }
 
     private static void createNewDatabase(String fileName) {
-       String getFilePath = new File("").getAbsolutePath();
-       String fileAbsolutePath = "";
-       
-//       if (fileSubFolder.isEmpty()) {
-           fileAbsolutePath = getFilePath.concat("\\src\\main\\java\\morsetrainer\\dao\\" + fileName + ".db");
-//       }else {
-//           fileAbsolutePath = getFilePath.concat("\\src\\morsetrainer\\dao\\" + fileSubFolder+ "\\" + fileName + ".db");
-//       }
-       
-       Connection conn;
-             try {
-                 conn = DriverManager.getConnection(sqliteServer+fileAbsolutePath);
-                if(conn != null) {
-                    DatabaseMetaData meta = conn.getMetaData();
-                            try{
-                                Statement statement = conn.createStatement();
-                                statement.executeQuery(
-                                        "CREATE TABLE users (user_id INTEGER PRIMARY KEY NOT NULL,"
-                                        + "username TEXT NOT NULL UNIQUE,"
-                                        + "password TEXT NOT NULL,"
-                                        + "highscore INTEGER)");
-                            }catch(SQLException e){
-                                
-                            }
-                }
-             } catch (SQLException ex) {
-                 Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
-             }
+        String getFilePath = new File("").getAbsolutePath();
+        String fileAbsolutePath = getFilePath.concat("\\src\\main\\java\\morsetrainer\\dao\\" + fileName + ".db");
+        Connection conn;
+        try {
+            conn = DriverManager.getConnection(sqliteServer+fileAbsolutePath);
+           if (conn != null) {
+               DatabaseMetaData meta = conn.getMetaData();
+                try {
+                    Statement statement = conn.createStatement();
+                    statement.executeQuery(
+                            "CREATE TABLE users (username TEXT PRIMARY KEY NOT NULL UNIQUE,"
+                            + "password TEXT NOT NULL,"
+                            + "highscore INTEGER)");
+                } catch(SQLException e) {
 
+                }
+           }
+        } catch (SQLException ex) {
+            Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
 

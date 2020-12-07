@@ -228,7 +228,12 @@ public class TrainerFunctionality {
         } else return false;
     }
     
-    public void testDB(int id, String username, String password, int highscore) {
-        DBOperations.insertData(id, username, password, highscore);
+    public void testDB(String username, String password) {
+        DBOperations.insertData(username, password);
+        
+    }
+    
+    public void testHighscoreUpdateDB(String username, int currentHighscore) {
+        DBOperations.updateUserHighscore(username, currentHighscore);
     }
 }
