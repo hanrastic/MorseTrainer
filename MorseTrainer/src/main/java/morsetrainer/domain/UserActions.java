@@ -30,7 +30,10 @@ public class UserActions {
     
     
     public void updateUserHighscoreToDB(String username, int currentHighscore) {
-        DBOperations.updateUserHighscore(username, currentHighscore);
+        if(currentHighscore > getUserHighscoreFromDB(username)) {
+            DBOperations.updateUserHighscore(username, currentHighscore);
+        }
+
     }
     
     public int getUserHighscoreFromDB(String username){

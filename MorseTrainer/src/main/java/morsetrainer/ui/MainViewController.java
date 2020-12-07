@@ -45,8 +45,8 @@ public class MainViewController {
     @FXML
     private Button createAccountButton;
 
-    @FXML
-    private Button highscoreButton; 
+//    @FXML
+//    private Button highscoreButton; 
     
     @FXML
     private Slider difficultySlider;
@@ -70,6 +70,12 @@ public class MainViewController {
     private Label scoreValue;
     
     @FXML
+    private Label highscoreLabel;
+    
+    @FXML
+    private Label highscoreValue;
+    
+    @FXML
     private Text logInStatus;
     
     @FXML
@@ -90,6 +96,7 @@ public class MainViewController {
         double value = difficultySlider.getValue();
         //final URL resource = getClass().getResource("resources/b1s.wav");
         changeModeButton.setGraphic(buttonFaceView);
+        highscoreLabel.setDisable(true);
         
         changeModeButton.setOnAction((event) -> {  
             // Button was clicked, do something...
@@ -215,8 +222,7 @@ public class MainViewController {
 ////            // If we are typing - character we hear a long beep and if . character we hear a short beep.
 ////            
         });
-        textAreaRight.setOnKeyPressed(event -> {
-            
+        textAreaRight.setOnKeyPressed(event -> {           
             if(trainButton.getText().equals("Translate") && event.getCode() == KeyCode.ENTER){
                 System.out.println("Enter pressed");
                 String convertableMorse = textAreaLeft.getText().replaceAll("\\s+", " ");
@@ -227,6 +233,8 @@ public class MainViewController {
                 if(functionality.checkIfMorseIsCorrect(convertableMorse, inputLetters)){                    
                     answerStatus.setText("Correct answer!");
                     scoreValue.setText(Integer.toString(userInfo.addToCurrentScore((int)difficultySlider.getValue())));
+                    System.out.println("Scorevalue!!!!!! " + Integer.parseInt(scoreValue.getText()));
+                    userAction.updateUserHighscoreToDB(userInfo.getUsername(), Integer.parseInt(scoreValue.getText()));
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();
                 }else{
@@ -249,8 +257,20 @@ public class MainViewController {
         });
         
         createAccountButton.setOnAction((event) -> {
-                System.out.println("Create account Button action");
-                userAction.createAccount(usernameTextField.getText(), passwordTextField.getText());
+            System.out.println("Create account Button action");
+            userAction.createAccount(usernameTextField.getText(), passwordTextField.getText());
+            usernameTextField.clear();
+            passwordTextField.clear();               
+        });
+        
+        logInButton.setOnAction((event) -> {
+            System.out.println("Log in Button action");
+            logInStatus.setText("Logged In as: " + usernameTextField.getText());  
+            userAction.logIn(usernameTextField.getText(), passwordTextField.getText());
+            highscoreLabel.setDisable(false);
+            highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(usernameTextField.getText())));
+            usernameTextField.clear();
+            passwordTextField.clear();  
         });
     }
     

@@ -16,22 +16,22 @@
    <children>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="660.0" spacing="5.0">
          <children>
-            <Label fx:id="morseLabel" prefHeight="30.0" prefWidth="70.0" text="Morse">
+            <Label fx:id="morseLabel" prefHeight="30.0" prefWidth="75.0" text="Morse">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
            <Button fx:id="changeModeButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#switchToTextToMorse" prefHeight="0.0" prefWidth="71.0" scaleX="0.16" scaleY="0.2" />
-            <Label fx:id="textLabel" prefHeight="30.0" prefWidth="70.0" text="Text">
+            <Label fx:id="textLabel" prefHeight="30.0" prefWidth="122.0" text="Text">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
-            <Label fx:id="modeLabel" prefHeight="18.0" prefWidth="225.0" />
+            <Label fx:id="modeLabel" contentDisplay="RIGHT" prefHeight="18.0" prefWidth="239.0" />
          </children>
       </HBox>
       <HBox prefHeight="0.0" prefWidth="660.0">
          <children>
             <Label fx:id="scoreLabel" prefHeight="46.0" prefWidth="36.0" />
-            <Label fx:id="scoreValue" prefHeight="46.0" prefWidth="202.0" />
+            <Label fx:id="scoreValue" prefHeight="18.0" prefWidth="35.0" />
             <Label fx:id="answerStatus" prefHeight="46.0" prefWidth="238.0" />
          </children>
       </HBox>
@@ -62,20 +62,24 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox prefHeight="74.0" prefWidth="174.0" spacing="10.0">
+                  <HBox prefHeight="58.0" prefWidth="174.0" spacing="10.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#changeViewToInfo" prefHeight="26.0" prefWidth="77.0" text="Info" />
                         <Button fx:id="alphabetsButton" mnemonicParsing="false" onAction="#changeViewToAlphabetTableInfo" prefHeight="26.0" prefWidth="121.0" text="Alphabets" />
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_RIGHT" prefHeight="16.0" prefWidth="203.0" spacing="10.0">
+                  <HBox alignment="TOP_RIGHT" prefHeight="45.0" prefWidth="174.0" spacing="10.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="100.0" text="Log in status: " />
-                        <Text fx:id="logInStatus" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="70.40002732276935">
-                           <font>
-                              <Font name="System Italic" size="12.0" />
-                           </font>
-                        </Text>
+                        <VBox prefHeight="31.0" prefWidth="175.0">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="73.0" text="Log in status: " />
+                              <Text fx:id="logInStatus" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="172.80005185604114">
+                                 <font>
+                                    <Font name="System Italic" size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                   <VBox prefHeight="86.0" prefWidth="174.0" spacing="10.0">
@@ -97,10 +101,12 @@
             </VBox>
          </children>
       </HBox>
-      <Button fx:id="highscoreButton" alignment="TOP_CENTER" prefHeight="26.0" prefWidth="77.0" text="Highscore">
-         <VBox.margin>
-            <Insets bottom="20.0" />
-         </VBox.margin></Button>
+      <HBox prefHeight="42.0" prefWidth="660.0">
+         <children>
+            <Label fx:id="highscoreLabel" prefHeight="39.0" prefWidth="70.0" text="Highscore:" />
+            <Label fx:id="highscoreValue" prefHeight="42.0" prefWidth="210.0" />
+         </children>
+      </HBox>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

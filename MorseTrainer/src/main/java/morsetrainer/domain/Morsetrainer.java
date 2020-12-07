@@ -25,9 +25,9 @@ public class Morsetrainer {
         UserActions ua = new UserActions();
         UserInfo ui = new UserInfo();
 //       ua.createAccount("Leevi", "1234");
-        ua.logIn("Leevi", "1234");
-        System.out.println("Username: " + ui.getUsername() + "Password:" + ui.getPassword() + "Score:" + ui.getScore());       
-        ua.updateUserHighscoreToDB("Leevi", 1000);
+        //ua.logIn("Leevi", "1234");
+        System.out.println("Tässä ois!  " + ua.getUserHighscoreFromDB("Leevi"));
+       // ua.updateUserHighscoreToDB("Leevi", 1005);
         System.out.println("Leevis highscore is: " + ua.getUserHighscoreFromDB("Leevi"));
     }
    
