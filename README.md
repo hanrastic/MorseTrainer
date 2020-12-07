@@ -9,7 +9,7 @@ Sovelluksen nykyisessä versiossa sisäänkirjautuminen ei toimi.
 * [työaikakirjanpito](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 
 ## Releaset
-[Viikko 5] (https://github.com/hanrastic/ot-harjoitustyo/releases/tag/viikko5)
+[Viikko 5](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Komentorivitoiminnot
 
