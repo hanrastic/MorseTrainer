@@ -7,6 +7,7 @@ package morsetrainer.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,6 +35,26 @@ public class DBOperations {
         } catch (SQLException ex) {
             Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
         } 
-    }   
+    } 
+    
+       public boolean addAccount(String user, String pwd) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String sql = "insert into users (username, password) values (?, ?)";
+        try {
+            Connection conn = DBConnector.getConnection();
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, user);
+            preparedStatement.setString(2, pwd);
+           // resultSet = 
+            int rowCount = preparedStatement.executeUpdate();
+            return rowCount != 0;          
+        } catch (SQLException e) {
+            return false;
+        } finally {
+            if(preparedStatement != null) preparedStatement.close();
+            if(resultSet != null) resultSet.close();
+        }   
+    }
         
 }
