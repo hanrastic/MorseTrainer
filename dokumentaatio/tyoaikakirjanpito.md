@@ -18,4 +18,5 @@
 |30.11|2|Toiminnallisuuksia ja testejä|
 |1.12|2|Hienosäätöä releasea varten... |
 |5.12|8|Treenimuoto valmis. Käyttöliittymää eteenpäin. |
+|6.12|5|Tietokanta aloitettu.  |
 |Yhteensä|51|
