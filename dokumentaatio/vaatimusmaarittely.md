@@ -3,9 +3,9 @@
 Sovelluksella voi tutustua morseaakkosiin, sekä harjoitella merkkien tunnistamista. Sovelluksella voi kääntää numeroita ja aakkosia molempiin suuntiin, tai harjoitella merkkien tunnistamista kääntäen sovelluksen esittämiä morse-aakkosia.
 
 ## Perusversion tarjoama toiminnallisuus
-- Käyttäjä voi luoda sovellukkseen käyttäjän ja kirjautua sisälle
+- Käyttäjä voi luoda sovellukkseen käyttäjän ja kirjautua sisälle (Tehty)
 - Sovelluksella on harjoittelumuoto, jossa tunnistetaan sovelluksen antamia satunnaisia morse-merkkejä (Tehty)
-  - Sovellus näyttää käyytäjään sidotun highscore tuloksen aiemmilta harjoittelukerroilta
+  - Sovellus näyttää käyytäjään sidotun highscore tuloksen aiemmilta harjoittelukerroilta (Tehty (Toimii huonosti))
 - Sovelluksessa voi nähdä listan morse-merkeistä ja niitä vastaavista aakkosista (Tehty)
 - Sovelluksessa voi kääntää yhden tai useamman kirjaimen tekstin sitä vastaavaksi Morsekoodiksi. Toimii molempiin suuntiin (Tehty)
 - Sovelluksessa on info-ikkuna missä ohjeistetaan sovellusken käyttöön (Tehty) 
