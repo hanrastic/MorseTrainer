@@ -10,6 +10,7 @@ Sovelluksen nykyisessä versiossa sisäänkirjautuminen ei toimi.
 
 ## Releaset
 [Viikko 5](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/viikko5)
+[Viikko 6](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/v2.0-beta)
 
 ## Komentorivitoiminnot
 
