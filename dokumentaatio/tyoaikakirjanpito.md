@@ -19,4 +19,5 @@
 |1.12|2|Hienosäätöä releasea varten... |
 |5.12|8|Treenimuoto valmis. Käyttöliittymää eteenpäin. |
 |6.12|5|Tietokanta aloitettu.  |
-|Yhteensä|51|
+|7.12|7|Sisäänkirjautuminen ja uuden käyttäjän luominen melkein valmis|
+|Yhteensä|58|
