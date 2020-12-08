@@ -16,7 +16,7 @@
    <children>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="660.0" spacing="5.0">
          <children>
-            <Label fx:id="morseLabel" prefHeight="30.0" prefWidth="75.0" text="Morse">
+            <Label fx:id="morseLabel" prefHeight="30.0" prefWidth="110.0" text="Morse">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
