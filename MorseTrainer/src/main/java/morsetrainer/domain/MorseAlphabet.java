@@ -8,7 +8,8 @@ package morsetrainer.domain;
 import java.util.HashMap;
 
 /**
- *
+ * Class contains functionality for creating tables for morse code and alphabets
+ * 
  * @author joonas
  */
 public class MorseAlphabet {
@@ -55,6 +56,13 @@ public class MorseAlphabet {
         alphabets.put("z", "--..");
     }
     
+    /**
+    * 
+    * Method for creating HashMap for numbers and morse code.
+    * Key = integer
+    * Value = morse code
+    *
+    */ 
     public void createNumericTable() {               
         numbers.put(1, ".----");
         numbers.put(2, "..---");

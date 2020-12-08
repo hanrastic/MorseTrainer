@@ -13,26 +13,33 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Class contains functionality for database functionality
+ * 
  * @author joonas
  */
+
 public class DBOperations {
     Connection connection;
     public DBOperations() {
         connection = DBConnector.getConnection();
-            if(connection == null) {
-                 System.out.println("Connection to database unsuccessful.");
-                 //System.exit(1);
-            }
+        if (connection == null) {
+            System.out.println("Connection to database unsuccessful.");
+            //System.exit(1);
+        }
     }
     
+    /**
+    * Method for inserting data to database
+    * Contains SQL commands for accessing database
+    *
+    * @param   username   users username
+    * @param   password      users password
+    */ 
     public void insertData(String username, String password) {
         PreparedStatement preparedStatement = null;
         String sqlQuery = "INSERT INTO users(username, password) VALUES (?,?)";
 
         try {
-            //Connection connection = DBConnector.getConnection();
-                       
             preparedStatement = connection.prepareStatement(sqlQuery);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
@@ -63,7 +70,15 @@ public class DBOperations {
 //            if(resultSet != null) resultSet.close();
 //        }   
 //    }
-    //Create method for updating highscore for user
+    
+    
+    /**
+    * Method for updating highscore to database
+    * Contains SQL command for accessing databse
+    *
+    * @param   username   users username
+    * @param   newHighScore     users new highscore
+    */ 
     public void updateUserHighscore(String username, int newHighScore) {
         PreparedStatement preparedStatement = null;
         String sqlQuery = "UPDATE users "
@@ -82,7 +97,12 @@ public class DBOperations {
         }        
     }
     
-    //Create method for returning user highscore
+    /**
+    * Method for getting users highscore
+    * Contains SQL command for accessing databse
+    *
+    * @param   username   users username
+    */ 
     public int getUserHighscoreFromDB(String username) {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;

@@ -9,7 +9,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
+ * Main functionality regarding letter conversions, testing for valid inputs and such
+ * 
  * @author maisajoo
  */
 public class TrainerFunctionality {
@@ -47,11 +48,11 @@ public class TrainerFunctionality {
         Object[] values = this.tables.alphabets.values().toArray();
         String randomValues = "";
          
-        for(int i = 0; i < numberOfLetters ; i++){
-           randomValues += values[generator.nextInt(values.length)].toString();
-           randomValues += "   ";
+        for (int i = 0; i < numberOfLetters; i++) {
+            randomValues += values[generator.nextInt(values.length)].toString();
+            randomValues += "   ";
         }
-            return randomValues;
+        return randomValues;
     }
     
     /**
@@ -92,7 +93,7 @@ public class TrainerFunctionality {
                 return entry.getKey();
             }
         }
-        return "Not morse code. ";
+        return "";
     }
     
      /**
@@ -104,7 +105,7 @@ public class TrainerFunctionality {
     */  
     public int getIntegerFromMorse(String morse) {
        //Toimii
-       for (Entry<Integer, String> entry : this.tables.numbers.entrySet()) {
+        for (Entry<Integer, String> entry : this.tables.numbers.entrySet()) {
             if (entry.getValue().equals(morse)) {
                 return entry.getKey();
             }
@@ -147,14 +148,11 @@ public class TrainerFunctionality {
     *
     * @return corresponding set of alphabets as a String
     */  
-    public String convertMultipleMorsecodeToAlphabets(String input) {
-        
+    public String convertMultipleMorsecodeToAlphabets(String input) {        
         List<String> morse = Arrays.asList(input.split(" "));
         StringBuilder sb = new StringBuilder();
-        ArrayList<String> letters = new ArrayList<>();
-         
-        for (int i = 0; i < morse.size(); i++) {
-            
+        ArrayList<String> letters = new ArrayList<>();         
+        for (int i = 0; i < morse.size(); i++) {           
             if (morse.get(i).isEmpty()) {
                 i = i; //Do nothing
             } else if (morse.get(i).length() <= 4) {
@@ -219,9 +217,11 @@ public class TrainerFunctionality {
     */ 
     public boolean checkIfMorseIsCorrect(String convertableMorse, String inputLetters) {
         
-        if (inputLetters.equals(convertMultipleMorsecodeToAlphabets(convertableMorse).trim())){
+        if (inputLetters.equals(convertMultipleMorsecodeToAlphabets(convertableMorse).trim())) {
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
     
 }
