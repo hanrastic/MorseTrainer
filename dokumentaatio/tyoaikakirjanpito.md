@@ -20,4 +20,5 @@
 |5.12|8|Treenimuoto valmis. Käyttöliittymää eteenpäin. |
 |6.12|5|Tietokanta aloitettu.  |
 |7.12|7|Sisäänkirjautuminen ja uuden käyttäjän luominen melkein valmis|
-|Yhteensä|58|
+|8.12|8|Bugeja ja koodia. Releasen valmistelu, javadoc, checkstyle ja arkkitehtuurikuvaus|
+|Yhteensä|66|
