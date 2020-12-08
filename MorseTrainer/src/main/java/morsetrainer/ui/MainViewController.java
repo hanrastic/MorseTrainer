@@ -93,19 +93,17 @@ public class MainViewController {
     public void initialize() {
         Image buttonFace = new Image(getClass().getResourceAsStream("Recycle.png"));
         ImageView buttonFaceView = new ImageView(buttonFace);
-        double value = difficultySlider.getValue();
+        double sliderValue = difficultySlider.getValue();
         //final URL resource = getClass().getResource("resources/b1s.wav");
         changeModeButton.setGraphic(buttonFaceView);
         highscoreLabel.setDisable(true);
         
         changeModeButton.setOnAction((event) -> {  
-            // Button was clicked, do something...
-            System.out.println("Button Action");
+            System.out.println("Change mode button action Action");
             changeModeButton.getTransforms().add(new Rotate(90,100,100,0));
-            //Empty fields from letters and morse
             textAreaLeft.setText("");
             textAreaRight.setText("");
-            //Set textfield text according to translate mode            
+            
             if(trainButton.getText().equals("Train")) {               
                 if(morseLabel.getText().equals("Morse")) {
                     textLabel.setText("Morse");
@@ -161,15 +159,9 @@ public class MainViewController {
                     textAreaLeft.setPromptText("A random text character will appear here...");
                     textAreaRight.setPromptText("Write your answer as a Morse code here"); 
                 }
-            }
-            //Set random character as text to the left field
-            //textAreaLeft.setText(arg0);
-            //User types in answer to the right textfield
-            //Create method that checks if answer is correct. If it empty both fields and generate new random letter to the left text field.
-            //
-            
-            
+            }            
         });
+        
         textAreaLeft.setOnKeyTyped((event) -> {
             if(morseLabel.getText().equals("Morse")) {
                 try {
@@ -186,7 +178,101 @@ public class MainViewController {
             }
             if(textAreaLeft.getText().isEmpty()){
                 textAreaLeft.setText("");
+            }      
+        });
+        
+        textAreaRight.setOnKeyPressed(event -> {           
+            if(trainButton.getText().equals("Translate") && event.getCode() == KeyCode.ENTER){
+                System.out.println("Enter pressed");
+                String convertableMorse = textAreaLeft.getText().replaceAll("\\s+", " ");
+                String inputLetters = textAreaRight.getText().trim();
+                scoreLabel.setText("Score: ");
+
+                
+                if(functionality.checkIfMorseIsCorrect(convertableMorse, inputLetters)){                    
+                    answerStatus.setText("Correct answer!");
+                    scoreValue.setText(Integer.toString(userInfo.addToCurrentScore((int)difficultySlider.getValue())));
+                    textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
+                    textAreaRight.clear();
+                }else{
+                    //Update highscore here when round is over
+                    System.out.println("Scorevalue!!!!!! " + Integer.parseInt(scoreValue.getText()));
+                    System.out.println("HighscoreValue!!! " + Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
+                    
+                    userAction.updateUserHighscoreToDB(userInfo.getUsername(), Integer.parseInt(scoreValue.getText()));
+                    highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
+                    
+                    answerStatus.setText("Wrong answer, better luck next time");
+                    userInfo.setScoreToZero();
+                    scoreValue.setText(Integer.toString(userInfo.getScore()));
+                    textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
+                    textAreaRight.clear();                    
+                }
             }
+        });
+        
+        difficultySlider.setOnMouseReleased((event) -> {
+            System.out.println("Difficulty Slider action");
+            if(trainButton.getText().equals("Translate")){
+                textAreaLeft.setDisable(true);
+                textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
+            }
+        });
+        
+        createAccountButton.setOnAction((event) -> {
+            System.out.println("Create account Button action");
+            userAction.createAccount(usernameTextField.getText(), passwordTextField.getText());
+            usernameTextField.clear();
+            passwordTextField.clear();               
+        });
+        
+        logInButton.setOnAction((event) -> {
+            System.out.println("Log in Button action");
+            
+            //Pitää kokeilla onko käyttäjää olemassa ja hyväksytäänkö sisäänkirjautuminen
+            logInStatus.setText("Logged In as: " + usernameTextField.getText());  
+            userAction.logIn(usernameTextField.getText(), passwordTextField.getText());
+            highscoreLabel.setDisable(false);
+            highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(usernameTextField.getText())));
+            usernameTextField.clear();
+            passwordTextField.clear();  
+        });
+    }
+    
+    @FXML
+    private void convertTextToMorse() throws IOException {
+        textAreaRight.setText(functionality.convertMultipleLettersToMorse(textAreaLeft.getText()));
+    }
+    
+    @FXML
+    private void convertMorseToText() throws IOException {
+        textAreaRight.setText(functionality.convertMultipleMorsecodeToAlphabets(textAreaLeft.getText()));
+    }
+    
+    @FXML
+    public void changeViewToInfo(ActionEvent event) throws IOException {
+        Parent infoViewParent = FXMLLoader.load(getClass().getResource("InfoView.fxml"));
+        Scene infoViewScene = new Scene(infoViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(infoViewScene);
+        window.show();
+    }
+    
+    @FXML
+    public void changeViewToAlphabetTableInfo(ActionEvent event) throws IOException {
+        Parent infoViewParent = FXMLLoader.load(getClass().getResource("AlphabetTableView.fxml"));
+        Scene infoViewScene = new Scene(infoViewParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(infoViewScene);
+        window.show();
+    }
+    
+        
+    @FXML
+    private void switchToTextToMorse() throws IOException {
+        
+    }
+    
 //            // Key was typed, do something...
 //            System.out.println("TextArea Key Typed Action");
 //            if(textAreaLeft.getText().charAt(textAreaLeft.getText().length()-2)) {
@@ -220,104 +306,5 @@ public class MainViewController {
 ////            // Its is best to separate Morse codes by Space " " to make them easily recognizeable.
 ////                textAreaRight.appendText(textAreaLeft.getText().substring(textAreaLeft.getText().length()-1, textAreaLeft.getText().length()));
 ////            // If we are typing - character we hear a long beep and if . character we hear a short beep.
-////            
-        });
-        textAreaRight.setOnKeyPressed(event -> {           
-            if(trainButton.getText().equals("Translate") && event.getCode() == KeyCode.ENTER){
-                System.out.println("Enter pressed");
-                String convertableMorse = textAreaLeft.getText().replaceAll("\\s+", " ");
-                String inputLetters = textAreaRight.getText().trim();
-                scoreLabel.setText("Score: ");
-
-                
-                if(functionality.checkIfMorseIsCorrect(convertableMorse, inputLetters)){                    
-                    answerStatus.setText("Correct answer!");
-                    scoreValue.setText(Integer.toString(userInfo.addToCurrentScore((int)difficultySlider.getValue())));
-                    System.out.println("Scorevalue!!!!!! " + Integer.parseInt(scoreValue.getText()));
-                    userAction.updateUserHighscoreToDB(userInfo.getUsername(), Integer.parseInt(scoreValue.getText()));
-                    textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
-                    textAreaRight.clear();
-                }else{
-                    answerStatus.setText("Wrong answer, better luck next time");
-                    userInfo.setScoreToZero();
-                    scoreValue.setText(Integer.toString(userInfo.getScore()));
-                    textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
-                    textAreaRight.clear();                    
-                }
-            }
-        });
-        
-        difficultySlider.setOnMouseReleased((event) -> {
-            System.out.println("Difficulty Slider action");
-            if(trainButton.getText().equals("Translate")){
-                textAreaLeft.setDisable(true);
-                textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
-                System.out.println(value);
-            }
-        });
-        
-        createAccountButton.setOnAction((event) -> {
-            System.out.println("Create account Button action");
-            userAction.createAccount(usernameTextField.getText(), passwordTextField.getText());
-            usernameTextField.clear();
-            passwordTextField.clear();               
-        });
-        
-        logInButton.setOnAction((event) -> {
-            System.out.println("Log in Button action");
-            logInStatus.setText("Logged In as: " + usernameTextField.getText());  
-            userAction.logIn(usernameTextField.getText(), passwordTextField.getText());
-            highscoreLabel.setDisable(false);
-            highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(usernameTextField.getText())));
-            usernameTextField.clear();
-            passwordTextField.clear();  
-        });
-    }
-    
-    @FXML
-    private void switchToTextToMorse() throws IOException {
-        
-    }
-    
-    @FXML
-    private void convertTextToMorse() throws IOException {
-        textAreaRight.setText(functionality.convertMultipleLettersToMorse(textAreaLeft.getText()));
-    }
-    
-    @FXML
-    private void convertMorseToText() throws IOException {
-        textAreaRight.setText(functionality.convertMultipleMorsecodeToAlphabets(textAreaLeft.getText()));
-    }
-    
-    //When this method is called it changes the scene to infoView
-    @FXML
-    public void changeViewToInfo(ActionEvent event) throws IOException {
-        Parent infoViewParent = FXMLLoader.load(getClass().getResource("InfoView.fxml"));
-        Scene infoViewScene = new Scene(infoViewParent);
-        
-        //this line gets the stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(infoViewScene);
-        window.show();
-    }
-    
-    @FXML
-    public void changeViewToAlphabetTableInfo(ActionEvent event) throws IOException {
-        Parent infoViewParent = FXMLLoader.load(getClass().getResource("AlphabetTableView.fxml"));
-        Scene infoViewScene = new Scene(infoViewParent);
-        
-        //this line gets the stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(infoViewScene);
-        window.show();
-    }
-    
-    
-
-//    @FXML
-//    private void switchToSecondary() throws IOException {
-//        MorseTrainerUi.setRoot("secondary");
-//    }
-    
-    
+////      
 }
