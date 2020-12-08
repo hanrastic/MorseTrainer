@@ -132,6 +132,27 @@ public class MorseTrainerFunctionalityTest {
         input = "... 45678iko9876rd .-. /)(/&%&/( ..... -.-       .-.. .-..";
         validOutput = "s Not morse code.  r Not morse code.  5 k l l ";
         assertEquals(morse.convertMultipleMorsecodeToAlphabets(input), validOutput);
+      
     }
+    
+    @Test
+    public void testForCheckingIfConversionOk() {
+        
+        assertTrue(morse.checkIfMorseIsCorrect("-.-", "k"));
+        assertFalse(morse.checkIfMorseIsCorrect("---", "m"));
+        
+    }
+    
+    @Test
+    public void randomGeneratorReturnsString() {
+        String i = morse.randomValue(2);
+        String charAt = Character.toString(i.charAt(1));
+        //assertEquals(i, i.contains("-" || "."));
+        //assertEquals(i, i.contains("-") || i.contains("."));
+        assertTrue(morse.getAlphabetFromMorse(charAt), morse.checkIfMorseIsCorrect(charAt, morse.getAlphabetFromMorse(charAt)));
+        
+        
+    }
+    
 }
 

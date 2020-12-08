@@ -27,7 +27,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Logging in and creating account is done using the same fields. So first time logging in, press 'create account' and type in preferred username and password to the text fields. (Does not work in current version)" wrappingWidth="510.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Logging in and creating account is done using the same fields. So first time logging in, press 'create account' and type in preferred username and password to the text fields. (Creating account and logging in works when carefull. Logging in with wrong credentials will cause a crash :D ))" wrappingWidth="510.13671875" />
             <Label text="TRAINING MODE">
                <font>
                   <Font name="System Bold" size="12.0" />

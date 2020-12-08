@@ -2,15 +2,11 @@ package morsetrainer.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import morsetrainer.dao.DBOperations;
-//import static morsetrainer.domain.Morsetrainer.scanner;
 
 /**
  *
@@ -228,12 +224,4 @@ public class TrainerFunctionality {
         } else return false;
     }
     
-    public void testDB(String username, String password) {
-        DBOperations.insertData(username, password);
-        
-    }
-    
-    public void testHighscoreUpdateDB(String username, int currentHighscore) {
-        DBOperations.updateUserHighscore(username, currentHighscore);
-    }
 }

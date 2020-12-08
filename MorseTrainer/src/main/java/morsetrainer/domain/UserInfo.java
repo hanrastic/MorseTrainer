@@ -44,7 +44,7 @@ public class UserInfo {
         this.score = highscore;
     }
     
-        /**
+    /**
     * Method for setting score to zero
     */ 
     public void setScoreToZero(){

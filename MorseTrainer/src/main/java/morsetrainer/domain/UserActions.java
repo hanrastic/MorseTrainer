@@ -13,7 +13,7 @@ import morsetrainer.dao.DBOperations;
  */
 public class UserActions {
     UserInfo User = new UserInfo();
-    
+    DBOperations DBOperations = new DBOperations();
     public void createAccount(String username, String password) {
         if(username.isEmpty() || password.isEmpty()){
             System.out.println("Not valid for creating account");

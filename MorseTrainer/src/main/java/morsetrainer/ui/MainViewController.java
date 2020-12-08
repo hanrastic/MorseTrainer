@@ -195,13 +195,13 @@ public class MainViewController {
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();
                 }else{
-                    //Update highscore here when round is over
-                    System.out.println("Scorevalue!!!!!! " + Integer.parseInt(scoreValue.getText()));
-                    System.out.println("HighscoreValue!!! " + Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
-                    
-                    userAction.updateUserHighscoreToDB(userInfo.getUsername(), Integer.parseInt(scoreValue.getText()));
-                    highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
-                    
+                    //check if user is logged in
+                    //Update highscore here when round is over                    
+//                    System.out.println("HighscoreValue!!! " + Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
+//                    System.out.println("Scorevalue!!!!!! " + Integer.parseInt(scoreValue.getText()));
+//                    userAction.updateUserHighscoreToDB(userInfo.getUsername(), Integer.parseInt(scoreValue.getText()));
+//                    highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
+//                    
                     answerStatus.setText("Wrong answer, better luck next time");
                     userInfo.setScoreToZero();
                     scoreValue.setText(Integer.toString(userInfo.getScore()));
