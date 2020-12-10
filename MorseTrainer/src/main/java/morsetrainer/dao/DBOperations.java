@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package morsetrainer.dao;
 
 import java.sql.Connection;
@@ -21,6 +17,7 @@ import java.util.logging.Logger;
 
 public class DBOperations {
     Connection connection;
+    
     public DBOperations() {
         connection = DBConnector.getConnection();
         if (connection == null) {
@@ -33,10 +30,10 @@ public class DBOperations {
     * Method for inserting data to database
     * Contains SQL commands for accessing database
     *
-    * @param   username   users username
-    * @param   password      users password
+    * @param   username
+    * @param   password
     * 
-    * @return true if insert is ok
+    * @return true if insert is okay
     */ 
     public boolean insertData(String username, String password) throws SQLException {
         PreparedStatement preparedStatement = null;
@@ -58,8 +55,13 @@ public class DBOperations {
         }   
     }
     
+    /**
+    * Method for validating log in, checking that username matches password
+    *
+    * @param   username   
+    * @param   password    
+    */ 
     public boolean validateLogIn(String username, String password) throws SQLException {
-        //tsekkaa että käyttäjänimi täsmää salasanan kanssa
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String sqlQuery = "SELECT * "
@@ -81,18 +83,15 @@ public class DBOperations {
             return false;
         }
     }
-    
-    
-    
+
     /**
-    * Method for updating highscore to database
-    * Contains SQL command for accessing databse
+    * Method for updating high score to database
+    * Contains SQL command for accessing database
     *
-    * @param   username   users username
-    * @param   newHighScore     users new highscore
+    * @param   username  
+    * @param   newHighScore    
     */ 
     public void updateUserHighscore(String username, int newHighScore) {
-        System.out.println("Username in DBOperations " + username);
         PreparedStatement preparedStatement = null;
         String sqlQuery = "UPDATE users "
                 + "SET highscore = ? " 
@@ -103,60 +102,39 @@ public class DBOperations {
             preparedStatement.setInt(1, newHighScore);
             preparedStatement.setString(2, username);
             preparedStatement.executeUpdate();
-            System.out.println(username + "'s highscore has been updated to " + newHighScore);
-            
+            System.out.println(username + "'s highscore has been updated to " + newHighScore);            
         } catch (SQLException ex) {
             Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
     
-//    /**
-//    * Method for getting users highscore
-//    * Contains SQL command for accessing databse
-//    *
-//    * @param   username   users username
-//    */ 
-//    public int getUserHighscoreFromDB(String username) {
-//        PreparedStatement preparedStatement = null;
-//        ResultSet resultSet = null;
-//        String sqlQuery = "SELECT highscore "
-//                + "FROM users "
-//                + "WHERE username = ?";
-//        int resultFromDB = 0;
-//        
-//        try { 
-//            preparedStatement = connection.prepareStatement(sqlQuery);
-//            preparedStatement.setString(1, username);
-//            resultSet = preparedStatement.executeQuery();
-//            resultFromDB = resultSet.getInt("highscore");
-//            System.out.println("Returns " + resultFromDB + " from database");
-//            return resultFromDB;
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
-//        } 
-//        return 9999;
-//    }
-        public int getUserHighscoreFromDB(String username) {
-        Statement stmt;
-        ResultSet resultSet;
-        String sqlQuery;
-        int resultFromDB = 0;
-        
-        try { 
-            stmt = connection.createStatement();
-            sqlQuery = "SELECT highscore "
-                + "FROM users "
-                + "WHERE username ='" + username + "';";
-            resultSet = stmt.executeQuery(sqlQuery);
-            
-            while(resultSet.next()) {
-                resultFromDB = resultSet.getInt("highscore");
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        return resultFromDB;
+    /**
+    * Method for getting users high score
+    * Contains SQL command for accessing database
+    *
+    * @param    username
+    * @return  int returns users high score from database
+    */ 
+    public int getUserHighscoreFromDB(String username) {
+    Statement stmt;
+    ResultSet resultSet;
+    String sqlQuery;
+    int resultFromDB = 0;
+
+    try { 
+        stmt = connection.createStatement();
+        sqlQuery = "SELECT highscore "
+            + "FROM users "
+            + "WHERE username ='" + username + "';";
+        resultSet = stmt.executeQuery(sqlQuery);
+
+        while(resultSet.next()) {
+            resultFromDB = resultSet.getInt("highscore");
+        }           
+    } catch (SQLException ex) {
+        Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
+    } 
+    return resultFromDB;
     }
         
 }

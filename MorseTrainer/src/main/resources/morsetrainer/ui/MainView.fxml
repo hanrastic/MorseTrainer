@@ -20,7 +20,7 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Label>
-           <Button fx:id="changeModeButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#switchToTextToMorse" prefHeight="0.0" prefWidth="71.0" scaleX="0.16" scaleY="0.2" />
+           <Button fx:id="changeModeButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="0.0" prefWidth="71.0" scaleX="0.16" scaleY="0.2" />
             <Label fx:id="textLabel" prefHeight="30.0" prefWidth="122.0" text="Text">
                <font>
                   <Font name="System Bold" size="18.0" />

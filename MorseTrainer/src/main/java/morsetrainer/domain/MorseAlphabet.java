@@ -13,6 +13,7 @@ import java.util.HashMap;
  * @author joonas
  */
 public class MorseAlphabet {
+    
     public HashMap<String, String> alphabets = new HashMap<String, String>();
     public HashMap<Integer, String> numbers = new HashMap<Integer, String>();
     

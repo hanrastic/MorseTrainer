@@ -133,6 +133,7 @@ public class MainViewController {
                 }
             }
         });
+        
         trainButton.setOnAction((event) -> {  
             System.out.println("Train Button Action");
             if(trainButton.getText().equals("Translate")) {
@@ -216,12 +217,6 @@ public class MainViewController {
             }
         });
         
-//        createAccountButton.setOnAction((event) -> {
-//            System.out.println("Create account Button action");
-//            userAction.createAccount(usernameTextField.getText(), passwordTextField.getText());
-//            usernameTextField.clear();
-//            passwordTextField.clear();               
-//        });
         createAccountButton.setOnAction((event) -> {
             System.out.println("Create account Button action");
             try {
@@ -268,6 +263,9 @@ public class MainViewController {
         textAreaRight.setText(functionality.convertMultipleMorsecodeToAlphabets(textAreaLeft.getText()));
     }
     
+    /**
+    * Changes the view to infoView
+    */
     @FXML
     public void changeViewToInfo(ActionEvent event) throws IOException {
         Parent infoViewParent = FXMLLoader.load(getClass().getResource("InfoView.fxml"));
@@ -277,6 +275,9 @@ public class MainViewController {
         window.show();
     }
     
+    /**
+    * Changes the view to alphabetTableView
+    */
     @FXML
     public void changeViewToAlphabetTableInfo(ActionEvent event) throws IOException {
         Parent infoViewParent = FXMLLoader.load(getClass().getResource("AlphabetTableView.fxml"));
@@ -285,12 +286,7 @@ public class MainViewController {
         window.setScene(infoViewScene);
         window.show();
     }
-    
-        
-    @FXML
-    private void switchToTextToMorse() throws IOException {
-        
-    }
+
     
 //            // Key was typed, do something...
 //            System.out.println("TextArea Key Typed Action");

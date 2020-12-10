@@ -10,30 +10,24 @@ import morsetrainer.dao.DBOperations;
  * @author joonas
  */
 public class UserActions {
+    
     UserInfo user = new UserInfo();
     DBOperations dbOperations = new DBOperations();
     
-//    /**
-//    * Method for creating account and adding users info to database
-//    *
-//    * @param   username   users username
-//    * @param   password    users password
-//    */ 
-//    public void createAccount(String username, String password) {
-//        if (username.isEmpty() || password.isEmpty()) {
-//            System.out.println("Not valid for creating account");
-//        } else {
-//            dbOperations.insertData(username, password);
-//        }
-//    }
-    
+    /**
+    * Method for creating account and adding users info to database
+    *
+    * @param   username   users username
+    * @param   password    users password
+    * 
+    * @return true if creating new account is okay
+    */ 
     public boolean createAccount(String username, String password) throws SQLException {
         if (username.isEmpty() || password.isEmpty()) {
             System.out.println("Not valid for creating account");
             return false;
-        } else if (dbOperations.insertData(username, password)){
-           
-            dbOperations.updateUserHighscore(username, 0); //Testi
+        } else if (dbOperations.insertData(username, password)) {    
+            dbOperations.updateUserHighscore(username, 0);
             System.out.println("Insert ok");
             return true;
         }
@@ -45,7 +39,6 @@ public class UserActions {
     
     /**
     * Method for logging in
-    * Method sets users highscore visible from database
     *
     * @param   username   users username
     * @param   password    users password
@@ -70,22 +63,20 @@ public class UserActions {
     }
     
     /**
-    * Method for updating users highscore to database
+    * Method for updating users high score to database
     * Method checks if new score is better than previous best and updates is to database if it is
     * 
     * @param   username   users username
-    * @param   currentHighscore     users highscore
+    * @param   currentHighscore     users high score
     */ 
     public void updateUserHighscoreToDB(String username, int currentHighscore) {
         if (currentHighscore > getUserHighscoreFromDB(username)) {
             dbOperations.updateUserHighscore(username, currentHighscore);
         }
     }
-    
-    
-    
+
     /**
-    * Getter method for highscore 
+    * Getter method for high score 
     * 
     * @param   username   users username
     */ 

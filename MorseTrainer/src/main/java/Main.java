@@ -6,7 +6,6 @@
  */
 import morsetrainer.ui.MorseTrainerUi;
 /**
- *
  * @author joonas
  */
 public class Main {

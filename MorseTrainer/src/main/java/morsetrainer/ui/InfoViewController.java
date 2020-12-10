@@ -27,8 +27,9 @@ public class InfoViewController implements Initializable {
         // TODO
     }
     
-    
-    //When this method is called it changes the scene to infoView
+    /**
+     * Changes the view to mainView
+     */
     @FXML
     public void changeViewToMain(ActionEvent event) throws IOException {
         Parent infoViewParent = FXMLLoader.load(getClass().getResource("MainView.fxml"));

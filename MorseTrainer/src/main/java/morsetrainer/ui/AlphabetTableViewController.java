@@ -33,7 +33,10 @@ public class AlphabetTableViewController implements Initializable {
         // TODO
     }   
     
-        @FXML
+    /**
+    * Changes the view to mainView
+    */
+    @FXML
     public void changeViewToMain(ActionEvent event) throws IOException {
         Parent infoViewParent = FXMLLoader.load(getClass().getResource("MainView.fxml"));
         Scene infoViewScene = new Scene(infoViewParent);

@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Class contains functionality for database connection
+ * Class contains functionality for database connection and creating database
  * 
  * @author joonas
  */
