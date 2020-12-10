@@ -1,6 +1,7 @@
 package morsetrainer.ui;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -195,16 +196,12 @@ public class MainViewController {
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();
                 }else{
-                    //check if user is logged in
-                    //Update highscore here when round is over                    
-//                    System.out.println("HighscoreValue!!! " + Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
-//                    System.out.println("Scorevalue!!!!!! " + Integer.parseInt(scoreValue.getText()));
-//                    userAction.updateUserHighscoreToDB(userInfo.getUsername(), Integer.parseInt(scoreValue.getText()));
-//                    highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
-//                    
+                    System.out.println("Nykyisen käyttäjän username: " + userInfo.getUsername());
+                    userAction.updateUserHighscoreToDB(userInfo.getUsername(), Integer.parseInt(scoreValue.getText()));
+                    highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
+                    
                     answerStatus.setText("Wrong answer, better luck next time");
-                    userInfo.setScoreToZero();
-                    scoreValue.setText(Integer.toString(userInfo.getScore()));
+                    scoreValue.setText(Integer.toString(0));
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();                    
                 }
@@ -219,21 +216,42 @@ public class MainViewController {
             }
         });
         
+//        createAccountButton.setOnAction((event) -> {
+//            System.out.println("Create account Button action");
+//            userAction.createAccount(usernameTextField.getText(), passwordTextField.getText());
+//            usernameTextField.clear();
+//            passwordTextField.clear();               
+//        });
         createAccountButton.setOnAction((event) -> {
             System.out.println("Create account Button action");
-            userAction.createAccount(usernameTextField.getText(), passwordTextField.getText());
+            try {
+                if(userAction.createAccount(usernameTextField.getText(), passwordTextField.getText())) {
+                    System.out.println("Account created.");
+                } else
+                {
+                    System.out.println("Account creation failed.");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }   
             usernameTextField.clear();
             passwordTextField.clear();               
         });
         
         logInButton.setOnAction((event) -> {
             System.out.println("Log in Button action");
-            
-            //Pitää kokeilla onko käyttäjää olemassa ja hyväksytäänkö sisäänkirjautuminen
-            logInStatus.setText("Logged In as: " + usernameTextField.getText());  
-            userAction.logIn(usernameTextField.getText(), passwordTextField.getText());
-            highscoreLabel.setDisable(false);
-            highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(usernameTextField.getText())));
+            try {
+                if(userAction.logIn(usernameTextField.getText().trim(), passwordTextField.getText().trim())){
+                    logInStatus.setText("Logged In as: " + usernameTextField.getText());  
+                    highscoreLabel.setDisable(false);
+                    highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(usernameTextField.getText())));
+                    System.out.println("Log In Ok in Controller");
+                } else {
+                    System.out.println("Log in failed");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            }   
             usernameTextField.clear();
             passwordTextField.clear();  
         });

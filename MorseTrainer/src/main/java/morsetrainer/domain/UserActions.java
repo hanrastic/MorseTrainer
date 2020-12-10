@@ -1,6 +1,7 @@
 
 package morsetrainer.domain;
 
+import java.sql.SQLException;
 import morsetrainer.dao.DBOperations;
 
 /**
@@ -12,17 +13,33 @@ public class UserActions {
     UserInfo user = new UserInfo();
     DBOperations dbOperations = new DBOperations();
     
-    /**
-    * Method for creating account and adding users info to database
-    *
-    * @param   username   users username
-    * @param   password    users password
-    */ 
-    public void createAccount(String username, String password) {
+//    /**
+//    * Method for creating account and adding users info to database
+//    *
+//    * @param   username   users username
+//    * @param   password    users password
+//    */ 
+//    public void createAccount(String username, String password) {
+//        if (username.isEmpty() || password.isEmpty()) {
+//            System.out.println("Not valid for creating account");
+//        } else {
+//            dbOperations.insertData(username, password);
+//        }
+//    }
+    
+    public boolean createAccount(String username, String password) throws SQLException {
         if (username.isEmpty() || password.isEmpty()) {
             System.out.println("Not valid for creating account");
-        } else {
-            dbOperations.insertData(username, password);
+            return false;
+        } else if (dbOperations.insertData(username, password)){
+           
+            dbOperations.updateUserHighscore(username, 0); //Testi
+            System.out.println("Insert ok");
+            return true;
+        }
+        else {
+            System.out.println("Insert failed");
+            return false;
         }
     }
     
@@ -33,10 +50,23 @@ public class UserActions {
     * @param   username   users username
     * @param   password    users password
     */ 
-    public void logIn(String username, String password) {
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setScore(getUserHighscoreFromDB(username));
+    public boolean logIn(String username, String password) throws SQLException {
+        
+        if (username.isEmpty() || password.isEmpty()) {
+            System.out.println("Not valid input for logging in");
+            return false;
+        } else if (dbOperations.validateLogIn(username,password)) {
+          
+            user.setUsername(username);
+            user.setPassword(password);
+            user.setScore(getUserHighscoreFromDB(username));
+            System.out.println("Juuri kirjautuneen käyttäjän tiedot: " + user.getUsername() + "    " +  user.getPassword());
+            System.out.println("LogIn OK in USERACTIONS -class");
+            return true;
+        } else {
+            System.out.println("log in failed failed");
+            return false;
+        }     
     }
     
     /**
