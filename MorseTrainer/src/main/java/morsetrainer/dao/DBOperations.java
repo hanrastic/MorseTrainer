@@ -29,29 +29,15 @@ public class DBOperations {
         }
     }
     
-//    /**
-//    * Method for inserting data to database
-//    * Contains SQL commands for accessing database
-//    *
-//    * @param   username   users username
-//    * @param   password      users password
-//    */ 
-//    public void insertData(String username, String password) {
-//        PreparedStatement preparedStatement = null;
-//        String sqlQuery = "INSERT INTO users(username, password) VALUES (?,?)";
-//
-//        try {
-//            preparedStatement = connection.prepareStatement(sqlQuery);
-//            preparedStatement.setString(1, username);
-//            preparedStatement.setString(2, password);
-//            preparedStatement.executeUpdate();
-//            System.out.println("Data has been inserted!");
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
-//        } 
-//    } 
-    
+    /**
+    * Method for inserting data to database
+    * Contains SQL commands for accessing database
+    *
+    * @param   username   users username
+    * @param   password      users password
+    * 
+    * @return true if insert is ok
+    */ 
     public boolean insertData(String username, String password) throws SQLException {
         PreparedStatement preparedStatement = null;
         String sqlQuery = "INSERT INTO users(username, password) VALUES (?,?)";
@@ -89,9 +75,7 @@ public class DBOperations {
                 return true;
             } else {
                 return false;
-            }
-            
-            
+            }   
         } catch (SQLException ex) {
             Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
             return false;

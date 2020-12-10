@@ -242,6 +242,7 @@ public class MainViewController {
             System.out.println("Log in Button action");
             try {
                 if(userAction.logIn(usernameTextField.getText().trim(), passwordTextField.getText().trim())){
+                    userInfo.setUsername(usernameTextField.getText().trim());
                     logInStatus.setText("Logged In as: " + usernameTextField.getText());  
                     highscoreLabel.setDisable(false);
                     highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(usernameTextField.getText())));
