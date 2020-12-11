@@ -290,41 +290,5 @@ public class MainViewController {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(infoViewScene);
         window.show();
-    }
-
-    
-//            // Key was typed, do something...
-//            System.out.println("TextArea Key Typed Action");
-//            if(textAreaLeft.getText().charAt(textAreaLeft.getText().length()-2)) {
-//                System.out.println("Space Key press observed.");
-//                try {
-//                    convertTextToMorse();
-//                } catch (IOException ex) {
-//                    Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//            else if (textAreaLeft.getText().endsWith("-") || textAreaLeft.getText().endsWith(".")) {
-//                try {
-//                    convertMorseToText();
-//                } catch (IOException ex) {
-//                    Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//                    //AudioClip beep0408Sound = new AudioClip(getClass().getResource("b1s0408.wav").toString());
-//                    //beep0408Sound.setPriority(1);
-//                    //beep0408Sound.setCycleCount(3);
-//                    //beep0408Sound.play();
-//            }
-////            else if (textAreaLeft.getText().endsWith(".")) {
-////                //AudioClip beep0208Sound = new AudioClip(getClass().getResource("b1s0208.wav").toString());
-////                //beep0208Sound.setPriority(1);
-////                //beep0208Sound.setCycleCount(3);
-////                //beep0208Sound.play();
-////            }
-////            
-////            // Here we just append characters one by one... This is the place to call helper method for Mode code to text conversion and vice versa.
-////            // Remember to check the mode first so that we know if we are parsing Morse code to text or text to Morse code.
-////            // Its is best to separate Morse codes by Space " " to make them easily recognizeable.
-////                textAreaRight.appendText(textAreaLeft.getText().substring(textAreaLeft.getText().length()-1, textAreaLeft.getText().length()));
-////            // If we are typing - character we hear a long beep and if . character we hear a short beep.
-////      
+    }     
 }

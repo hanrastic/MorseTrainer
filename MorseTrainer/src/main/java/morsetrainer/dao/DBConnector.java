@@ -26,7 +26,6 @@ public class DBConnector {
     */      
     public static boolean isDatabaseExists(String dbFilePath) {
         File dbFile = new File(dbFilePath);
-        
         return dbFile.exists();
     }
     
