@@ -21,4 +21,5 @@
 |6.12|5|Tietokanta aloitettu.  |
 |7.12|7|Sisäänkirjautuminen ja uuden käyttäjän luominen melkein valmis|
 |8.12|8|Bugeja ja koodia. Releasen valmistelu, javadoc, checkstyle ja arkkitehtuurikuvaus|
-|Yhteensä|66|
+|10.12|7|Kaikki perustoiminnallisuus toimii|
+|Yhteensä|73|

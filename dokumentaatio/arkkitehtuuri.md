@@ -23,7 +23,6 @@ Kääntämistä vastaavia metodeja **TrainerFunctionality** -luokassa:
 * String getMorsecodeFromAlphabet(String alphabetLetter)
 * Sting getMorsecodeFromInteger(int inputNumber)
 * String getAlphabetFromMorse(String morseCode)
-* String getAlphabetFromMorse(String morseCode)
 * int getIntegerFromMorse(String morse)
 
 Realiaikasesta kääntämisestä vastaa seuraavat metodit, jotka hyödyntävät yllä mainittuja apumetodeita:
