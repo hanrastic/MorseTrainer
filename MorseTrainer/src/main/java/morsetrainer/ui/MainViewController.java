@@ -151,6 +151,8 @@ public class MainViewController {
             }  
             else {
                 textAreaLeft.setDisable(true);
+                scoreLabel.setText("Score:");
+                scoreValue.setText(Integer.toString(0));
                 textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                 trainButton.setText("Translate");
                 modeLabel.setText("Training mode");
@@ -187,7 +189,7 @@ public class MainViewController {
             if(trainButton.getText().equals("Translate") && event.getCode() == KeyCode.ENTER){
                 System.out.println("Enter pressed");
                 String convertableMorse = textAreaLeft.getText().replaceAll("\\s+", " ");
-                String inputLetters = textAreaRight.getText().trim();
+                String inputLetters = textAreaRight.getText().toLowerCase().trim();
                 scoreLabel.setText("Score: ");
 
                 
@@ -198,11 +200,14 @@ public class MainViewController {
                     textAreaRight.clear();
                 }else{
                     System.out.println("Nykyisen käyttäjän username: " + userInfo.getUsername());
-                    userAction.updateUserHighscoreToDB(userInfo.getUsername(), Integer.parseInt(scoreValue.getText()));
-                    highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
-                    
+                    if(userInfo.getUsername() != null){
+                        System.out.println(Integer.parseInt(scoreValue.getText()));
+                        userAction.updateUserHighscoreToDB(userInfo.getUsername(), Integer.parseInt(scoreValue.getText()));
+                        highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
+                    }else 
                     answerStatus.setText("Wrong answer, better luck next time");
                     scoreValue.setText(Integer.toString(0));
+                    userInfo.setScoreToZero();
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();                    
                 }
@@ -238,7 +243,7 @@ public class MainViewController {
             try {
                 if(userAction.logIn(usernameTextField.getText().trim(), passwordTextField.getText().trim())){
                     userInfo.setUsername(usernameTextField.getText().trim());
-                    logInStatus.setText("Logged In as: " + usernameTextField.getText());  
+                    logInStatus.setText("Logged In as: " + usernameTextField.getText());
                     highscoreLabel.setDisable(false);
                     highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(usernameTextField.getText())));
                     System.out.println("Log In Ok in Controller");
@@ -255,12 +260,12 @@ public class MainViewController {
     
     @FXML
     private void convertTextToMorse() throws IOException {
-        textAreaRight.setText(functionality.convertMultipleLettersToMorse(textAreaLeft.getText()));
+        textAreaRight.setText(functionality.convertMultipleLettersToMorse(textAreaLeft.getText().toLowerCase()));
     }
     
     @FXML
     private void convertMorseToText() throws IOException {
-        textAreaRight.setText(functionality.convertMultipleMorsecodeToAlphabets(textAreaLeft.getText()));
+        textAreaRight.setText(functionality.convertMultipleMorsecodeToAlphabets(textAreaLeft.getText().toLowerCase()));
     }
     
     /**

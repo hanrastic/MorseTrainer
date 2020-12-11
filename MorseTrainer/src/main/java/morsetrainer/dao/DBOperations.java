@@ -83,6 +83,30 @@ public class DBOperations {
             return false;
         }
     }
+    
+    
+    /**
+    * Method for checking if user already exist
+    *
+    * @param   user
+    * @return true if user already exist
+    */ 
+    public boolean isUser(String user) throws SQLException {
+     PreparedStatement preparedStatement = null;
+     ResultSet resultSet = null;
+     String sql = "select rowid, * from users where username = ?";
+        try {
+         preparedStatement = connection.prepareStatement(sql);
+         preparedStatement.setString(1, user);
+         resultSet = preparedStatement.executeQuery();
+            return resultSet.next();    
+        } catch (SQLException e) {
+            return false;
+        } finally {
+            if(preparedStatement != null) preparedStatement.close();
+            if(resultSet != null) resultSet.close();
+        }   
+    }
 
     /**
     * Method for updating high score to database
@@ -134,7 +158,7 @@ public class DBOperations {
     } catch (SQLException ex) {
         Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
     } 
-    return resultFromDB;
+        return resultFromDB;
     }
         
 }

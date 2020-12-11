@@ -26,12 +26,14 @@ public class UserActions {
         if (username.isEmpty() || password.isEmpty()) {
             System.out.println("Not valid for creating account");
             return false;
+        } if (dbOperations.isUser(username)){
+            System.out.println("Account for this username already exist");
+            return false;            
         } else if (dbOperations.insertData(username, password)) {    
             dbOperations.updateUserHighscore(username, 0);
             System.out.println("Insert ok");
             return true;
-        }
-        else {
+        } else {
             System.out.println("Insert failed");
             return false;
         }
