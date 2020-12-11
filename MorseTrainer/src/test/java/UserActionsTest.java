@@ -24,6 +24,10 @@ public class UserActionsTest {
     UserActions userA = new UserActions();
     DBOperations dbOp = new DBOperations();
     
+    @Before
+    public void setUp() throws SQLException{
+        userA.createAccount("Joonas", "joonas");
+    }
     @Test
     public void createAccountOk() throws SQLException {
         userA.createAccount("Jonne", "ykskakskol");
@@ -38,6 +42,7 @@ public class UserActionsTest {
     
     @Test
     public void createAccountNotOkWithUsedUsername() throws SQLException {
+        userA.createAccount("Jonne", "ykskakskol");
         assertFalse(userA.createAccount("Jonne","ykskakskol"));
     }
     
