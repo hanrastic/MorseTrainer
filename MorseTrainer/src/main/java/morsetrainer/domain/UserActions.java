@@ -26,7 +26,7 @@ public class UserActions {
         if (username.isEmpty() || password.isEmpty()) {
             System.out.println("Not valid for creating account");
             return false;
-        } if (dbOperations.isUser(username)){
+        } if (dbOperations.isUser(username)) {
             System.out.println("Account for this username already exist");
             return false;            
         } else if (dbOperations.insertData(username, password)) {    
@@ -50,7 +50,7 @@ public class UserActions {
         if (username.isEmpty() || password.isEmpty()) {
             System.out.println("Not valid input for logging in");
             return false;
-        } else if (dbOperations.validateLogIn(username,password)) {
+        } else if (dbOperations.validateLogIn(username, password)) {
           
             user.setUsername(username);
             user.setPassword(password);

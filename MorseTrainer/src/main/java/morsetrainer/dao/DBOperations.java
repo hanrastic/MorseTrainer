@@ -50,8 +50,12 @@ public class DBOperations {
             Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }  finally {
-            if(preparedStatement != null) preparedStatement.close();
-            if(resultSet != null) resultSet.close();
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (resultSet != null) {
+                resultSet.close();
+            }
         }   
     }
     
@@ -92,19 +96,23 @@ public class DBOperations {
     * @return true if user already exist
     */ 
     public boolean isUser(String user) throws SQLException {
-     PreparedStatement preparedStatement = null;
-     ResultSet resultSet = null;
-     String sql = "select rowid, * from users where username = ?";
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String sql = "select rowid, * from users where username = ?";
         try {
-         preparedStatement = connection.prepareStatement(sql);
-         preparedStatement.setString(1, user);
-         resultSet = preparedStatement.executeQuery();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, user);
+            resultSet = preparedStatement.executeQuery();
             return resultSet.next();    
         } catch (SQLException e) {
             return false;
         } finally {
-            if(preparedStatement != null) preparedStatement.close();
-            if(resultSet != null) resultSet.close();
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (resultSet != null) {
+                resultSet.close();
+            }
         }   
     }
 
@@ -120,7 +128,6 @@ public class DBOperations {
         String sqlQuery = "UPDATE users "
                 + "SET highscore = ? " 
                 + "WHERE username = ?";
-        
         try {        
             preparedStatement = connection.prepareStatement(sqlQuery);
             preparedStatement.setInt(1, newHighScore);
@@ -140,11 +147,10 @@ public class DBOperations {
     * @return  int returns users high score from database
     */ 
     public int getUserHighscoreFromDB(String username) {
-    Statement stmt;
-    ResultSet resultSet;
-    String sqlQuery;
-    int resultFromDB = 0;
-
+        Statement stmt;
+        ResultSet resultSet;
+        String sqlQuery;
+        int resultFromDB = 0;
     try { 
         stmt = connection.createStatement();
         sqlQuery = "SELECT highscore "
