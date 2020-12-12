@@ -151,19 +151,19 @@ public class DBOperations {
         ResultSet resultSet;
         String sqlQuery;
         int resultFromDB = 0;
-    try { 
-        stmt = connection.createStatement();
-        sqlQuery = "SELECT highscore "
-            + "FROM users "
-            + "WHERE username ='" + username + "';";
-        resultSet = stmt.executeQuery(sqlQuery);
+        try { 
+            stmt = connection.createStatement();
+            sqlQuery = "SELECT highscore "
+                + "FROM users "
+                + "WHERE username ='" + username + "';";
+            resultSet = stmt.executeQuery(sqlQuery);
 
-        while(resultSet.next()) {
-            resultFromDB = resultSet.getInt("highscore");
-        }           
-    } catch (SQLException ex) {
-        Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
-    } 
+            while(resultSet.next()) {
+                resultFromDB = resultSet.getInt("highscore");
+            }           
+        } catch (SQLException ex) {
+            Logger.getLogger(DBOperations.class.getName()).log(Level.SEVERE, null, ex);
+        } 
         return resultFromDB;
     }
         
