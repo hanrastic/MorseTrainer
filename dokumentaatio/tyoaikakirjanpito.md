@@ -22,4 +22,5 @@
 |7.12|7|Sisäänkirjautuminen ja uuden käyttäjän luominen melkein valmis|
 |8.12|8|Bugeja ja koodia. Releasen valmistelu, javadoc, checkstyle ja arkkitehtuurikuvaus|
 |10.12|7|Kaikki perustoiminnallisuus toimii|
-|Yhteensä|73|
+|11.12|4|Kaikki perustoiminnallisuus toimii|
+|Yhteensä|77|
