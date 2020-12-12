@@ -10,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -94,6 +96,7 @@ public class MainViewController {
     public void initialize() {
         Image buttonFace = new Image(getClass().getResourceAsStream("Recycle.png"));
         ImageView buttonFaceView = new ImageView(buttonFace);
+        Alert alert = new Alert(AlertType.INFORMATION);
         double sliderValue = difficultySlider.getValue();
         //final URL resource = getClass().getResource("resources/b1s.wav");
         changeModeButton.setGraphic(buttonFaceView);
@@ -199,6 +202,7 @@ public class MainViewController {
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();
                 }else{
+                    answerStatus.setText("Wrong answer, better luck next time");
                     System.out.println("Nykyisen käyttäjän username: " + userInfo.getUsername());
                     if(userInfo.getUsername() != null){
                         System.out.println(Integer.parseInt(scoreValue.getText()));
@@ -227,9 +231,17 @@ public class MainViewController {
             try {
                 if(userAction.createAccount(usernameTextField.getText(), passwordTextField.getText())) {
                     System.out.println("Account created.");
+                    alert.setTitle("Account created!");
+                    String s = "Account has been created! \nYou can now log in.";
+                    alert.setContentText(s);
+                    alert.showAndWait();
                 } else
                 {
                     System.out.println("Account creation failed.");
+                    alert.setTitle("Creating account failed");
+                    String s = "Make sure that either of the fields are not empty \nor consider trying different username.";
+                    alert.setContentText(s);
+                    alert.showAndWait();
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
@@ -249,6 +261,10 @@ public class MainViewController {
                     System.out.println("Log In Ok in Controller");
                 } else {
                     System.out.println("Log in failed");
+                    alert.setTitle("Login failed");
+                    String s = "Please log in with a valid user name and password !";
+                    alert.setContentText(s);
+                    alert.showAndWait();
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
