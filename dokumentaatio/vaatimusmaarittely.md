@@ -5,6 +5,7 @@ Sovelluksella voi tutustua morseaakkosiin, sekä harjoitella merkkien tunnistami
 ## Perusversion tarjoama toiminnallisuus
 - Käyttäjä voi luoda sovellukkseen käyttäjän ja kirjautua sisälle (Tehty)
 - Sovelluksella on harjoittelumuoto, jossa tunnistetaan sovelluksen antamia satunnaisia morse-merkkejä (Tehty)
+  - Harjoittelumuodolle voi valita vaikeustason (Tehty)
   - Sovellus näyttää käyytäjään sidotun highscore tuloksen aiemmilta harjoittelukerroilta (Tehty (Toimii huonosti))
 - Sovelluksessa voi nähdä listan morse-merkeistä ja niitä vastaavista aakkosista (Tehty)
 - Sovelluksessa voi kääntää yhden tai useamman kirjaimen tekstin sitä vastaavaksi Morsekoodiksi. Toimii molempiin suuntiin (Tehty)
