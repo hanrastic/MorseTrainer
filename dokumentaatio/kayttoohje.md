@@ -1,5 +1,5 @@
 ## Käyttöohje
-lataa tiedosto -..-
+lataa tiedosto [MorseTrainer.jar](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/v3.0)
 
 ## Ohjelman käynnistäminen
 
