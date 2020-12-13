@@ -15,3 +15,4 @@ Sovelluksella voi tutustua morseaakkosiin, sekä harjoitella merkkien tunnistami
 - Äänitoiminnot Morseaakkosille (kuulee merkit).
 - Tunniestettavien merkkien optimoiminen käyttäjän tarpeiden/osaamisen mukaan.
 - Merkkien tunnistamiselle voidaan luoda aikaraja valitun oman osaamisen mukaan.
+- Kaikkien käyttäjien joukosta top-10 parhaiden tulosten näyttäminen.
