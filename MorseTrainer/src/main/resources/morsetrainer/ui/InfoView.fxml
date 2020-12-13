@@ -13,27 +13,37 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="morsetrainer.ui.InfoViewController">
    <children>
-      <VBox prefHeight="458.0" prefWidth="660.0" spacing="20.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <VBox prefHeight="434.0" prefWidth="660.0" spacing="20.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>
             <Label text="Welcome to MorseTrainer" underline="true">
                <font>
                   <Font name="Consolas Bold" size="18.0" />
                </font>
             </Label>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This application is for learning Morse code. Application offers an training mode where you can get to know morse as well as practice converting letters. This application only recognizes alphabets and numbers.  You can not use special characters such as &quot; !&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~&quot;." wrappingWidth="658.936767578125" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You can also log in or create account in the main menu. Do this to keep track of your progress.  " wrappingWidth="699.7366943359376" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This application is for learning Morse code. Application offers training mode where you can get to know morse as well as practice converting letters. This application only recognizes alphabets and numbers.  You can not use special characters such as &quot; !&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~&quot;." wrappingWidth="658.936767578125" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN AND CREATE ACCOUNT">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Logging in and creating account is done using the same fields. So first time logging in, press 'create account' and type in preferred username and password to the text fields. (Creating account and logging in works when carefull. Logging in with wrong credentials will cause a crash :D ))" wrappingWidth="510.13671875" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Logging in and creating account is done using the same fields. First fill out username and password boxes and then click either to log in or to create account." wrappingWidth="510.13671875" />
+            <VBox prefHeight="85.0" prefWidth="660.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="131.0" text="TRANSLATE MODE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="In translatemode you can type preferred letters, words or morsecode and you will be shown corresponding conversion of it." wrappingWidth="466.9367446899414" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NOTE! You must specify direction of translation. To change it you can press green recycle button on top.                     Morse -&gt; Text   or   Text -&gt; Morse" wrappingWidth="634.1366348266602" />
+               </children>
+            </VBox>
             <Label text="TRAINING MODE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <HBox prefHeight="94.0" prefWidth="660.0" spacing="20.0">
+            <HBox prefHeight="70.0" prefWidth="660.0" spacing="20.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="In training mode you can train converting morse code -&gt; alphabets. You can select difficulty level from the slider. Going for difficultier conversions gives you more points." wrappingWidth="518.9367096424103" />
                   <GridPane>
@@ -67,8 +77,8 @@
                   </GridPane>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#changeViewToMain" text="Back to Menu" />
          </children>
       </VBox>
+      <Button layoutX="33.0" layoutY="455.0" mnemonicParsing="false" onAction="#changeViewToMain" text="Back to Menu" />
    </children>
 </AnchorPane>

@@ -158,7 +158,7 @@ public class DBOperations {
                 + "WHERE username ='" + username + "';";
             resultSet = stmt.executeQuery(sqlQuery);
 
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 resultFromDB = resultSet.getInt("highscore");
             }           
         } catch (SQLException ex) {
