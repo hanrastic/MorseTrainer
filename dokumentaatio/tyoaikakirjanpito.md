@@ -23,4 +23,5 @@
 |8.12|8|Bugeja ja koodia. Releasen valmistelu, javadoc, checkstyle ja arkkitehtuurikuvaus|
 |10.12|7|Kaikki perustoiminnallisuus toimii|
 |11.12|4|Kaikki perustoiminnallisuus toimii|
-|Yhteensä|77|
+|13.12|3|Dokumentaation kirjoittelua |
+|Yhteensä|80|
