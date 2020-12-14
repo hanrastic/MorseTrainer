@@ -4,6 +4,7 @@ Sovelluksella käyttäjä voi tutustua morseaakkosiin ja harjoitella niiden kä�
 ## Dokumentaatio
 * [vaatimusmaarittely](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 * [työaikakirjanpito](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
+* [Arkkitehtuuri](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 
 ## Releaset
 * [Viikko 5](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/viikko5)
