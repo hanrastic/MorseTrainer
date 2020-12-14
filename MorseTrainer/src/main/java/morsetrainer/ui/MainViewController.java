@@ -47,9 +47,6 @@ public class MainViewController {
     
     @FXML
     private Button createAccountButton;
-
-//    @FXML
-//    private Button highscoreButton; 
     
     @FXML
     private Slider difficultySlider;
@@ -97,8 +94,7 @@ public class MainViewController {
         Image buttonFace = new Image(getClass().getResourceAsStream("Recycle.png"));
         ImageView buttonFaceView = new ImageView(buttonFace);
         Alert alert = new Alert(AlertType.INFORMATION);
-        double sliderValue = difficultySlider.getValue();
-        //final URL resource = getClass().getResource("resources/b1s.wav");
+
         changeModeButton.setGraphic(buttonFaceView);
         highscoreLabel.setDisable(true);
         

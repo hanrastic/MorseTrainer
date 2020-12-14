@@ -34,7 +34,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="In translatemode you can type preferred letters, words or morsecode and you will be shown corresponding conversion of it." wrappingWidth="466.9367446899414" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="In translate mode you can type preferred letters, words or morsecode and you will be shown corresponding conversion of it." wrappingWidth="466.9367446899414" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NOTE! You must specify direction of translation. To change it you can press green recycle button on top.                     Morse -&gt; Text   or   Text -&gt; Morse" wrappingWidth="634.1366348266602" />
                </children>
             </VBox>
