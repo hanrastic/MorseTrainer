@@ -1,12 +1,12 @@
 # MorseTrainer
-Sovelluksella käyttäjä voi tutustua morseaakkosiin ja harjoitella niiden kääntämistä molempiin suuntiin.
+Sovelluksella käyttäjä voi tutustua morseaakkosiin, sekä harjoitella niiden kääntämistä. Sovelluksessa on ````Translate Mode````, jossa käyttäjä voi kirjoitella joko kirjaimia, numeroita tai Morsen aakkosia, jotka sovellus sitten kääntää käyttäjälle. Treenimuodossa käyttäjä voi harjoitella Morsen aakkosten kääntämistä valitsemallaan vaikeustasolla. Sovellus tarjoaa mahdollisuuden luoda käyttäjän ja kirjautua sisän nähdäkseen oman parhaan suorituksensa.
 
 ## Dokumentaatio
-* [vaatimusmaarittely](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
-* [työaikakirjanpito](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
-* [Arkkitehtuurikuvaus](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 * [Käyttöohje](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
+* [vaatimusmaarittely](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+* [Arkkitehtuurikuvaus](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.md)
 * [Testausdokumentti](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/testausdokumentti.md)
+* [työaikakirjanpito](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 
 ## Releaset
 * [Viikko 5](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/viikko5)
