@@ -28,11 +28,11 @@ Testikattavuusraportti voidaan luoda komennolla
 mvn jacoco:report
 ```
 
-Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html
+Testikattavuusraporrti löytyy avaamalla  _target/site/jacoco/index.html_ selaimella
 
 ### Suoritettavan jarin generointi
 
-Komento
+Komennolla
 
 ```
 mvn package
@@ -42,17 +42,17 @@ generoi hakemistoon _target_ suoritettavan _MorseTrainer-1.0-SNAPSHOT.jar_ -tied
 
 ### JavaDoc
 
-JavaDoc generoidaan komennolla
+JavaDoc saadaan luotua komennolla
 
 ```
 mvn javadoc:javadoc
 ```
 
-JavaDocia voi tarkastella avaamalla selaimella tiedosto _target/site/apidocs/index.html_
+JavaDocia voidaan tarkastella avaamalla tiedosto  _target/site/apidocs/index.html_ selaimella
 
 ### Checkstyle
 
-Tiedostoon määrittelemät tarkistukset suoritetaan komennolla
+Tiedostoon määrittelemät checkstyle tarkistukset voidaan suorittaa komennolla
 
 ```
  mvn jxr:jxr checkstyle:checkstyle
