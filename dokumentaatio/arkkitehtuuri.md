@@ -40,7 +40,10 @@ Tietojen pysyväistalletuksesta vastaa pakkauksen **morsetrainer.dao** luokat **
 
 ## Heikkoudet
 ### Sovelluslogiikka
-Toiminnallisuutta jäi jonkinverran **morsetrainer.ui** paketin alaisuuteen MainViewController -luokkaan. **initialize()** metodi on turhan pitkä ja se sisältää lähes kokonaan ohjelman päänäkymän koodin. Metodissa on myös jonkin verran toisteista koodia. 
+Toiminnallisuutta jäi jonkin verran **morsetrainer.ui** paketin alaisuuteen MainViewController -luokkaan. **initialize()** metodi on turhan pitkä ja se sisältää lähes kokonaan ohjelman päänäkymän koodin. Metodissa on myös jonkin verran toisteista koodia. 
+
+### Testaus
+Nykyiset testit ei kata kokonaan ohjelman toimintoja
 
 
 
