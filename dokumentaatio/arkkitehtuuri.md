@@ -14,7 +14,7 @@ Käyttöliittymä sisältää kolme eri näkymää
 * InfoView, joka sisältää informaatiota sovelluksen toiminnasta ja sen käytöstä.
 * AlphabetView missä on taulukoituna kaikki aakkoset ja niitä vastaavat Morsen kirjaimet.
 
-Jokaista näkymää vastaa oma Controller -luokka joka lukee omasta FXML -tiedostosta javaFX koodia. Käyttöliittymä on parhaan mukaan yritetty eriyttää sovelluslogiikasta, mutta toiminnallisuutta väkisinkin jäi MainViewController -luokkaan
+Jokaista näkymää vastaa oma Controller -luokka joka lukee omasta FXML -tiedostosta javaFX koodia. fxml tiedostot Controller luokille löytyy polusta ````Other Sources/src/main/recources/morsetrainer.ui````.  Käyttöliittymä on parhaan mukaan yritetty eriyttää sovelluslogiikasta, mutta toiminnallisuutta jäi MainViewController -luokkaan.
 
 ## Sovelluslogiikka
 Sovelluksen päätoiminnallisuus sijaitsee TrainerFunctionality -luokassa, jossa sijatsee metodt merkkien kääntämiselle. Päänäkymän **MainVieWController** -luokka kutsuu merkkien kääntämisestä ja tarkistamisesta vastaavia metodeja ja näyttää käännökset ja tulokset käyttäjälle.
@@ -37,6 +37,11 @@ Tietojen pysyväistalletuksesta vastaa pakkauksen **morsetrainer.dao** luokat **
 
 * **DBConnection** vastaa tietokannan alustamisesta ja siihen yhteyden muodostamisesta.
 * **DBOperations** sisältää SQL-komennot tietokannan käsittelylle
+
+## Heikkoudet
+### Sovelluslogiikka
+Toiminnallisuutta jäi jonkinverran **morsetrainer.ui** paketin alaisuuteen MainViewController -luokkaan. **initialize()** metodi on turhan pitkä ja se sisältää lähes kokonaan ohjelman päänäkymän koodin. Metodissa on myös jonkin verran toisteista koodia. 
+
 
 
 
