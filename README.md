@@ -11,6 +11,7 @@ Sovelluksella käyttäjä voi tutustua morseaakkosiin, sekä harjoitella niiden 
 ## Releaset
 * [Viikko 5](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/viikko5)
 * [Viikko 6](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/v2.0-beta)
+* [Loppupalautus](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/v3.0)
 
 ## Komentorivitoiminnot
 
