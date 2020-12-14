@@ -1,10 +1,11 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
-Pakkausrakenne on kolmiosainen **morsetrainer.ui** --> **morsetrainer.domain** --> **morsetrainer.dao**
+Pakkausrakenne on kolmiosainen **morsetrainer.ui** --> **morsetrainer.domain** --> **morsetrainer.dao**. Pakkausrakenteen ansiosta sovellusta on helppo laajentaa ja testata.
 * **morsetrainer.ui** sisältää JavaFXML:llä toteutetun käyttöliittymän
 * **morsetrainer.domain** sisältää suurimman osan ohjelman toiminnallisuudesta
 * **morsetrainer.dao** sisältää tietojen pysyväistalletusksesta vastaavat luokat. Pysyväistallennus on toteutettu SQLite tietokantaa käyttäen.
+
 
 ## Käyttöliittymä
 Käyttöliittymä on toteutettu Javan FXML:llää käyttäen SceneBuilderia.
@@ -40,10 +41,8 @@ Tietojen pysyväistalletuksesta vastaa pakkauksen **morsetrainer.dao** luokat **
 
 ## Heikkoudet
 ### Sovelluslogiikka
-Toiminnallisuutta jäi jonkin verran **morsetrainer.ui** paketin alaisuuteen MainViewController -luokkaan. **initialize()** metodi on turhan pitkä ja se sisältää lähes kokonaan ohjelman päänäkymän koodin. Metodissa on myös jonkin verran toisteista koodia. 
+Toiminnallisuutta jäi jonkin verran **morsetrainer.ui** paketin alaisuuteen MainViewController -luokkaan. **initialize()** metodi on turhan pitkä ja se sisältää lähes kokonaan ohjelman käyttöliittymän päänäkymän koodin. Metodissa on myös vähän toisteista koodia. 
 
-### Testaus
-Nykyiset testit ei kata kokonaan ohjelman toimintoja
 
 
 
