@@ -32,7 +32,7 @@ Realiaikasesta kääntämisestä vastaa seuraavat metodit, jotka hyödyntävät 
 Luodessaan sovellukseen uuden käyttäjän, käyttäjän tiedot tallennetaan tietokantaan. Kirjautuessaan sisään tietokannasta haetaan käyttäjän tiedot ja asetetaan ne nykyisen käyttäjän tiedoiksi **UserInfo** -luokkaan. Tietokannan käsittelylle on on oma luokkansa **DBOperations**, mikä pitää sisällään SQL komennot eri toiminnoille. Tietokannan käsittelyn toiminnallisuutta on eriytetty lisää luomalla **UserActions** -luokka, mikä toimii välikätenä käyttöliittymän ja tietokantaa käsittelevien metodien välillä.
 
 ## Tietojen pysyväistallennus
-Tietojen pysyväistalletuksesta vastaa pakkauksen **morsetrainer.dao** luokat **DBOperations** ja **DBConnection**.
+Tietojen pysyväistalletuksesta vastaa pakkauksen **morsetrainer.dao** luokat **DBOperations** ja **DBConnection**. Tietokanta **database.db** on upotettu **.dao** -pakettiin.
 **morsetrainer.domain** pakkauksen luokka **UserActions** toimii apuna tietokannan ja käyttöliittymän **MainViewController** -luokan välillä.
 
 * **DBConnection** vastaa tietokannan alustamisesta ja siihen yhteyden muodostamisesta.
