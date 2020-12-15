@@ -1,5 +1,5 @@
 # MorseTrainer
-Sovelluksella käyttäjä voi tutustua morseaakkosiin, sekä harjoitella niiden kääntämistä. Sovelluksessa on ````Translate Mode````, jossa käyttäjä voi kirjoitella joko kirjaimia, numeroita tai Morsen aakkosia, jotka sovellus sitten kääntää käyttäjälle. Treenimuodossa `````Training Mode ```` käyttäjä voi harjoitella Morsen aakkosten kääntämistä valitsemallaan vaikeustasolla. Sovellus tarjoaa mahdollisuuden luoda käyttäjän ja kirjautua sisän nähdäkseen oman parhaan suorituksensa.
+Sovelluksella käyttäjä voi tutustua morseaakkosiin, sekä harjoitella niiden kääntämistä. Sovelluksessa on ````Translate Mode````, jossa käyttäjä voi kirjoitella joko kirjaimia, numeroita tai Morsen aakkosia, jotka sovellus sitten kääntää käyttäjälle. Treenimuodossa `````Training Mode````` käyttäjä voi harjoitella Morsen aakkosten kääntämistä valitsemallaan vaikeustasolla. Sovellus tarjoaa mahdollisuuden luoda käyttäjän ja kirjautua sisän nähdäkseen oman parhaan suorituksensa.
 
 ## Dokumentaatio
 * [Käyttöohje](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/kayttoohje.md)
