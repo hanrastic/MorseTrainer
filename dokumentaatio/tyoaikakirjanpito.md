@@ -24,4 +24,6 @@
 |10.12|7|Kaikki perustoiminnallisuus toimii|
 |11.12|4|Kaikki perustoiminnallisuus toimii|
 |13.12|3|Dokumentaation kirjoittelua |
-|Yhteensä|80|
+|15.12|2|Fixes |
+|16.12|4|Fixes |
+|Yhteensä|86|
