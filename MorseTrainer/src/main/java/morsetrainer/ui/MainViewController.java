@@ -258,13 +258,11 @@ public class MainViewController {
                     logInStatus.setText("Logged In as: " + usernameTextField.getText());
                     highscoreLabel.setDisable(false);
                     highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(usernameTextField.getText())));
-                                
-                    System.out.println("Log In Ok in Controller");
                 } else {
                     System.out.println("Log in failed");
                     alert.setTitle("Login failed");
-                    String s = "Please log in with a valid user name and password !";
-                    alert.setContentText(s);
+                    String alertString = "Please log in with a valid user name and password !";
+                    alert.setContentText(alertString);
                     alert.showAndWait();
                 }
             } catch (SQLException ex) {

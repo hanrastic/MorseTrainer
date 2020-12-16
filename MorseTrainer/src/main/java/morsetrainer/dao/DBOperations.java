@@ -22,7 +22,6 @@ public class DBOperations {
         connection = DBConnector.getConnection();
         if (connection == null) {
             System.out.println("Connection to database unsuccessful.");
-            //System.exit(1);
         }
     }
     
@@ -77,7 +76,6 @@ public class DBOperations {
             preparedStatement.setString(2, password);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                System.out.println("Log in Ok in DBOperations");
                 return true;
             } else {
                 return false;
