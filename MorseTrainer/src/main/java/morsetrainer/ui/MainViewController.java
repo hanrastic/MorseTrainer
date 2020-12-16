@@ -21,7 +21,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
-//import javafx.scene.media.AudioClip;
 import javafx.scene.transform.Rotate;  
 import javafx.stage.Stage;
 import morsetrainer.domain.TrainerFunctionality;
@@ -34,6 +33,9 @@ public class MainViewController {
     TrainerFunctionality functionality = new TrainerFunctionality();
     UserInfo userInfo = new UserInfo();
     UserActions userAction = new UserActions();
+    private static String username;
+    private static String password;
+    private static int highscore;
     
     
     @FXML
@@ -97,8 +99,9 @@ public class MainViewController {
 
         changeModeButton.setGraphic(buttonFaceView);
         highscoreLabel.setDisable(true);
-        
-        changeModeButton.setOnAction((event) -> {  
+        setSavedUI();
+
+        changeModeButton.setOnAction((event) -> {             
             System.out.println("Change mode button action Action");
             changeModeButton.getTransforms().add(new Rotate(90,100,100,0));
             textAreaLeft.setText("");
@@ -127,8 +130,10 @@ public class MainViewController {
                 } else {
                     textLabel.setText("Text");
                     morseLabel.setText("Morse"); 
-                    textAreaLeft.setPromptText("A random Morse code will apper here...");
-                    textAreaRight.setPromptText("Write your answer as a text character here ans press 'enter'.");
+                    if (trainButton.getText().equals("Translate")) {
+                        textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
+                        textAreaRight.setPromptText("Write your answer as a text character here and press 'enter'.");
+                    }
                 }
             }
         });
@@ -158,10 +163,7 @@ public class MainViewController {
                 if(morseLabel.getText().equals("Morse")) {
                     textAreaLeft.setPromptText("A random Morse code will apper here...");
                     textAreaRight.setPromptText("Write your answer as a text character here.");
-                } else {
-                    textAreaLeft.setPromptText("A random text character will appear here...");
-                    textAreaRight.setPromptText("Write your answer as a Morse code here"); 
-                }
+                } 
             }            
         });
         
@@ -202,8 +204,8 @@ public class MainViewController {
                     System.out.println("Nykyisen käyttäjän username: " + userInfo.getUsername());
                     if(userInfo.getUsername() != null){
                         System.out.println(Integer.parseInt(scoreValue.getText()));
-                        userAction.updateUserHighscoreToDB(userInfo.getUsername(), Integer.parseInt(scoreValue.getText()));
-                        highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(userInfo.getUsername())));
+                        userAction.updateUserHighscoreToDB(username, Integer.parseInt(scoreValue.getText()));
+                        highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(username)));
                     }else 
                     answerStatus.setText("Wrong answer, better luck next time");
                     scoreValue.setText(Integer.toString(0));
@@ -251,9 +253,12 @@ public class MainViewController {
             try {
                 if(userAction.logIn(usernameTextField.getText().trim(), passwordTextField.getText().trim())){
                     userInfo.setUsername(usernameTextField.getText().trim());
+                    userInfo.setPassword(passwordTextField.getText().trim());
+                    saveUiInfo();
                     logInStatus.setText("Logged In as: " + usernameTextField.getText());
                     highscoreLabel.setDisable(false);
                     highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(usernameTextField.getText())));
+                                
                     System.out.println("Log In Ok in Controller");
                 } else {
                     System.out.println("Log in failed");
@@ -281,10 +286,33 @@ public class MainViewController {
     }
     
     /**
+    *  Method for saving user info to static variables.
+    *  Necessary for changing view to E.G info and back to main.
+    */
+    @FXML
+    private void saveUiInfo() {        
+        username = userInfo.getUsername();
+        password = userInfo.getPassword();
+        highscore = userAction.getUserHighscoreFromDB(username);      
+    }
+    
+    /**
+    *  Method for setting user info to original when coming back from different view
+    */
+    @FXML
+    public void setSavedUI() {       
+        if (username != null) {
+            logInStatus.setText("Logged In as: " + username);
+            highscoreLabel.setDisable(false);
+            highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(username)));
+        }
+    }
+    
+    /**
     * Changes the view to infoView
     */
     @FXML
-    public void changeViewToInfo(ActionEvent event) throws IOException {
+    public void changeViewToInfo(ActionEvent event) throws IOException, SQLException {
         Parent infoViewParent = FXMLLoader.load(getClass().getResource("InfoView.fxml"));
         Scene infoViewScene = new Scene(infoViewParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

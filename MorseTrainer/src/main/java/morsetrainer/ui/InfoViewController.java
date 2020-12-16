@@ -2,6 +2,7 @@ package morsetrainer.ui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,11 +32,11 @@ public class InfoViewController implements Initializable {
      * Changes the view to mainView
      */
     @FXML
-    public void changeViewToMain(ActionEvent event) throws IOException {
+    public void changeViewToMain(ActionEvent event) throws IOException, SQLException {
+
         Parent infoViewParent = FXMLLoader.load(getClass().getResource("MainView.fxml"));
         Scene infoViewScene = new Scene(infoViewParent);
-        
-        //this line gets the stage information
+
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(infoViewScene);
         window.show();
