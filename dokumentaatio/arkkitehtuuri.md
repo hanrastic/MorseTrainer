@@ -6,9 +6,10 @@ Pakkausrakenne on kolmiosainen **morsetrainer.ui** --> **morsetrainer.domain** -
 * **morsetrainer.domain** sisältää suurimman osan ohjelman toiminnallisuudesta
 * **morsetrainer.dao** sisältää tietojen pysyväistalletusksesta vastaavat luokat. Pysyväistallennus on toteutettu SQLite tietokantaa käyttäen.
 
+<image src = "https://user-images.githubusercontent.com/70371501/102228121-02ce9480-3ef3-11eb-85e4-91a646035470.jpeg" height=500 widht=MAX>
 
 ## Käyttöliittymä
-Käyttöliittymä on toteutettu Javan FXML:llää käyttäen SceneBuilderia.
+Käyttöliittymä on toteutettu JavaFX FXML:llää käyttäen SceneBuilderia.
 
 Käyttöliittymä sisältää kolme eri näkymää
 * MainView, joka on ohjelman päänäkymä. Kaikki toiminnallisuus on täällä.
