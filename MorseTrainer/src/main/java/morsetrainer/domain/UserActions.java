@@ -56,7 +56,6 @@ public class UserActions {
             user.setUsername(username);
             user.setPassword(password);
             user.setScore(getUserHighscoreFromDB(username));
-            System.out.println("Juuri kirjautuneen käyttäjän tiedot: " + user.getUsername() + " Salasana: " +  user.getPassword());
             return true;
         } else {
             System.out.println("log in failed failed");

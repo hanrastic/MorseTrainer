@@ -261,7 +261,7 @@ public class MainViewController {
                 } else {
                     System.out.println("Log in failed");
                     alert.setTitle("Login failed");
-                    String alertString = "Please log in with a valid user name and password !";
+                    String alertString = "Please log in with a valid username and password !";
                     alert.setContentText(alertString);
                     alert.showAndWait();
                 }
