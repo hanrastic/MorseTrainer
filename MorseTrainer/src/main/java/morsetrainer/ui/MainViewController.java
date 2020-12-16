@@ -197,16 +197,19 @@ public class MainViewController {
                 if(functionality.checkIfMorseIsCorrect(convertableMorse, inputLetters)){                    
                     answerStatus.setText("Correct answer!");
                     scoreValue.setText(Integer.toString(userInfo.addToCurrentScore((int)difficultySlider.getValue())));
+                    if(userInfo.getUsername() != null){
+                        userAction.updateUserHighscoreToDB(username, Integer.parseInt(scoreValue.getText()));
+                        highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(username)));
+                    }
                     textAreaLeft.setText(functionality.randomValue(difficultySlider.getValue()));
                     textAreaRight.clear();
                 }else{
-                    answerStatus.setText("Wrong answer, better luck next time");
-                    System.out.println("Nykyisen käyttäjän username: " + userInfo.getUsername());
-                    if(userInfo.getUsername() != null){
-                        System.out.println(Integer.parseInt(scoreValue.getText()));
-                        userAction.updateUserHighscoreToDB(username, Integer.parseInt(scoreValue.getText()));
-                        highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(username)));
-                    }else 
+//                    answerStatus.setText("Wrong answer, better luck next time");
+//                    if(userInfo.getUsername() != null){
+//                        userAction.updateUserHighscoreToDB(username, Integer.parseInt(scoreValue.getText()));
+//                        highscoreValue.setText(Integer.toString(userAction.getUserHighscoreFromDB(username)));
+//                    }
+//                    else 
                     answerStatus.setText("Wrong answer, better luck next time");
                     scoreValue.setText(Integer.toString(0));
                     userInfo.setScoreToZero();
@@ -250,6 +253,9 @@ public class MainViewController {
         
         logInButton.setOnAction((event) -> {
             System.out.println("Log in Button action");
+            scoreValue.setText("");
+            answerStatus.setText("");
+            userInfo.setScoreToZero();
             try {
                 if(userAction.logIn(usernameTextField.getText().trim(), passwordTextField.getText().trim())){
                     userInfo.setUsername(usernameTextField.getText().trim());
@@ -261,7 +267,7 @@ public class MainViewController {
                 } else {
                     System.out.println("Log in failed");
                     alert.setTitle("Login failed");
-                    String alertString = "Please log in with a valid username and password !";
+                    String alertString = "Please log in with a valid username and password!";
                     alert.setContentText(alertString);
                     alert.showAndWait();
                 }
