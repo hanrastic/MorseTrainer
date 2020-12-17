@@ -67,9 +67,7 @@ public class DBOperations {
     public boolean validateLogIn(String username, String password) throws SQLException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String sqlQuery = "SELECT * "
-                + "FROM users "
-                + "WHERE username=? AND password=?";
+        String sqlQuery = "SELECT * FROM users WHERE username=? AND password=?";
         try {
             preparedStatement = connection.prepareStatement(sqlQuery);
             preparedStatement.setString(1, username);
