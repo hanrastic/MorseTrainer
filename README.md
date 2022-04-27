@@ -8,11 +8,6 @@ Sovelluksella käyttäjä voi tutustua morseaakkosiin, sekä harjoitella niiden 
 * [Testausdokumentti](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/testausdokumentti.md)
 * [työaikakirjanpito](https://github.com/hanrastic/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 
-## Releaset
-* [Viikko 5](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/viikko5)
-* [Viikko 6](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/v2.0-beta)
-* [Loppupalautus](https://github.com/hanrastic/ot-harjoitustyo/releases/tag/v3.0)
-
 ## Komentorivitoiminnot
 
 ### Testaus
